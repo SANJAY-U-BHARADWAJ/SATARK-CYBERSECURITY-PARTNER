@@ -144,7 +144,7 @@ Ensure the JSON format is exactly: { "scamType": string, "riskScore": number, "r
     const validated = GeminiResponseSchema.parse(parsedData);
 
     return NextResponse.json(validated);
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("API Error:", err);
     return NextResponse.json(
       { error: "API_ERROR", message: "Failed to analyze with AI." },

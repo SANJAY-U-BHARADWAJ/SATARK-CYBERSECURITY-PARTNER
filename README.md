@@ -4,6 +4,8 @@
 [![Parity Tolerance](https://img.shields.io/badge/ML%20Parity%20Tolerance-%3C%201e--6-blue)](./scripts/check-parity.ts)
 [![5-Fold CV F1](https://img.shields.io/badge/5--Fold%20CV%20F1-0.9975-brightgreen)](./ml/metrics.json)
 [![Repo Size](https://img.shields.io/badge/Repo%20Size-4.54%20MB-blueviolet)](./docs/SPEC.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-satarkcybersathi.vercel.app-00C7B7)](https://satarkcybersathi.vercel.app)
 
 > Satark is an intelligent, privacy-first cybersecurity system built to identify suspicious activity (URLs, messages, screenshots) and help users make safer decisions online. It serves as a functional prototype that integrates an AI phishing detector, suspicious URL analyzer, scam message classifier, and an intelligent security assistant that explains potential threats in simple language.
 
@@ -21,12 +23,16 @@ Digital financial fraud and cyber extortion are surging across India. Most threa
 ### 3. Client-Side Privacy Shield (Zero-Trust Security)
 Satark guarantees that sensitive consumer credentials never reach server logs or AI models:
 * **PII Scrubbing:** A custom algorithm (`src/lib/privacyShield.ts`) that redacts Personal Identifiable Information (Aadhaar, PAN, Credit Cards, OTPs, and UPI VPAs) locally in the browser *before* any data is transmitted to the AI.
-* **Server-Side API Keys:** The Gemini API key is strictly maintained on the server; the frontend never exposes credentials.
+* **Server-Side API Keys:** The Gemini API key is strictly maintained on the server via `process.env`; the frontend never exposes credentials. A `.env.example` file guides secure configuration.
 * **No Logs Policy:** Zero database storage of user chat queries. 
+* **Zod Schema Validation:** All API inputs are strictly validated with Zod schemas to prevent injection attacks and malformed payloads.
+* **Rate Limiting:** Sliding-window IP-based rate limiter (30 req/min) protects the API from abuse.
+* **HTTP Security Headers:** `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Strict-Transport-Security`, `Referrer-Policy`, and `Permissions-Policy` are enforced on all routes via `next.config.ts`.
 
 ### 4. Accessibility & Inclusive UX
 * **10 Regional Languages:** Fully localized in Hindi, Tamil, Telugu, Kannada, Bengali, and more to ensure non-technical citizens can understand cyber threats in simple, everyday language.
-* **UX Design:** Accessible high-contrast dark mode design with a one-click emergency dialing feature (1930 Cyber Helpline).
+* **WCAG-Aligned Design:** Accessible high-contrast dark mode, semantic HTML structure (`<main>`, `<nav>`, `<section>`), and keyboard-navigable interactive elements.
+* **Emergency Access:** One-click emergency dialing feature (1930 National Cyber Helpline) with `aria-label` attributes for screen reader compatibility.
 
 ---
 
@@ -72,6 +78,16 @@ All ML metrics were directly generated via `python ml/train.py` on our proprieta
 | **TS vs Python Inference Parity** | `2.22e-16` | Mathematical proof that TS inference matches Python `< 1e-6` |
 | **Repo Size (excl node_modules)** | `4.54 MB` | Lightweight codebase |
 
+### Automated Test Suite (62 Assertions, 4 Test Scripts)
+All tests are runnable via `npm test` and are automatically executed as a pre-build gate (`prebuild` hook in `package.json`):
+
+| Test Script | Assertions | What It Verifies |
+|---|---|---|
+| `test:parity` — `check-parity.ts` | 20 | Python ↔ TypeScript ML inference parity (`< 1e-6` tolerance) |
+| `test:url` — `test-url-analyzer.ts` | 27 | URL phishing detection (brand lookalikes, Punycode, IP hosts, APK downloads) |
+| `test:privacy` — `test-privacy-and-scoring.ts` | 15 | PII masking (Aadhaar, phone, OTP, UPI, email) + scoring engine branches |
+| `qa-benchmark.ts` | 20 | End-to-end threat verdicts (7 scams, 7 legitimate, 6 tricky edge cases) |
+
 ---
 
 ## 🚀 Setup & Running Locally
@@ -82,8 +98,8 @@ All ML metrics were directly generated via `python ml/train.py` on our proprieta
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/satark-threat-analyzer.git
-cd satark-threat-analyzer
+git clone https://github.com/SANJAY-U-BHARADWAJ/SATARK-CYBERSECURITY-PARTNER.git
+cd SATARK-CYBERSECURITY-PARTNER
 
 # Install dependencies
 npm install
