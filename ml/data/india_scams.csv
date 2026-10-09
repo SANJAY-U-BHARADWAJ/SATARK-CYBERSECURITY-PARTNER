@@ -1,0 +1,384 @@
+# SYNTHETIC DATASET: 160 Scam and 160 Legitimate Indian English and Hinglish messages
+# Generated for Satark scam detection training. Guarded against holdout leakage.
+label,text
+scam,"Dear consumer, your electricity power will be disconnected at 9:30 PM tonight by BSES Rajdhani office because previous month bill was not updated. Call electricity officer at 9846913810 immediately."
+scam,Bijli bill update nahi hua hai. Aaj raat 9:30 PM connection cut ho jayega. Turant call karein 9866629388 pe bill clear karne ke liye.
+scam,URGENT: Power disconnection notice for Consumer ID 850800. Power will be cut in 2 hours. Download QuickSupport APK or call 9836687537.
+scam,"Electricity department alert: CA number 948749 overdue Rs 2,877. Pay immediately via APK link https://bill-pay-officer.online or face meter seizure."
+scam,"Aapka bijli connection kaat diya jayega. Bill payment pending Rs 15,881. Sampark karein officer 9847295260 se turant."
+scam,Your parcel #476417 arriving from UK has been seized at Mumbai Customs with illegal contraband and narcotics. CBI officer Rahul Sharma warrant issued. Call 9822981052 immediately.
+scam,Customs police notice: Aapke naam ka courier intercept hua hai jisme banned MDMA drugs aur fake passports mile hain. Arrest se bachne ke liye 9881971316 par call karein.
+scam,National Crime Investigation Bureau alert: Your Aadhaar #838797 is involved in money laundering case. Digital arrest initiated. Connect to video call via Skype.
+scam,Delhi Police cyber branch: FIR registered against your phone number 9841244663. Report to online interrogation room or face instant non-bailable arrest warrant.
+scam,FedEx Express: Courier #472528 seized by Narcotics Control Bureau NCB. Legal action initiated. Contact investigation officer 9859684848 within 1 hour.
+scam,"Dear SBI customer, your NetBanking access will be blocked within 24 hours. Update your KYC PAN immediately at: https://bill-pay-officer.online"
+scam,Aapka Punjab National Bank account freeze ho gaya hai. KYC submit karne ke liye is link par click karein: http://reward-claim.buzz nahi toh account band ho jayega.
+scam,SBI YONO Alert: Your account is suspended due to incomplete KYC verification. Click here to reactivate: http://reward-claim.buzz
+scam,"Dear customer, your credit card is blocked due to document expiry. Update Aadhaar details here: http://kyc-verif.site to continue usage."
+scam,Paytm KYC expired! Wallet balance will be forfeited. Complete video verification by installing remote support app: http://reward-claim.buzz
+scam,"ICICI Bank: Unverified KYC detected. Avoid debit freeze of Rs 16,241 by submitting details online: http://kyc-verif.site"
+scam,"You have received a refund of Rs 12,911 from PhonePe. Click this link to accept money directly into your bank account: http://kyc-verif.site"
+scam,"Cashback of Rs 31,641 approved on Google Pay! Click here to receive money in your bank: http://reward-claim.buzz and enter your UPI PIN."
+scam,"Rs 19,887 pending UPI transfer from unknown sender. Accept or decline immediately at: http://reward-claim.buzz"
+scam,"Congratulations! Scratch card won Rs 2,839 on Paytm. Claim your prize money right now: http://reward-claim.buzz"
+scam,"Flipkart refund of Rs 21,961 for cancelled order initiated. Scan this QR code or click https://bill-pay-officer.online to receive payment in your bank account."
+scam,"Earn Rs 35,100 daily from home just by liking YouTube videos and rating hotels on Google Maps! Daily payout via UPI. Contact HR on WhatsApp: 9882394227"
+scam,"Ghar baithe kamaye Rs 21,345 har roz. Sirf YouTube videos like karne hain. Koi investment nahi. WhatsApp karein 9858718453 pe."
+scam,"Part-time Amazon review job opportunity. Daily income Rs 3,000 - 8,000. Flexible hours. Message recruiter on Telegram: @job_955662"
+scam,"Work from home data entry project. Guaranteed weekly payout Rs 35,993. Register today with nominal security deposit of Rs 499 at http://kyc-verif.site"
+scam,"Earn easy money online! Daily task: watch Instagram reels and earn Rs 43,482. Join our official Telegram group to start earning today."
+scam,"Congratulations! Your mobile number won Rs 25,00,000 in KBC Jio Mega Lucky Draw 2026. Contact lottery manager at 9843273328 to claim cheque."
+scam,"Badhaai ho! Aapka number KBC lottery me chuna gaya hai. 25 lakh ka inaam paane ke liye processing fee Rs 12,500 jama karein."
+scam,Free smartphone lucky draw winner! You have won iPhone 15 Pro. Pay only delivery charge Rs 999 at: http://reward-claim.buzz
+scam,"Urgent: You have 38,690 unclaimed reward points expiring tonight at 11:59 PM. Convert into Rs 4,500 cash credit: http://kyc-verif.site"
+scam,"Government PM Mudra Scheme: Pre-approved business loan of Rs 5,00,000 at 1% interest rate without collateral. Apply now: http://kyc-verif.site"
+scam,"Dear consumer, your electricity power will be disconnected at within 2 hours tonight by TNEB office because previous month bill was not updated. Call electricity officer at 9872682989 immediately."
+scam,Bijli bill update nahi hua hai. Aaj raat within 2 hours connection cut ho jayega. Turant call karein 9824665841 pe bill clear karne ke liye.
+scam,URGENT: Power disconnection notice for Consumer ID 585100. Power will be cut in 2 hours. Download QuickSupport APK or call 9847385696.
+scam,"Electricity department alert: CA number 666847 overdue Rs 2,195. Pay immediately via APK link https://bill-pay-officer.online or face meter seizure."
+scam,"Aapka bijli connection kaat diya jayega. Bill payment pending Rs 27,160. Sampark karein officer 9874606833 se turant."
+scam,Your parcel #922157 arriving from UK has been seized at Mumbai Customs with illegal contraband and narcotics. CBI officer Rahul Sharma warrant issued. Call 9845594951 immediately.
+scam,Customs police notice: Aapke naam ka courier intercept hua hai jisme banned MDMA drugs aur fake passports mile hain. Arrest se bachne ke liye 9835487660 par call karein.
+scam,National Crime Investigation Bureau alert: Your Aadhaar #712554 is involved in money laundering case. Digital arrest initiated. Connect to video call via Skype.
+scam,Delhi Police cyber branch: FIR registered against your phone number 9819196777. Report to online interrogation room or face instant non-bailable arrest warrant.
+scam,FedEx Express: Courier #707040 seized by Narcotics Control Bureau NCB. Legal action initiated. Contact investigation officer 9843046464 within 1 hour.
+scam,"Dear Axis Bank customer, your NetBanking access will be blocked within 24 hours. Update your KYC PAN immediately at: http://reward-claim.buzz"
+scam,Aapka Kotak Mahindra Bank account freeze ho gaya hai. KYC submit karne ke liye is link par click karein: http://kyc-verif.site nahi toh account band ho jayega.
+scam,SBI YONO Alert: Your account is suspended due to incomplete KYC verification. Click here to reactivate: https://bill-pay-officer.online
+scam,"Dear customer, your credit card is blocked due to document expiry. Update Aadhaar details here: http://reward-claim.buzz to continue usage."
+scam,Paytm KYC expired! Wallet balance will be forfeited. Complete video verification by installing remote support app: https://bill-pay-officer.online
+scam,"ICICI Bank: Unverified KYC detected. Avoid debit freeze of Rs 19,388 by submitting details online: https://bill-pay-officer.online"
+scam,"You have received a refund of Rs 18,617 from PhonePe. Click this link to accept money directly into your bank account: http://kyc-verif.site"
+scam,"Cashback of Rs 19,145 approved on Google Pay! Click here to receive money in your bank: http://sbi-kyc-update.xyz and enter your UPI PIN."
+scam,"Rs 30,664 pending UPI transfer from unknown sender. Accept or decline immediately at: http://kyc-verif.site"
+scam,"Congratulations! Scratch card won Rs 11,658 on Paytm. Claim your prize money right now: http://sbi-kyc-update.xyz"
+scam,"Flipkart refund of Rs 29,230 for cancelled order initiated. Scan this QR code or click http://sbi-kyc-update.xyz to receive payment in your bank account."
+scam,"Earn Rs 45,355 daily from home just by liking YouTube videos and rating hotels on Google Maps! Daily payout via UPI. Contact HR on WhatsApp: 9858024342"
+scam,"Ghar baithe kamaye Rs 12,919 har roz. Sirf YouTube videos like karne hain. Koi investment nahi. WhatsApp karein 9830743797 pe."
+scam,"Part-time Amazon review job opportunity. Daily income Rs 3,000 - 8,000. Flexible hours. Message recruiter on Telegram: @job_920391"
+scam,"Work from home data entry project. Guaranteed weekly payout Rs 32,327. Register today with nominal security deposit of Rs 499 at https://bill-pay-officer.online"
+scam,"Earn easy money online! Daily task: watch Instagram reels and earn Rs 16,328. Join our official Telegram group to start earning today."
+scam,"Congratulations! Your mobile number won Rs 25,00,000 in KBC Jio Mega Lucky Draw 2026. Contact lottery manager at 9854058573 to claim cheque."
+scam,"Urgent: You have 18,145 unclaimed reward points expiring tonight at 11:59 PM. Convert into Rs 4,500 cash credit: http://kyc-verif.site"
+scam,"Government PM Mudra Scheme: Pre-approved business loan of Rs 5,00,000 at 1% interest rate without collateral. Apply now: http://reward-claim.buzz"
+scam,"Dear consumer, your electricity power will be disconnected at 9:30 PM tonight by MSEB Maharashtra office because previous month bill was not updated. Call electricity officer at 9878064830 immediately."
+scam,Bijli bill update nahi hua hai. Aaj raat tonight connection cut ho jayega. Turant call karein 9827084279 pe bill clear karne ke liye.
+scam,URGENT: Power disconnection notice for Consumer ID 415568. Power will be cut in 2 hours. Download QuickSupport APK or call 9886384014.
+scam,"Electricity department alert: CA number 923927 overdue Rs 39,721. Pay immediately via APK link http://reward-claim.buzz or face meter seizure."
+scam,"Aapka bijli connection kaat diya jayega. Bill payment pending Rs 32,912. Sampark karein officer 9838682516 se turant."
+scam,Your parcel #796101 arriving from UK has been seized at Mumbai Customs with illegal contraband and narcotics. CBI officer Rahul Sharma warrant issued. Call 9879182797 immediately.
+scam,Customs police notice: Aapke naam ka courier intercept hua hai jisme banned MDMA drugs aur fake passports mile hain. Arrest se bachne ke liye 9840150759 par call karein.
+scam,National Crime Investigation Bureau alert: Your Aadhaar #991014 is involved in money laundering case. Digital arrest initiated. Connect to video call via Skype.
+scam,Delhi Police cyber branch: FIR registered against your phone number 9876354180. Report to online interrogation room or face instant non-bailable arrest warrant.
+scam,FedEx Express: Courier #284430 seized by Narcotics Control Bureau NCB. Legal action initiated. Contact investigation officer 9839372360 within 1 hour.
+scam,"Dear Punjab National Bank customer, your NetBanking access will be blocked within 24 hours. Update your KYC PAN immediately at: http://reward-claim.buzz"
+scam,Aapka Bank of Baroda account freeze ho gaya hai. KYC submit karne ke liye is link par click karein: https://bill-pay-officer.online nahi toh account band ho jayega.
+scam,"ICICI Bank: Unverified KYC detected. Avoid debit freeze of Rs 28,517 by submitting details online: http://reward-claim.buzz"
+scam,"You have received a refund of Rs 28,498 from PhonePe. Click this link to accept money directly into your bank account: http://sbi-kyc-update.xyz"
+scam,"Cashback of Rs 21,871 approved on Google Pay! Click here to receive money in your bank: http://kyc-verif.site and enter your UPI PIN."
+scam,"Rs 40,325 pending UPI transfer from unknown sender. Accept or decline immediately at: http://kyc-verif.site"
+scam,"Congratulations! Scratch card won Rs 26,444 on Paytm. Claim your prize money right now: http://kyc-verif.site"
+scam,"Flipkart refund of Rs 36,127 for cancelled order initiated. Scan this QR code or click http://kyc-verif.site to receive payment in your bank account."
+scam,"Earn Rs 10,987 daily from home just by liking YouTube videos and rating hotels on Google Maps! Daily payout via UPI. Contact HR on WhatsApp: 9896268397"
+scam,"Ghar baithe kamaye Rs 15,565 har roz. Sirf YouTube videos like karne hain. Koi investment nahi. WhatsApp karein 9860882459 pe."
+scam,"Part-time Amazon review job opportunity. Daily income Rs 3,000 - 8,000. Flexible hours. Message recruiter on Telegram: @job_364525"
+scam,"Work from home data entry project. Guaranteed weekly payout Rs 6,899. Register today with nominal security deposit of Rs 499 at http://sbi-kyc-update.xyz"
+scam,"Earn easy money online! Daily task: watch Instagram reels and earn Rs 3,736. Join our official Telegram group to start earning today."
+scam,"Congratulations! Your mobile number won Rs 25,00,000 in KBC Jio Mega Lucky Draw 2026. Contact lottery manager at 9899853245 to claim cheque."
+scam,Free smartphone lucky draw winner! You have won iPhone 15 Pro. Pay only delivery charge Rs 999 at: http://kyc-verif.site
+scam,"Urgent: You have 42,348 unclaimed reward points expiring tonight at 11:59 PM. Convert into Rs 4,500 cash credit: http://sbi-kyc-update.xyz"
+scam,"Government PM Mudra Scheme: Pre-approved business loan of Rs 5,00,000 at 1% interest rate without collateral. Apply now: http://sbi-kyc-update.xyz"
+scam,"Dear consumer, your electricity power will be disconnected at within 2 hours tonight by MSEB Maharashtra office because previous month bill was not updated. Call electricity officer at 9819255216 immediately."
+scam,Bijli bill update nahi hua hai. Aaj raat within 2 hours connection cut ho jayega. Turant call karein 9824165187 pe bill clear karne ke liye.
+scam,URGENT: Power disconnection notice for Consumer ID 869440. Power will be cut in 2 hours. Download QuickSupport APK or call 9833640702.
+scam,"Electricity department alert: CA number 965845 overdue Rs 39,374. Pay immediately via APK link http://reward-claim.buzz or face meter seizure."
+scam,"Aapka bijli connection kaat diya jayega. Bill payment pending Rs 17,868. Sampark karein officer 9847437115 se turant."
+scam,Your parcel #618317 arriving from UK has been seized at Mumbai Customs with illegal contraband and narcotics. CBI officer Rahul Sharma warrant issued. Call 9813852048 immediately.
+scam,Customs police notice: Aapke naam ka courier intercept hua hai jisme banned MDMA drugs aur fake passports mile hain. Arrest se bachne ke liye 9855679506 par call karein.
+scam,National Crime Investigation Bureau alert: Your Aadhaar #189771 is involved in money laundering case. Digital arrest initiated. Connect to video call via Skype.
+scam,Delhi Police cyber branch: FIR registered against your phone number 9896691619. Report to online interrogation room or face instant non-bailable arrest warrant.
+scam,FedEx Express: Courier #825391 seized by Narcotics Control Bureau NCB. Legal action initiated. Contact investigation officer 9864277800 within 1 hour.
+scam,"Dear ICICI Bank customer, your NetBanking access will be blocked within 24 hours. Update your KYC PAN immediately at: http://kyc-verif.site"
+scam,Aapka Bank of Baroda account freeze ho gaya hai. KYC submit karne ke liye is link par click karein: http://sbi-kyc-update.xyz nahi toh account band ho jayega.
+scam,"Dear customer, your credit card is blocked due to document expiry. Update Aadhaar details here: http://sbi-kyc-update.xyz to continue usage."
+scam,"ICICI Bank: Unverified KYC detected. Avoid debit freeze of Rs 20,580 by submitting details online: http://kyc-verif.site"
+scam,"You have received a refund of Rs 32,216 from PhonePe. Click this link to accept money directly into your bank account: http://sbi-kyc-update.xyz"
+scam,"Cashback of Rs 45,154 approved on Google Pay! Click here to receive money in your bank: https://bill-pay-officer.online and enter your UPI PIN."
+scam,"Rs 37,882 pending UPI transfer from unknown sender. Accept or decline immediately at: http://kyc-verif.site"
+scam,"Congratulations! Scratch card won Rs 30,404 on Paytm. Claim your prize money right now: http://kyc-verif.site"
+scam,"Flipkart refund of Rs 15,740 for cancelled order initiated. Scan this QR code or click https://bill-pay-officer.online to receive payment in your bank account."
+scam,"Earn Rs 37,176 daily from home just by liking YouTube videos and rating hotels on Google Maps! Daily payout via UPI. Contact HR on WhatsApp: 9842194159"
+scam,"Ghar baithe kamaye Rs 20,133 har roz. Sirf YouTube videos like karne hain. Koi investment nahi. WhatsApp karein 9889699989 pe."
+scam,"Part-time Amazon review job opportunity. Daily income Rs 3,000 - 8,000. Flexible hours. Message recruiter on Telegram: @job_820775"
+scam,"Work from home data entry project. Guaranteed weekly payout Rs 11,372. Register today with nominal security deposit of Rs 499 at https://bill-pay-officer.online"
+scam,"Earn easy money online! Daily task: watch Instagram reels and earn Rs 38,395. Join our official Telegram group to start earning today."
+scam,"Congratulations! Your mobile number won Rs 25,00,000 in KBC Jio Mega Lucky Draw 2026. Contact lottery manager at 9864023778 to claim cheque."
+scam,"Urgent: You have 43,552 unclaimed reward points expiring tonight at 11:59 PM. Convert into Rs 4,500 cash credit: http://reward-claim.buzz"
+scam,"Dear consumer, your electricity power will be disconnected at 9:30 PM tonight by UPPCL office because previous month bill was not updated. Call electricity officer at 9854265498 immediately."
+scam,Bijli bill update nahi hua hai. Aaj raat 9:30 PM connection cut ho jayega. Turant call karein 9821819185 pe bill clear karne ke liye.
+scam,URGENT: Power disconnection notice for Consumer ID 789606. Power will be cut in 2 hours. Download QuickSupport APK or call 9810154493.
+scam,"Electricity department alert: CA number 752878 overdue Rs 33,740. Pay immediately via APK link http://kyc-verif.site or face meter seizure."
+scam,"Aapka bijli connection kaat diya jayega. Bill payment pending Rs 10,394. Sampark karein officer 9845843681 se turant."
+scam,Your parcel #760626 arriving from UK has been seized at Mumbai Customs with illegal contraband and narcotics. CBI officer Rahul Sharma warrant issued. Call 9813874790 immediately.
+scam,Customs police notice: Aapke naam ka courier intercept hua hai jisme banned MDMA drugs aur fake passports mile hain. Arrest se bachne ke liye 9883932360 par call karein.
+scam,National Crime Investigation Bureau alert: Your Aadhaar #779172 is involved in money laundering case. Digital arrest initiated. Connect to video call via Skype.
+scam,Delhi Police cyber branch: FIR registered against your phone number 9874759996. Report to online interrogation room or face instant non-bailable arrest warrant.
+scam,FedEx Express: Courier #882544 seized by Narcotics Control Bureau NCB. Legal action initiated. Contact investigation officer 9878214937 within 1 hour.
+scam,Aapka Kotak Mahindra Bank account freeze ho gaya hai. KYC submit karne ke liye is link par click karein: http://reward-claim.buzz nahi toh account band ho jayega.
+scam,SBI YONO Alert: Your account is suspended due to incomplete KYC verification. Click here to reactivate: http://kyc-verif.site
+scam,"ICICI Bank: Unverified KYC detected. Avoid debit freeze of Rs 31,115 by submitting details online: https://bill-pay-officer.online"
+scam,"You have received a refund of Rs 18,446 from PhonePe. Click this link to accept money directly into your bank account: http://kyc-verif.site"
+scam,"Cashback of Rs 22,741 approved on Google Pay! Click here to receive money in your bank: http://kyc-verif.site and enter your UPI PIN."
+scam,"Rs 42,800 pending UPI transfer from unknown sender. Accept or decline immediately at: http://reward-claim.buzz"
+scam,"Congratulations! Scratch card won Rs 42,820 on Paytm. Claim your prize money right now: http://sbi-kyc-update.xyz"
+scam,"Flipkart refund of Rs 22,915 for cancelled order initiated. Scan this QR code or click http://sbi-kyc-update.xyz to receive payment in your bank account."
+scam,"Earn Rs 17,643 daily from home just by liking YouTube videos and rating hotels on Google Maps! Daily payout via UPI. Contact HR on WhatsApp: 9867805802"
+scam,"Ghar baithe kamaye Rs 41,991 har roz. Sirf YouTube videos like karne hain. Koi investment nahi. WhatsApp karein 9833497411 pe."
+scam,"Part-time Amazon review job opportunity. Daily income Rs 3,000 - 8,000. Flexible hours. Message recruiter on Telegram: @job_250069"
+scam,"Work from home data entry project. Guaranteed weekly payout Rs 45,659. Register today with nominal security deposit of Rs 499 at https://bill-pay-officer.online"
+scam,"Earn easy money online! Daily task: watch Instagram reels and earn Rs 42,534. Join our official Telegram group to start earning today."
+scam,"Congratulations! Your mobile number won Rs 25,00,000 in KBC Jio Mega Lucky Draw 2026. Contact lottery manager at 9861632653 to claim cheque."
+scam,"Urgent: You have 42,294 unclaimed reward points expiring tonight at 11:59 PM. Convert into Rs 4,500 cash credit: http://reward-claim.buzz"
+scam,"Dear consumer, your electricity power will be disconnected at tonight tonight by UPPCL office because previous month bill was not updated. Call electricity officer at 9822097496 immediately."
+scam,Bijli bill update nahi hua hai. Aaj raat 8:00 PM connection cut ho jayega. Turant call karein 9882398083 pe bill clear karne ke liye.
+scam,URGENT: Power disconnection notice for Consumer ID 945664. Power will be cut in 2 hours. Download QuickSupport APK or call 9874672520.
+scam,"Electricity department alert: CA number 247594 overdue Rs 16,980. Pay immediately via APK link http://kyc-verif.site or face meter seizure."
+scam,"Aapka bijli connection kaat diya jayega. Bill payment pending Rs 18,649. Sampark karein officer 9862958901 se turant."
+scam,Your parcel #499534 arriving from UK has been seized at Mumbai Customs with illegal contraband and narcotics. CBI officer Rahul Sharma warrant issued. Call 9888458327 immediately.
+scam,Customs police notice: Aapke naam ka courier intercept hua hai jisme banned MDMA drugs aur fake passports mile hain. Arrest se bachne ke liye 9813358751 par call karein.
+scam,National Crime Investigation Bureau alert: Your Aadhaar #780776 is involved in money laundering case. Digital arrest initiated. Connect to video call via Skype.
+scam,Delhi Police cyber branch: FIR registered against your phone number 9876118957. Report to online interrogation room or face instant non-bailable arrest warrant.
+scam,FedEx Express: Courier #879238 seized by Narcotics Control Bureau NCB. Legal action initiated. Contact investigation officer 9899991136 within 1 hour.
+scam,"Dear SBI customer, your NetBanking access will be blocked within 24 hours. Update your KYC PAN immediately at: http://reward-claim.buzz"
+scam,"Dear customer, your credit card is blocked due to document expiry. Update Aadhaar details here: https://bill-pay-officer.online to continue usage."
+scam,"ICICI Bank: Unverified KYC detected. Avoid debit freeze of Rs 11,233 by submitting details online: http://reward-claim.buzz"
+scam,"You have received a refund of Rs 10,115 from PhonePe. Click this link to accept money directly into your bank account: http://reward-claim.buzz"
+scam,"Cashback of Rs 13,371 approved on Google Pay! Click here to receive money in your bank: http://sbi-kyc-update.xyz and enter your UPI PIN."
+scam,"Rs 6,587 pending UPI transfer from unknown sender. Accept or decline immediately at: http://kyc-verif.site"
+scam,"Congratulations! Scratch card won Rs 30,615 on Paytm. Claim your prize money right now: https://bill-pay-officer.online"
+scam,"Flipkart refund of Rs 43,131 for cancelled order initiated. Scan this QR code or click http://sbi-kyc-update.xyz to receive payment in your bank account."
+scam,"Earn Rs 30,175 daily from home just by liking YouTube videos and rating hotels on Google Maps! Daily payout via UPI. Contact HR on WhatsApp: 9824490391"
+scam,"Ghar baithe kamaye Rs 41,748 har roz. Sirf YouTube videos like karne hain. Koi investment nahi. WhatsApp karein 9826937148 pe."
+scam,"Part-time Amazon review job opportunity. Daily income Rs 3,000 - 8,000. Flexible hours. Message recruiter on Telegram: @job_734836"
+scam,"Work from home data entry project. Guaranteed weekly payout Rs 28,447. Register today with nominal security deposit of Rs 499 at http://kyc-verif.site"
+scam,"Earn easy money online! Daily task: watch Instagram reels and earn Rs 22,781. Join our official Telegram group to start earning today."
+scam,"Congratulations! Your mobile number won Rs 25,00,000 in KBC Jio Mega Lucky Draw 2026. Contact lottery manager at 9819010480 to claim cheque."
+scam,Free smartphone lucky draw winner! You have won iPhone 15 Pro. Pay only delivery charge Rs 999 at: http://sbi-kyc-update.xyz
+scam,"Urgent: You have 34,317 unclaimed reward points expiring tonight at 11:59 PM. Convert into Rs 4,500 cash credit: https://bill-pay-officer.online"
+scam,"Dear consumer, your electricity power will be disconnected at tonight tonight by Tata Power Delhi office because previous month bill was not updated. Call electricity officer at 9840354559 immediately."
+scam,Bijli bill update nahi hua hai. Aaj raat tonight connection cut ho jayega. Turant call karein 9834215035 pe bill clear karne ke liye.
+scam,URGENT: Power disconnection notice for Consumer ID 789275. Power will be cut in 2 hours. Download QuickSupport APK or call 9886010330.
+scam,"Electricity department alert: CA number 325583 overdue Rs 26,529. Pay immediately via APK link http://kyc-verif.site or face meter seizure."
+scam,"Aapka bijli connection kaat diya jayega. Bill payment pending Rs 22,895. Sampark karein officer 9851827259 se turant."
+scam,Your parcel #152179 arriving from UK has been seized at Mumbai Customs with illegal contraband and narcotics. CBI officer Rahul Sharma warrant issued. Call 9892924837 immediately.
+scam,Customs police notice: Aapke naam ka courier intercept hua hai jisme banned MDMA drugs aur fake passports mile hain. Arrest se bachne ke liye 9891480362 par call karein.
+scam,National Crime Investigation Bureau alert: Your Aadhaar #216276 is involved in money laundering case. Digital arrest initiated. Connect to video call via Skype.
+scam,Delhi Police cyber branch: FIR registered against your phone number 9839597483. Report to online interrogation room or face instant non-bailable arrest warrant.
+scam,FedEx Express: Courier #901280 seized by Narcotics Control Bureau NCB. Legal action initiated. Contact investigation officer 9828419343 within 1 hour.
+scam,"Dear Kotak Mahindra Bank customer, your NetBanking access will be blocked within 24 hours. Update your KYC PAN immediately at: https://bill-pay-officer.online"
+scam,Aapka Axis Bank account freeze ho gaya hai. KYC submit karne ke liye is link par click karein: http://sbi-kyc-update.xyz nahi toh account band ho jayega.
+scam,Paytm KYC expired! Wallet balance will be forfeited. Complete video verification by installing remote support app: http://kyc-verif.site
+scam,"ICICI Bank: Unverified KYC detected. Avoid debit freeze of Rs 21,863 by submitting details online: http://reward-claim.buzz"
+scam,"You have received a refund of Rs 42,216 from PhonePe. Click this link to accept money directly into your bank account: https://bill-pay-officer.online"
+scam,"Cashback of Rs 11,341 approved on Google Pay! Click here to receive money in your bank: http://sbi-kyc-update.xyz and enter your UPI PIN."
+scam,"Rs 11,878 pending UPI transfer from unknown sender. Accept or decline immediately at: http://sbi-kyc-update.xyz"
+scam,"Congratulations! Scratch card won Rs 39,559 on Paytm. Claim your prize money right now: http://reward-claim.buzz"
+scam,"Flipkart refund of Rs 32,552 for cancelled order initiated. Scan this QR code or click http://reward-claim.buzz to receive payment in your bank account."
+scam,"Earn Rs 34,175 daily from home just by liking YouTube videos and rating hotels on Google Maps! Daily payout via UPI. Contact HR on WhatsApp: 9817539294"
+scam,"Ghar baithe kamaye Rs 20,178 har roz. Sirf YouTube videos like karne hain. Koi investment nahi. WhatsApp karein 9817635653 pe."
+scam,"Part-time Amazon review job opportunity. Daily income Rs 3,000 - 8,000. Flexible hours. Message recruiter on Telegram: @job_681242"
+scam,"Work from home data entry project. Guaranteed weekly payout Rs 30,205. Register today with nominal security deposit of Rs 499 at http://reward-claim.buzz"
+scam,"Earn easy money online! Daily task: watch Instagram reels and earn Rs 4,353. Join our official Telegram group to start earning today."
+scam,"Congratulations! Your mobile number won Rs 25,00,000 in KBC Jio Mega Lucky Draw 2026. Contact lottery manager at 9860043345 to claim cheque."
+scam,Free smartphone lucky draw winner! You have won iPhone 15 Pro. Pay only delivery charge Rs 999 at: https://bill-pay-officer.online
+scam,"Urgent: You have 7,417 unclaimed reward points expiring tonight at 11:59 PM. Convert into Rs 4,500 cash credit: http://kyc-verif.site"
+scam,"Dear consumer, your electricity power will be disconnected at within 2 hours tonight by Tata Power Delhi office because previous month bill was not updated. Call electricity officer at 9858563745 immediately."
+scam,Bijli bill update nahi hua hai. Aaj raat tonight connection cut ho jayega. Turant call karein 9835770506 pe bill clear karne ke liye.
+scam,URGENT: Power disconnection notice for Consumer ID 975686. Power will be cut in 2 hours. Download QuickSupport APK or call 9882446804.
+legit,"Your A/C ending 3147 is credited with INR 10,485.00 on 6-Oct-26 by UPI/Ref 34272734/Salary. Available balance: INR 45,210. Never share OTP or UPI PIN - Punjab National Bank."
+legit,"Your A/C ending 7731 is debited for INR 6,792.25 on 8-Oct-26 at Swiggy. Bal: INR 12,400. If not done by you, SMS BLOCK to 567676 - Kotak Mahindra Bank."
+legit,"Dear Customer, your ICICI Bank credit card ending 4918 statement for November is generated. Total due: INR 5,928.50, Due date: 27-Oct-26. Pay via netbanking."
+legit,"Dear customer, cheque #36802975 for INR 9,528.00 drawn on your A/C 9239 has been cleared on 27-Oct-26. - Punjab National Bank"
+legit,"Bank Alert: Monthly interest of INR 9,205.25 credited to Savings A/C 7081 on 28-Oct-26. Available Bal: INR 89,000. - Punjab National Bank"
+legit,"127965 is your verification code for logging into Zomato. Valid for 10 minutes. Do not share this OTP with anyone, including staff."
+legit,"203896 is your One Time Password to authorize transaction of INR 6,341.50 on your SBI card at Amazon. Never share OTP with anyone."
+legit,"Dear customer, use OTP 570392 to complete registration on Uber. Do not disclose this OTP to anyone for security reasons."
+legit,Your secret OTP for Aadhaar authentication is 913875. This OTP is valid for 10 mins. UIDAI never asks for OTP over call.
+legit,"Use OTP 977330 for password reset on your Amazon account. If you did not request this, please change your security settings immediately."
+legit,Your order #29270557 on Zomato has been delivered. Thank you for shopping with us! Rate your delivery experience on the app.
+legit,Out for delivery! Agent Ramesh (Phone: 9862405812) is delivering your Amazon package today. Share PIN 670511 only upon delivery.
+legit,Your package #12179995 has been dispatched via Bluedart AWB 12179995 and is expected to arrive by 9-Oct-26. Track at www.bluedart.com
+legit,Swiggy: Order #55439043 from Uber is confirmed. Delivery partner Deepak is on the way to the restaurant.
+legit,Your ride with Uber driver Anil (Vehicle DL 01 AB 3209) is arriving in 4 minutes. Share OTP 143941 to start ride.
+legit,"Dear Consumer, bill for CA #14915156 is INR 14,656.50. Due date: 9-Oct-26. Pay online at official portal to enjoy 1% discount. - MSEB Maharashtra"
+legit,"Your monthly broadband bill for account #63690013 is generated. Amount due: INR 2,918.50 by 14-Oct-26. View and pay on Airtel Thanks app."
+legit,"Gas cylinder booking confirmed! Booking Ref: #21087928. Delivery expected in 2 days. Cash on delivery amount: INR 15,916.25. - Indane Gas"
+legit,"Dear Subscriber, your recharge of INR 2,181.50 for mobile number 9832366682 is successful. Data validity expires on 22-Oct-26. - Jio"
+legit,Maintenance reminder: Society AGM meeting will be held on Sunday at 11 AM in the community hall. All residents please attend.
+legit,"Hi Deepak, are you free for coffee this evening? Let me know once you finish your meetings."
+legit,"Mom called earlier, she asked if you can pick up fresh vegetables on your way back home from office."
+legit,Hey! Sent you the presentation slides over email. Please take a look before the client call at 3 PM.
+legit,Thanks for the wonderful dinner yesterday! It was great catching up after such a long time.
+legit,"Happy Birthday Deepak! Wishing you a fantastic year ahead filled with health, happiness, and success!"
+legit,"Your A/C ending 6692 is credited with INR 12,166.25 on 18-Oct-26 by UPI/Ref 48971765/Salary. Available balance: INR 45,210. Never share OTP or UPI PIN - ICICI Bank."
+legit,"Your A/C ending 4673 is debited for INR 2,305.00 on 8-Oct-26 at Swiggy. Bal: INR 12,400. If not done by you, SMS BLOCK to 567676 - HDFC Bank."
+legit,"Dear Customer, your Bank of Baroda credit card ending 3126 statement for October is generated. Total due: INR 10,188.00, Due date: 10-Oct-26. Pay via netbanking."
+legit,"Dear customer, cheque #70394554 for INR 3,424.25 drawn on your A/C 2208 has been cleared on 3-Oct-26. - Axis Bank"
+legit,"Bank Alert: Monthly interest of INR 13,232.50 credited to Savings A/C 3981 on 17-Oct-26. Available Bal: INR 89,000. - Punjab National Bank"
+legit,"362778 is your verification code for logging into Ola. Valid for 10 minutes. Do not share this OTP with anyone, including staff."
+legit,"276827 is your One Time Password to authorize transaction of INR 3,740.50 on your HDFC Bank card at Myntra. Never share OTP with anyone."
+legit,"Dear customer, use OTP 908475 to complete registration on Amazon. Do not disclose this OTP to anyone for security reasons."
+legit,Your secret OTP for Aadhaar authentication is 416768. This OTP is valid for 10 mins. UIDAI never asks for OTP over call.
+legit,"Use OTP 587002 for password reset on your Zomato account. If you did not request this, please change your security settings immediately."
+legit,Your order #56354851 on Flipkart has been delivered. Thank you for shopping with us! Rate your delivery experience on the app.
+legit,Out for delivery! Agent Amit (Phone: 9843322272) is delivering your Amazon package today. Share PIN 502810 only upon delivery.
+legit,Your package #35479101 has been dispatched via Bluedart AWB 35479101 and is expected to arrive by 11-Oct-26. Track at www.bluedart.com
+legit,Swiggy: Order #71368457 from Flipkart is confirmed. Delivery partner Ramesh is on the way to the restaurant.
+legit,Your ride with Uber driver Suresh (Vehicle DL 01 AB 9108) is arriving in 4 minutes. Share OTP 988324 to start ride.
+legit,"Dear Consumer, bill for CA #16072331 is INR 12,474.50. Due date: 12-Oct-26. Pay online at official portal to enjoy 1% discount. - Tata Power Delhi"
+legit,"Your monthly broadband bill for account #83800569 is generated. Amount due: INR 2,495.25 by 15-Oct-26. View and pay on Airtel Thanks app."
+legit,"Gas cylinder booking confirmed! Booking Ref: #59070856. Delivery expected in 2 days. Cash on delivery amount: INR 6,913.50. - Indane Gas"
+legit,"Dear Subscriber, your recharge of INR 1,240.25 for mobile number 9854018830 is successful. Data validity expires on 11-Oct-26. - Jio"
+legit,"Hi Ramesh, are you free for coffee this evening? Let me know once you finish your meetings."
+legit,"Happy Birthday Anil! Wishing you a fantastic year ahead filled with health, happiness, and success!"
+legit,"Your A/C ending 5331 is credited with INR 10,595.00 on 8-Oct-26 by UPI/Ref 47447604/Salary. Available balance: INR 45,210. Never share OTP or UPI PIN - Kotak Mahindra Bank."
+legit,"Your A/C ending 6194 is debited for INR 8,457.25 on 26-Oct-26 at Amazon. Bal: INR 12,400. If not done by you, SMS BLOCK to 567676 - ICICI Bank."
+legit,"Dear Customer, your ICICI Bank credit card ending 3399 statement for November is generated. Total due: INR 5,143.50, Due date: 23-Oct-26. Pay via netbanking."
+legit,"Dear customer, cheque #28424464 for INR 5,675.25 drawn on your A/C 9824 has been cleared on 9-Oct-26. - HDFC Bank"
+legit,"Bank Alert: Monthly interest of INR 4,753.00 credited to Savings A/C 9700 on 2-Oct-26. Available Bal: INR 89,000. - Axis Bank"
+legit,"436768 is your verification code for logging into Ola. Valid for 10 minutes. Do not share this OTP with anyone, including staff."
+legit,"138105 is your One Time Password to authorize transaction of INR 11,687.00 on your SBI card at Zomato. Never share OTP with anyone."
+legit,"Dear customer, use OTP 398384 to complete registration on Amazon. Do not disclose this OTP to anyone for security reasons."
+legit,Your secret OTP for Aadhaar authentication is 446747. This OTP is valid for 10 mins. UIDAI never asks for OTP over call.
+legit,"Use OTP 284019 for password reset on your Uber account. If you did not request this, please change your security settings immediately."
+legit,Your order #34800912 on Zomato has been delivered. Thank you for shopping with us! Rate your delivery experience on the app.
+legit,Out for delivery! Agent Sneha (Phone: 9897735896) is delivering your Uber package today. Share PIN 111991 only upon delivery.
+legit,Your package #51178850 has been dispatched via Bluedart AWB 51178850 and is expected to arrive by 15-Oct-26. Track at www.bluedart.com
+legit,Swiggy: Order #74180488 from Zomato is confirmed. Delivery partner Anil is on the way to the restaurant.
+legit,Your ride with Uber driver Suresh (Vehicle DL 01 AB 8714) is arriving in 4 minutes. Share OTP 891401 to start ride.
+legit,"Dear Consumer, bill for CA #25060409 is INR 12,470.00. Due date: 19-Oct-26. Pay online at official portal to enjoy 1% discount. - Tata Power Delhi"
+legit,"Your monthly broadband bill for account #25601471 is generated. Amount due: INR 3,435.25 by 15-Oct-26. View and pay on Airtel Thanks app."
+legit,"Gas cylinder booking confirmed! Booking Ref: #78886959. Delivery expected in 2 days. Cash on delivery amount: INR 13,156.50. - Indane Gas"
+legit,"Dear Subscriber, your recharge of INR 5,936.00 for mobile number 9818557710 is successful. Data validity expires on 24-Oct-26. - Jio"
+legit,"Hi Anil, are you free for coffee this evening? Let me know once you finish your meetings."
+legit,"Your A/C ending 6253 is credited with INR 4,409.00 on 22-Oct-26 by UPI/Ref 79961132/Salary. Available balance: INR 45,210. Never share OTP or UPI PIN - SBI."
+legit,"Your A/C ending 3869 is debited for INR 11,795.50 on 18-Oct-26 at Swiggy. Bal: INR 12,400. If not done by you, SMS BLOCK to 567676 - HDFC Bank."
+legit,"Dear Customer, your Punjab National Bank credit card ending 7821 statement for October is generated. Total due: INR 7,252.50, Due date: 13-Oct-26. Pay via netbanking."
+legit,"Dear customer, cheque #65902739 for INR 15,159.25 drawn on your A/C 8586 has been cleared on 14-Oct-26. - Kotak Mahindra Bank"
+legit,"Bank Alert: Monthly interest of INR 11,180.50 credited to Savings A/C 6411 on 28-Oct-26. Available Bal: INR 89,000. - HDFC Bank"
+legit,"859489 is your verification code for logging into Ola. Valid for 10 minutes. Do not share this OTP with anyone, including staff."
+legit,"354377 is your One Time Password to authorize transaction of INR 5,115.00 on your Bank of Baroda card at Ola. Never share OTP with anyone."
+legit,"Dear customer, use OTP 374267 to complete registration on Swiggy. Do not disclose this OTP to anyone for security reasons."
+legit,Your secret OTP for Aadhaar authentication is 534037. This OTP is valid for 10 mins. UIDAI never asks for OTP over call.
+legit,"Use OTP 259814 for password reset on your Zomato account. If you did not request this, please change your security settings immediately."
+legit,Your order #83905989 on Uber has been delivered. Thank you for shopping with us! Rate your delivery experience on the app.
+legit,Out for delivery! Agent Ramesh (Phone: 9880322629) is delivering your Myntra package today. Share PIN 292988 only upon delivery.
+legit,Your package #10856822 has been dispatched via Bluedart AWB 10856822 and is expected to arrive by 25-Oct-26. Track at www.bluedart.com
+legit,Swiggy: Order #92924441 from Uber is confirmed. Delivery partner Deepak is on the way to the restaurant.
+legit,Your ride with Uber driver Ramesh (Vehicle DL 01 AB 9719) is arriving in 4 minutes. Share OTP 400614 to start ride.
+legit,"Dear Consumer, bill for CA #42342289 is INR 2,198.25. Due date: 5-Oct-26. Pay online at official portal to enjoy 1% discount. - TNEB"
+legit,"Your monthly broadband bill for account #42642810 is generated. Amount due: INR 6,515.50 by 19-Oct-26. View and pay on Airtel Thanks app."
+legit,"Gas cylinder booking confirmed! Booking Ref: #73888323. Delivery expected in 2 days. Cash on delivery amount: INR 7,488.50. - Indane Gas"
+legit,"Dear Subscriber, your recharge of INR 11,903.50 for mobile number 9846385762 is successful. Data validity expires on 19-Oct-26. - Jio"
+legit,"Happy Birthday Pooja! Wishing you a fantastic year ahead filled with health, happiness, and success!"
+legit,"Your A/C ending 8061 is credited with INR 8,670.25 on 17-Oct-26 by UPI/Ref 64766762/Salary. Available balance: INR 45,210. Never share OTP or UPI PIN - HDFC Bank."
+legit,"Your A/C ending 6315 is debited for INR 14,494.00 on 10-Oct-26 at Ola. Bal: INR 12,400. If not done by you, SMS BLOCK to 567676 - Axis Bank."
+legit,"Dear Customer, your ICICI Bank credit card ending 3778 statement for October is generated. Total due: INR 11,489.00, Due date: 5-Oct-26. Pay via netbanking."
+legit,"Dear customer, cheque #20324210 for INR 7,406.50 drawn on your A/C 5521 has been cleared on 26-Oct-26. - ICICI Bank"
+legit,"Bank Alert: Monthly interest of INR 8,209.00 credited to Savings A/C 4203 on 10-Oct-26. Available Bal: INR 89,000. - Axis Bank"
+legit,"829066 is your verification code for logging into Swiggy. Valid for 10 minutes. Do not share this OTP with anyone, including staff."
+legit,"441716 is your One Time Password to authorize transaction of INR 7,426.50 on your Axis Bank card at Myntra. Never share OTP with anyone."
+legit,"Dear customer, use OTP 128223 to complete registration on Uber. Do not disclose this OTP to anyone for security reasons."
+legit,Your secret OTP for Aadhaar authentication is 764100. This OTP is valid for 10 mins. UIDAI never asks for OTP over call.
+legit,"Use OTP 520274 for password reset on your Zomato account. If you did not request this, please change your security settings immediately."
+legit,Your order #95655118 on Amazon has been delivered. Thank you for shopping with us! Rate your delivery experience on the app.
+legit,Out for delivery! Agent Ramesh (Phone: 9823234748) is delivering your Swiggy package today. Share PIN 211090 only upon delivery.
+legit,Your package #87915846 has been dispatched via Bluedart AWB 87915846 and is expected to arrive by 18-Oct-26. Track at www.bluedart.com
+legit,Swiggy: Order #24032377 from Zomato is confirmed. Delivery partner Pooja is on the way to the restaurant.
+legit,Your ride with Uber driver Deepak (Vehicle DL 01 AB 6620) is arriving in 4 minutes. Share OTP 559450 to start ride.
+legit,"Dear Consumer, bill for CA #13031322 is INR 1,929.25. Due date: 4-Oct-26. Pay online at official portal to enjoy 1% discount. - Tata Power Delhi"
+legit,"Your monthly broadband bill for account #67226329 is generated. Amount due: INR 9,263.50 by 18-Oct-26. View and pay on Airtel Thanks app."
+legit,"Gas cylinder booking confirmed! Booking Ref: #70340936. Delivery expected in 2 days. Cash on delivery amount: INR 1,855.25. - Indane Gas"
+legit,"Dear Subscriber, your recharge of INR 10,204.25 for mobile number 9875697427 is successful. Data validity expires on 6-Oct-26. - Jio"
+legit,"Hi Suresh, are you free for coffee this evening? Let me know once you finish your meetings."
+legit,"Happy Birthday Sneha! Wishing you a fantastic year ahead filled with health, happiness, and success!"
+legit,"Your A/C ending 9115 is credited with INR 9,623.00 on 19-Oct-26 by UPI/Ref 25328557/Salary. Available balance: INR 45,210. Never share OTP or UPI PIN - ICICI Bank."
+legit,"Your A/C ending 8231 is debited for INR 9,323.50 on 4-Oct-26 at Flipkart. Bal: INR 12,400. If not done by you, SMS BLOCK to 567676 - Punjab National Bank."
+legit,"Dear Customer, your SBI credit card ending 2425 statement for November is generated. Total due: INR 8,986.00, Due date: 25-Oct-26. Pay via netbanking."
+legit,"Dear customer, cheque #37775381 for INR 10,242.00 drawn on your A/C 3719 has been cleared on 27-Oct-26. - Punjab National Bank"
+legit,"Bank Alert: Monthly interest of INR 6,820.50 credited to Savings A/C 3758 on 10-Oct-26. Available Bal: INR 89,000. - ICICI Bank"
+legit,"437742 is your verification code for logging into Flipkart. Valid for 10 minutes. Do not share this OTP with anyone, including staff."
+legit,"764406 is your One Time Password to authorize transaction of INR 10,747.50 on your Axis Bank card at Zomato. Never share OTP with anyone."
+legit,"Dear customer, use OTP 911739 to complete registration on Myntra. Do not disclose this OTP to anyone for security reasons."
+legit,Your secret OTP for Aadhaar authentication is 381581. This OTP is valid for 10 mins. UIDAI never asks for OTP over call.
+legit,"Use OTP 899281 for password reset on your Swiggy account. If you did not request this, please change your security settings immediately."
+legit,Your order #71272827 on Zomato has been delivered. Thank you for shopping with us! Rate your delivery experience on the app.
+legit,Out for delivery! Agent Pooja (Phone: 9816950770) is delivering your Swiggy package today. Share PIN 489906 only upon delivery.
+legit,Your package #97977738 has been dispatched via Bluedart AWB 97977738 and is expected to arrive by 14-Oct-26. Track at www.bluedart.com
+legit,Swiggy: Order #69735865 from Amazon is confirmed. Delivery partner Suresh is on the way to the restaurant.
+legit,Your ride with Uber driver Pooja (Vehicle DL 01 AB 8826) is arriving in 4 minutes. Share OTP 413791 to start ride.
+legit,"Dear Consumer, bill for CA #91915661 is INR 2,643.25. Due date: 1-Oct-26. Pay online at official portal to enjoy 1% discount. - UPPCL"
+legit,"Your monthly broadband bill for account #39158087 is generated. Amount due: INR 10,803.50 by 28-Oct-26. View and pay on Airtel Thanks app."
+legit,"Gas cylinder booking confirmed! Booking Ref: #47173969. Delivery expected in 2 days. Cash on delivery amount: INR 7,422.00. - Indane Gas"
+legit,"Dear Subscriber, your recharge of INR 9,721.25 for mobile number 9876422705 is successful. Data validity expires on 7-Oct-26. - Jio"
+legit,"Your A/C ending 3248 is credited with INR 12,111.00 on 16-Oct-26 by UPI/Ref 56533974/Salary. Available balance: INR 45,210. Never share OTP or UPI PIN - Kotak Mahindra Bank."
+legit,"Your A/C ending 5403 is debited for INR 12,220.00 on 11-Oct-26 at Myntra. Bal: INR 12,400. If not done by you, SMS BLOCK to 567676 - ICICI Bank."
+legit,"Dear Customer, your SBI credit card ending 9368 statement for September is generated. Total due: INR 6,156.50, Due date: 28-Oct-26. Pay via netbanking."
+legit,"Dear customer, cheque #11649277 for INR 12,621.00 drawn on your A/C 4742 has been cleared on 2-Oct-26. - SBI"
+legit,"Bank Alert: Monthly interest of INR 9,922.25 credited to Savings A/C 1579 on 24-Oct-26. Available Bal: INR 89,000. - Axis Bank"
+legit,"148159 is your verification code for logging into Flipkart. Valid for 10 minutes. Do not share this OTP with anyone, including staff."
+legit,"486839 is your One Time Password to authorize transaction of INR 13,965.50 on your Kotak Mahindra Bank card at Zomato. Never share OTP with anyone."
+legit,"Dear customer, use OTP 868043 to complete registration on Zomato. Do not disclose this OTP to anyone for security reasons."
+legit,Your secret OTP for Aadhaar authentication is 451291. This OTP is valid for 10 mins. UIDAI never asks for OTP over call.
+legit,"Use OTP 846221 for password reset on your Amazon account. If you did not request this, please change your security settings immediately."
+legit,Your order #59995026 on Uber has been delivered. Thank you for shopping with us! Rate your delivery experience on the app.
+legit,Out for delivery! Agent Sneha (Phone: 9852279780) is delivering your Flipkart package today. Share PIN 405844 only upon delivery.
+legit,Your package #20024377 has been dispatched via Bluedart AWB 20024377 and is expected to arrive by 8-Oct-26. Track at www.bluedart.com
+legit,Swiggy: Order #81930575 from Ola is confirmed. Delivery partner Sneha is on the way to the restaurant.
+legit,Your ride with Uber driver Suresh (Vehicle DL 01 AB 2964) is arriving in 4 minutes. Share OTP 255528 to start ride.
+legit,"Dear Consumer, bill for CA #44918995 is INR 9,150.25. Due date: 10-Oct-26. Pay online at official portal to enjoy 1% discount. - Tata Power Delhi"
+legit,"Your monthly broadband bill for account #28762704 is generated. Amount due: INR 2,573.00 by 26-Oct-26. View and pay on Airtel Thanks app."
+legit,"Gas cylinder booking confirmed! Booking Ref: #21279580. Delivery expected in 2 days. Cash on delivery amount: INR 6,802.25. - Indane Gas"
+legit,"Dear Subscriber, your recharge of INR 15,761.50 for mobile number 9871873691 is successful. Data validity expires on 26-Oct-26. - Jio"
+legit,"Hi Vikram, are you free for coffee this evening? Let me know once you finish your meetings."
+legit,"Happy Birthday Vikram! Wishing you a fantastic year ahead filled with health, happiness, and success!"
+legit,"Your A/C ending 1916 is credited with INR 13,324.25 on 28-Oct-26 by UPI/Ref 62133188/Salary. Available balance: INR 45,210. Never share OTP or UPI PIN - ICICI Bank."
+legit,"Your A/C ending 6878 is debited for INR 15,705.00 on 23-Oct-26 at Myntra. Bal: INR 12,400. If not done by you, SMS BLOCK to 567676 - Kotak Mahindra Bank."
+legit,"Dear Customer, your SBI credit card ending 6063 statement for September is generated. Total due: INR 3,602.00, Due date: 3-Oct-26. Pay via netbanking."
+legit,"Dear customer, cheque #33818260 for INR 13,233.50 drawn on your A/C 4300 has been cleared on 23-Oct-26. - Punjab National Bank"
+legit,"Bank Alert: Monthly interest of INR 13,213.25 credited to Savings A/C 3320 on 28-Oct-26. Available Bal: INR 89,000. - HDFC Bank"
+legit,"780714 is your verification code for logging into Uber. Valid for 10 minutes. Do not share this OTP with anyone, including staff."
+legit,"821942 is your One Time Password to authorize transaction of INR 4,781.25 on your Axis Bank card at Swiggy. Never share OTP with anyone."
+legit,"Dear customer, use OTP 433674 to complete registration on Flipkart. Do not disclose this OTP to anyone for security reasons."
+legit,Your secret OTP for Aadhaar authentication is 276042. This OTP is valid for 10 mins. UIDAI never asks for OTP over call.
+legit,"Use OTP 855408 for password reset on your Swiggy account. If you did not request this, please change your security settings immediately."
+legit,Your order #76180344 on Swiggy has been delivered. Thank you for shopping with us! Rate your delivery experience on the app.
+legit,Out for delivery! Agent Suresh (Phone: 9819959009) is delivering your Amazon package today. Share PIN 373812 only upon delivery.
+legit,Your package #20066654 has been dispatched via Bluedart AWB 20066654 and is expected to arrive by 24-Oct-26. Track at www.bluedart.com
+legit,Swiggy: Order #23590593 from Flipkart is confirmed. Delivery partner Sneha is on the way to the restaurant.
+legit,Your ride with Uber driver Ramesh (Vehicle DL 01 AB 5872) is arriving in 4 minutes. Share OTP 261050 to start ride.
+legit,"Dear Consumer, bill for CA #90559564 is INR 2,401.25. Due date: 21-Oct-26. Pay online at official portal to enjoy 1% discount. - MSEB Maharashtra"
+legit,"Your monthly broadband bill for account #63347164 is generated. Amount due: INR 8,964.00 by 10-Oct-26. View and pay on Airtel Thanks app."
+legit,"Gas cylinder booking confirmed! Booking Ref: #35042738. Delivery expected in 2 days. Cash on delivery amount: INR 3,479.50. - Indane Gas"
+legit,"Dear Subscriber, your recharge of INR 10,163.00 for mobile number 9889151743 is successful. Data validity expires on 25-Oct-26. - Jio"
+legit,"Hi Pooja, are you free for coffee this evening? Let me know once you finish your meetings."
+legit,"Happy Birthday Amit! Wishing you a fantastic year ahead filled with health, happiness, and success!"
+legit,"Your A/C ending 8955 is credited with INR 10,723.50 on 2-Oct-26 by UPI/Ref 33112256/Salary. Available balance: INR 45,210. Never share OTP or UPI PIN - ICICI Bank."
+legit,"Your A/C ending 6431 is debited for INR 12,343.00 on 24-Oct-26 at Swiggy. Bal: INR 12,400. If not done by you, SMS BLOCK to 567676 - ICICI Bank."
+legit,"Dear Customer, your SBI credit card ending 9054 statement for November is generated. Total due: INR 14,812.25, Due date: 4-Oct-26. Pay via netbanking."
+legit,"Dear customer, cheque #64649480 for INR 4,552.00 drawn on your A/C 2462 has been cleared on 27-Oct-26. - Bank of Baroda"
+legit,"Bank Alert: Monthly interest of INR 5,826.25 credited to Savings A/C 2075 on 13-Oct-26. Available Bal: INR 89,000. - Punjab National Bank"
+legit,"308781 is your verification code for logging into Swiggy. Valid for 10 minutes. Do not share this OTP with anyone, including staff."
+legit,"722899 is your One Time Password to authorize transaction of INR 7,750.00 on your SBI card at Swiggy. Never share OTP with anyone."
+legit,"Dear customer, use OTP 152062 to complete registration on Amazon. Do not disclose this OTP to anyone for security reasons."
+legit,Your secret OTP for Aadhaar authentication is 121026. This OTP is valid for 10 mins. UIDAI never asks for OTP over call.
+legit,"Use OTP 847362 for password reset on your Ola account. If you did not request this, please change your security settings immediately."
+legit,Your order #50553227 on Myntra has been delivered. Thank you for shopping with us! Rate your delivery experience on the app.
+legit,Out for delivery! Agent Suresh (Phone: 9855135227) is delivering your Uber package today. Share PIN 605139 only upon delivery.
+legit,Your package #97438349 has been dispatched via Bluedart AWB 97438349 and is expected to arrive by 21-Oct-26. Track at www.bluedart.com
+legit,Swiggy: Order #13416548 from Zomato is confirmed. Delivery partner Amit is on the way to the restaurant.
+legit,Your ride with Uber driver Deepak (Vehicle DL 01 AB 1578) is arriving in 4 minutes. Share OTP 333164 to start ride.
+legit,"Dear Consumer, bill for CA #34311643 is INR 14,274.25. Due date: 18-Oct-26. Pay online at official portal to enjoy 1% discount. - UPPCL"
+legit,"Your monthly broadband bill for account #39974566 is generated. Amount due: INR 11,191.00 by 12-Oct-26. View and pay on Airtel Thanks app."
+legit,"Gas cylinder booking confirmed! Booking Ref: #17204398. Delivery expected in 2 days. Cash on delivery amount: INR 8,971.00. - Indane Gas"
+legit,"Dear Subscriber, your recharge of INR 2,988.25 for mobile number 9828436852 is successful. Data validity expires on 13-Oct-26. - Jio"

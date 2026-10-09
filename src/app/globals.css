@@ -1,0 +1,327 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* Semantic risk colors */
+  --color-risk-safe: var(--risk-safe);
+  --color-risk-safe-foreground: var(--risk-safe-foreground);
+  --color-risk-safe-subtle: var(--risk-safe-subtle);
+
+  --color-risk-caution: var(--risk-caution);
+  --color-risk-caution-foreground: var(--risk-caution-foreground);
+  --color-risk-caution-subtle: var(--risk-caution-subtle);
+
+  --color-risk-danger: var(--risk-danger);
+  --color-risk-danger-foreground: var(--risk-danger-foreground);
+  --color-risk-danger-subtle: var(--risk-danger-subtle);
+
+  --font-sans: var(--font-space-grotesk), var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-space: var(--font-space-grotesk), sans-serif;
+  --font-syne: var(--font-syne), sans-serif;
+  --font-jetbrains: var(--font-jetbrains-mono), monospace;
+  --font-devanagari: var(--font-noto-devanagari), var(--font-geist-sans), sans-serif;
+
+  --color-cyber-void: #040508;
+  --color-cyber-surface: rgba(10, 14, 24, 0.65);
+  --color-cyber-cyan: #00f0ff;
+  --color-cyber-violet: #7000ff;
+  --color-cyber-crimson: #ff0055;
+  --color-cyber-emerald: #00ff88;
+  --color-cyber-amber: #ffb800;
+}
+
+/* =========================================================================
+   OKLCH Design Tokens - Satark Threat Intelligence UI
+   Calm, trustworthy, modern security aesthetic
+   WCAG AA Contrast Compliant
+   ========================================================================= */
+
+:root,
+.dark,
+[data-theme="dark"] {
+  /* Default: Dark Theme (True Black / Linear Aesthetic) */
+  --background: oklch(0.0 0 0); /* True Black */
+  --foreground: oklch(0.98 0 0);
+  
+  /* Extremely subtle surfaces */
+  --surface-1: oklch(0.12 0.005 255);
+  --surface-2: oklch(0.16 0.005 255);
+  
+  --border: oklch(0.20 0.01 255);
+  --border-subtle: oklch(0.15 0.01 255 / 0.5);
+
+  /* Sleek Electric Blue */
+  --primary: oklch(0.7 0.15 250);
+  --primary-foreground: oklch(0.1 0 0);
+
+  --muted: oklch(0.15 0.005 255);
+  --muted-foreground: oklch(0.65 0.01 255);
+
+  /* Risk Semantics - Dark Mode (More saturated and sleek) */
+  --risk-safe: oklch(0.75 0.18 150);
+  --risk-safe-foreground: oklch(0.1 0 0);
+  --risk-safe-subtle: oklch(0.2 0.05 150 / 0.3);
+
+  --risk-caution: oklch(0.85 0.16 75);
+  --risk-caution-foreground: oklch(0.15 0 0);
+  --risk-caution-subtle: oklch(0.2 0.05 75 / 0.3);
+
+  --risk-danger: oklch(0.65 0.25 25);
+  --risk-danger-foreground: oklch(0.98 0 0);
+  --risk-danger-subtle: oklch(0.2 0.05 25 / 0.3);
+}
+
+.light,
+[data-theme="light"] {
+  /* Light Theme (Clean Premium Canvas) */
+  --background: oklch(0.995 0 0); /* Pure White */
+  --foreground: oklch(0.1 0 0);
+  
+  --surface-1: oklch(0.97 0 0);
+  --surface-2: oklch(0.94 0 0);
+
+  --border: oklch(0.9 0 0);
+  --border-subtle: oklch(0.95 0 0);
+
+  --primary: oklch(0.45 0.16 250);
+  --primary-foreground: oklch(0.99 0 0);
+
+  --muted: oklch(0.95 0 0);
+  --muted-foreground: oklch(0.4 0 0);
+
+  /* Risk Semantics - Light Mode */
+  --risk-safe: oklch(0.45 0.16 150);
+  --risk-safe-foreground: oklch(0.99 0 0);
+  --risk-safe-subtle: oklch(0.95 0.05 150);
+
+  --risk-caution: oklch(0.6 0.18 75);
+  --risk-caution-foreground: oklch(0.99 0 0);
+  --risk-caution-subtle: oklch(0.96 0.06 75);
+
+  --risk-danger: oklch(0.5 0.22 25);
+  --risk-danger-foreground: oklch(0.99 0 0);
+  --risk-danger-subtle: oklch(0.96 0.05 25);
+}
+
+/* =========================================================================
+   Base Layout & Typography
+   ========================================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Devanagari specific font enhancement */
+:lang(hi),
+.font-devanagari {
+  font-family: var(--font-devanagari);
+  line-height: 1.6;
+}
+
+/* Minimum 44px touch targets on interactive controls */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Glass & subtle blur effects - applied strictly to sticky header & result card only */
+.glass-header {
+  background-color: color-mix(in oklch, var(--background) 82%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background-color: color-mix(in oklch, var(--surface-1) 90%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Focus Ring Utility for premium outline */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+/* Base structural additions for UI */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+}
+
+/* =========================================================================
+   Spring-based Motion & Reduced Motion Protection
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================================
+   Lenis Smooth Scrolling
+   ========================================================================= */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* =========================================================================
+   Awwwards / Cyberpunk Glassmorphism & HUD Reticles
+   ========================================================================= */
+.cyber-hud-card {
+  position: relative;
+  background: rgba(10, 14, 24, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.05);
+}
+
+.cyber-hud-card::before,
+.cyber-hud-card::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+
+.cyber-hud-card::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #00f0ff;
+  border-left: 2px solid #00f0ff;
+}
+
+.cyber-hud-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #00f0ff;
+  border-right: 2px solid #00f0ff;
+}
+
+/* Animated Laser Scanline */
+@keyframes laser-scan {
+  0% {
+    top: 0%;
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0.2;
+  }
+}
+
+.laser-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00f0ff, #7000ff, #00f0ff, transparent);
+  box-shadow: 0 0 15px #00f0ff, 0 0 30px #7000ff;
+  animation: laser-scan 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* Glow effects */
+.glow-cyan {
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.6), 0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+.glow-crimson {
+  text-shadow: 0 0 15px rgba(255, 0, 85, 0.7), 0 0 30px rgba(255, 0, 85, 0.4);
+}
+
+.glow-emerald {
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.7), 0 0 30px rgba(0, 255, 136, 0.4);
+}
+
+/* Kinetic Spaced Typography */
+.spaced-typography {
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+/* Hide Google Translate Banner and Widget */
+.goog-te-banner-frame {
+  display: none !important;
+}
+.goog-te-gadget {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+.goog-tooltip {
+  display: none !important;
+}
+.goog-tooltip:hover {
+  display: none !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+#google_translate_element {
+  display: none !important;
+}
+
+/* =========================================================================
+   Hide Scrollbar
+   ========================================================================= */
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

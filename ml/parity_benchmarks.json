@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "text": "Dear Customer, your electricity power will be disconnected at 9:30 PM tonight from electricity office. Immediately call bill officer at 9876543210 to avoid disconnection.",
+    "python_logit": 1.5945746913360717,
+    "python_probability": 0.8312587569659788
+  },
+  {
+    "id": 2,
+    "text": "Your FedEx courier #IX-8842 has been seized at Delhi Airport Customs with 15 fake passports and narcotic contraband. CBI warrant issued. Call investigation team immediately.",
+    "python_logit": 1.168267250576117,
+    "python_probability": 0.7628316703274172
+  },
+  {
+    "id": 3,
+    "text": "Dear SBI User, your YONO mobile banking access has been blocked. Click here to verify PAN card within 24 hours: https://sbi-kyc-verify-portal.online/login",
+    "python_logit": 1.165680699494171,
+    "python_probability": 0.7623633946795242
+  },
+  {
+    "id": 4,
+    "text": "Earn Rs 4500 daily by simply liking YouTube videos. Work from home part time job. Instant payout to UPI. Contact HR Priya on WhatsApp: 9811223344",
+    "python_logit": 1.7514378493279095,
+    "python_probability": 0.8521340650296496
+  },
+  {
+    "id": 5,
+    "text": "Congratulations! You won Rs 25,00,000 in KBC Jio Lucky Draw. Pay processing charge of Rs 12,500 to claim your prize cheque.",
+    "python_logit": 1.6307170259861947,
+    "python_probability": 0.8362678404728454
+  },
+  {
+    "id": 6,
+    "text": "Urgent: Your credit card reward points worth Rs 6,850 are expiring at 11:59 PM tonight. Redeem immediately into your bank account: http://card-points-claim.site",
+    "python_logit": 1.3807398514457412,
+    "python_probability": 0.7991097973491179
+  },
+  {
+    "id": 7,
+    "text": "TRAI Notice: Your mobile number will be disconnected within 2 hours due to illegal advertising. Press 9 to connect with verification department.",
+    "python_logit": 0.9781162247338874,
+    "python_probability": 0.7267342742830161
+  },
+  {
+    "id": 8,
+    "text": "Income Tax Refund of Rs 14,820 approved. Please update your refund account details immediately: https://incometax-refund-verification.xyz/pan",
+    "python_logit": 1.2877749310258029,
+    "python_probability": 0.7837703350593336
+  },
+  {
+    "id": 9,
+    "text": "Instant Personal Loan approved for Rs 5,00,000 at 0% interest without CIBIL check. Download quick sanction loan APK: http://fastloan-india.buzz/loan.apk",
+    "python_logit": 1.0131392733799909,
+    "python_probability": 0.7336340605048723
+  },
+  {
+    "id": 10,
+    "text": "Dear user, your Paytm KYC is expired. Your wallet and UPI will be permanently closed. Call customer care 8920192831 to complete biometric verification.",
+    "python_logit": 0.48175093411405456,
+    "python_probability": 0.6181612470330979
+  },
+  {
+    "id": 11,
+    "text": "Your A/C ending 4091 is debited for INR 1,450.00 on 07-Oct-26 at SWIGGY BANGALORE. UPI Ref 4291829102. Bal: INR 34,210.50. Never share OTP or UPI PIN - HDFC Bank.",
+    "python_logit": -2.5827253747858325,
+    "python_probability": 0.07025849466966338
+  },
+  {
+    "id": 12,
+    "text": "482091 is your one time password (OTP) for verifying your login on Amazon.in. OTP valid for 10 minutes. Do not share this OTP with anyone.",
+    "python_logit": -2.677248013616708,
+    "python_probability": 0.06432932291767217
+  },
+  {
+    "id": 13,
+    "text": "Your order #402-1829102-19281 has been shipped via Bluedart AWB 82910291. Track at www.bluedart.com. Expected delivery by Thursday.",
+    "python_logit": -1.3036404438270077,
+    "python_probability": 0.21355297377009075
+  },
+  {
+    "id": 14,
+    "text": "Dear Resident, maintenance payment of Rs 3,500 for the month of October is due by 10th. Please pay via society app or account transfer. - Society Management.",
+    "python_logit": -0.055060227406275475,
+    "python_probability": 0.48623841963954284
+  },
+  {
+    "id": 15,
+    "text": "Reminder: Your dental appointment with Dr. Sharma at Apollo Clinic is scheduled for tomorrow at 4:30 PM. Reply NO to cancel.",
+    "python_logit": -0.19080983160686238,
+    "python_probability": 0.4524417479057867
+  },
+  {
+    "id": 16,
+    "text": "ALERT: An attempt to login to your Google Account from Windows in Mumbai was made. If this was you, no action needed. If not, check your security activity.",
+    "python_logit": -0.20280494092608703,
+    "python_probability": 0.44947183081029507
+  },
+  {
+    "id": 17,
+    "text": "Your electricity bill for CA No 102918291 is Rs 2,410. Due date is 18-Oct-26. Pay online at https://www.bsesdelhi.com to avail 1% rebate.",
+    "python_logit": -0.9351927694137631,
+    "python_probability": 0.28187240272350217
+  },
+  {
+    "id": 18,
+    "text": "Dear SBI customer, OTP for transaction of INR 5,000.00 at FLIPKART is 910284. Never share OTP with anyone including bank staff.",
+    "python_logit": -1.7712308161666344,
+    "python_probability": 0.1453893317023465
+  },
+  {
+    "id": 19,
+    "text": "Hi Rahul, are we still meeting at the cafe around 6 PM today? Let me know if you need me to pick you up.",
+    "python_logit": -0.8694463932802033,
+    "python_probability": 0.29536950910042925
+  },
+  {
+    "id": 20,
+    "text": "Your Jio fiber plan will renew on 15-Oct-26. Current balance and billing statement is available on MyJio app.",
+    "python_logit": -1.3610513991683901,
+    "python_probability": 0.2040694755075884
+  }
+]

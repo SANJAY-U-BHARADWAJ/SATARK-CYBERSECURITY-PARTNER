@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-07T12:38:32.548Z",
+  "entries": [
+    "andrej-karpathy",
+    "anti-ui-slop",
+    "before-you-build",
+    "brainstorming",
+    "break-ai-fix-loops",
+    "browser-testing-with-devtools",
+    "deterministic-design",
+    "emil-design-eng",
+    "falsify",
+    "frontend-lighthouse",
+    "mock-hunter",
+    "production-audit",
+    "rich-elicitation",
+    "skill-security-audit",
+    "systematic-debugging"
+  ]
+}

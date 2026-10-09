@@ -1,0 +1,23 @@
+# HOLDOUT SET - 20 REALISTIC SAMPLES NEVER USED IN TRAINING
+# Note: At least 10 will be verified/replaced with real-world Indian messages.
+label,text
+scam,"Dear Customer, your electricity power will be disconnected at 9:30 PM tonight from electricity office. Immediately call bill officer at 9876543210 to avoid disconnection."
+scam,"Your FedEx courier #IX-8842 has been seized at Delhi Airport Customs with 15 fake passports and narcotic contraband. CBI warrant issued. Call investigation team immediately."
+scam,"Dear SBI User, your YONO mobile banking access has been blocked. Click here to verify PAN card within 24 hours: https://sbi-kyc-verify-portal.online/login"
+scam,"Earn Rs 4500 daily by simply liking YouTube videos. Work from home part time job. Instant payout to UPI. Contact HR Priya on WhatsApp: 9811223344"
+scam,"Congratulations! You won Rs 25,00,000 in KBC Jio Lucky Draw. Pay processing charge of Rs 12,500 to claim your prize cheque."
+scam,"Urgent: Your credit card reward points worth Rs 6,850 are expiring at 11:59 PM tonight. Redeem immediately into your bank account: http://card-points-claim.site"
+scam,"TRAI Notice: Your mobile number will be disconnected within 2 hours due to illegal advertising. Press 9 to connect with verification department."
+scam,"Income Tax Refund of Rs 14,820 approved. Please update your refund account details immediately: https://incometax-refund-verification.xyz/pan"
+scam,"Instant Personal Loan approved for Rs 5,00,000 at 0% interest without CIBIL check. Download quick sanction loan APK: http://fastloan-india.buzz/loan.apk"
+scam,"Dear user, your Paytm KYC is expired. Your wallet and UPI will be permanently closed. Call customer care 8920192831 to complete biometric verification."
+legit,"Your A/C ending 4091 is debited for INR 1,450.00 on 07-Oct-26 at SWIGGY BANGALORE. UPI Ref 4291829102. Bal: INR 34,210.50. Never share OTP or UPI PIN - HDFC Bank."
+legit,"482091 is your one time password (OTP) for verifying your login on Amazon.in. OTP valid for 10 minutes. Do not share this OTP with anyone."
+legit,"Your order #402-1829102-19281 has been shipped via Bluedart AWB 82910291. Track at www.bluedart.com. Expected delivery by Thursday."
+legit,"Dear Resident, maintenance payment of Rs 3,500 for the month of October is due by 10th. Please pay via society app or account transfer. - Society Management."
+legit,"Reminder: Your dental appointment with Dr. Sharma at Apollo Clinic is scheduled for tomorrow at 4:30 PM. Reply NO to cancel."
+legit,"ALERT: An attempt to login to your Google Account from Windows in Mumbai was made. If this was you, no action needed. If not, check your security activity."
+legit,"Your electricity bill for CA No 102918291 is Rs 2,410. Due date is 18-Oct-26. Pay online at https://www.bsesdelhi.com to avail 1% rebate."
+legit,"Dear SBI customer, OTP for transaction of INR 5,000.00 at FLIPKART is 910284. Never share OTP with anyone including bank staff."
+legit,"Hi Rahul, are we still meeting at the cafe around 6 PM today? Let me know if you need me to pick you up."
+legit,"Your Jio fiber plan will renew on 15-Oct-26. Current balance and billing statement is available on MyJio app."

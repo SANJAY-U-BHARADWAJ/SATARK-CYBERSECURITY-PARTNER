@@ -1,0 +1,43 @@
+{
+  "script": "ml/train.py",
+  "command": "python ml/train.py",
+  "dataset": "ml/data/india_scams.csv (381 samples: 194 scam, 187 legit)",
+  "holdout_dataset": "ml/data/holdout.csv (20 samples: 10 scam, 10 legit)",
+  "5_fold_cv": {
+    "precision": 0.995,
+    "recall": 1.0,
+    "f1_score": 0.9975,
+    "confusion_matrix": [
+      [
+        186,
+        1
+      ],
+      [
+        0,
+        194
+      ]
+    ]
+  },
+  "holdout_evaluation": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "generalization_drop": -0.0025
+  },
+  "scary_legitimate_stress_test": {
+    "total_tested": 10,
+    "false_positives": 2,
+    "false_positive_rate": "20%"
+  },
+  "model_size_kb": 79.39
+}
