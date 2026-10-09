@@ -104,4 +104,4 @@ npx tsx scripts/qa-benchmark.ts
 # Start local server
 npm run dev
 ```
-Visit `http://localhost:3000` to use Satark.
+Visit **[https://satarkcybersathi.vercel.app](https://satarkcybersathi.vercel.app)** to use the live version of Satark, or `http://localhost:3000` for your local development build.
