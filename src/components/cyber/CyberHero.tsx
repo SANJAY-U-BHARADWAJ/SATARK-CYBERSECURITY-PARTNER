@@ -117,12 +117,24 @@ export function CyberHero({ onOpenTransparency, onOpenQuiz, onScrollToCommandCen
           {/* Corridor grid illusion */}
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px', transform: 'perspective(500px) rotateX(60deg) scale(2.5)', transformOrigin: 'center 80%' }}></div>
           
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex flex-col sm:flex-row items-center justify-center gap-4 z-30 px-4">
             <button 
               onClick={onScrollToCommandCenter}
-              className="px-10 py-5 bg-white text-black font-space font-bold uppercase tracking-widest rounded-full hover:scale-105 hover:bg-[#00f0ff] transition-all flex items-center gap-3 z-30 cursor-pointer"
+              className="px-8 py-4 bg-white text-black font-space font-bold uppercase tracking-widest rounded-full hover:scale-105 hover:bg-[#00f0ff] transition-all flex items-center gap-2 cursor-pointer shadow-[0_0_25px_rgba(255,255,255,0.4)]"
             >
-              Start Protection <ArrowDown className="w-5 h-5" />
+              Start Protection <ArrowDown className="w-4 h-4" />
+            </button>
+            <button 
+              onClick={onOpenTransparency}
+              className="px-6 py-4 bg-black/60 backdrop-blur-md text-[#00f0ff] border border-[#00f0ff]/40 font-mono text-xs uppercase tracking-widest rounded-full hover:bg-[#00f0ff]/20 hover:scale-105 transition-all cursor-pointer"
+            >
+              Model Card & Weights
+            </button>
+            <button 
+              onClick={onOpenQuiz}
+              className="px-6 py-4 bg-black/60 backdrop-blur-md text-purple-300 border border-purple-500/40 font-mono text-xs uppercase tracking-widest rounded-full hover:bg-purple-500/20 hover:scale-105 transition-all cursor-pointer"
+            >
+              Awareness Quiz
             </button>
           </div>
         </div>

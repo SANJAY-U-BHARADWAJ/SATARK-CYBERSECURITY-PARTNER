@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
-import { AlertTriangle, TrendingUp, ShieldAlert, Key, Shield, HelpCircle } from "lucide-react";
+import React from "react";
+import { AlertTriangle, TrendingUp, ShieldAlert, Shield, HelpCircle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function CyberScamPlaybook() {

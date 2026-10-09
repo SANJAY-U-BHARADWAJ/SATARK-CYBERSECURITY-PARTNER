@@ -13,9 +13,12 @@ class SoundEngine {
     if (typeof window === 'undefined') return null;
     if (!this.ctx) {
       try {
-        this.ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
-      } catch (e) {
-        console.warn("AudioContext creation failed", e);
+        const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+        if (AudioCtx) {
+          this.ctx = new AudioCtx();
+        }
+      } catch {
+        // AudioContext initialization fallback
       }
     }
     // Resume context if suspended (needed by some browsers)
@@ -46,7 +49,9 @@ class SoundEngine {
             gain.connect(ctx.destination);
             osc.start();
             osc.stop(ctx.currentTime + 1.0);
-          } catch (e) {}
+          } catch {
+            // Audio unlock error fallback
+          }
         }
         window.removeEventListener('click', unlock);
         window.removeEventListener('keydown', unlock);
@@ -82,7 +87,8 @@ class SoundEngine {
       
       osc.start();
       osc.stop(ctx.currentTime + 0.3);
-    } catch (e) {
+    } catch {
+      // Audio playback fallback
     }
   }
 

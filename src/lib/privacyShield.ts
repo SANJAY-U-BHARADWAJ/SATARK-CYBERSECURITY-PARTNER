@@ -1,3 +1,13 @@
+/**
+ * Analyzes and sanitizes a given text input to mask sensitive Personally Identifiable Information (PII)
+ * before it is transmitted to external APIs or displayed in the UI.
+ * 
+ * Supports masking of Indian formats (e.g., Aadhaar, 10-digit mobile numbers), bank cards, OTPs,
+ * Email addresses, and UPI IDs.
+ * 
+ * @param {string} input - The raw text containing potential sensitive data.
+ * @returns {{ maskedText: string, count: number, items: string[] }} An object containing the masked text, total items redacted, and a list of redacted item types.
+ */
 export function maskSensitiveData(input: string): { maskedText: string; count: number; items: string[] } {
   let masked = input;
   const items: string[] = [];

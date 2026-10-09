@@ -4,10 +4,9 @@ import React, { useState, useEffect, useRef } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { toPng } from "html-to-image";
-import { Shield, RotateCcw, ArrowUp } from "lucide-react";
+import { Shield, ArrowUp } from "lucide-react";
 
-import { Language, InputMode, ThreatAnalysis } from "@/lib/types";
+import { InputMode, ThreatAnalysis } from "@/lib/types";
 import { analyzeThreatAsync } from "@/lib/detector-engine";
 import { ModelCardModal } from "@/components/ModelCardModal";
 import { QuizModal } from "@/components/QuizModal";
@@ -31,7 +30,7 @@ import { CyberScamPlaybook } from "@/components/cyber/CyberScamPlaybook";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
-  const { currentLanguage, setLanguage: setGlobalLanguage, t } = useLanguage();
+  const { currentLanguage } = useLanguage();
 
   // Preloader State
   const [isPreloaderDone, setIsPreloaderDone] = useState(false);
@@ -43,10 +42,18 @@ export default function Home() {
   const [analysis, setAnalysis] = useState<ThreatAnalysis | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // Modals & History
+  // Modals & History (Lazy initialized to prevent React 19 cascading render in effect)
   const [isModelCardOpen, setIsModelCardOpen] = useState<boolean>(false);
   const [isQuizOpen, setIsQuizOpen] = useState<boolean>(false);
-  const [scanHistory, setScanHistory] = useState<ThreatAnalysis[]>([]);
+  const [scanHistory, setScanHistory] = useState<ThreatAnalysis[]>(() => {
+    if (typeof window === "undefined") return [];
+    try {
+      const savedHistory = localStorage.getItem("satark-history");
+      return savedHistory ? JSON.parse(savedHistory) : [];
+    } catch {
+      return [];
+    }
+  });
 
   const lenisRef = useRef<Lenis | null>(null);
 
@@ -64,7 +71,7 @@ export default function Home() {
       smoothWheel: true,
     });
     lenisRef.current = lenis;
-    (window as any).__lenis = lenis;
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -74,16 +81,6 @@ export default function Home() {
 
     gsap.ticker.add(updateLenis);
     gsap.ticker.lagSmoothing(0);
-
-    // Load Scan History from local storage
-    try {
-      const savedHistory = localStorage.getItem("satark-history");
-      if (savedHistory) {
-        setScanHistory(JSON.parse(savedHistory));
-      }
-    } catch {
-      // Storage unavailable
-    }
 
     // Wipe Google Translate Cookies
     document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -142,8 +139,9 @@ export default function Home() {
           if (el) el.scrollIntoView({ behavior: "smooth" });
         }
       }, 100);
-    } catch (e: any) {
-      setErrorMessage(e.message || "Analysis failed. Please try again.");
+    } catch (e: unknown) {
+      const err = e as Error;
+      setErrorMessage(err?.message || "Analysis failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -155,28 +153,6 @@ export default function Home() {
       localStorage.removeItem("satark-history");
     } catch {
       // ignore
-    }
-  };
-
-  const handleShareWhatsApp = () => {
-    if (!analysis) return;
-    const msg = `🚨 *Satark Threat Check*: ${analysis.scamType}\n\n*Verdict*: ${analysis.explanation} (${analysis.riskScore}/100 Risk Score)\n\nStay alert! Report online financial frauds to 1930 or cybercrime.gov.in`;
-    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
-    window.open(url, "_blank");
-  };
-
-  const handleDownloadCard = async () => {
-    const cardEl = document.getElementById("satark-verdict-card");
-    if (!cardEl) return;
-
-    try {
-      const dataUrl = await toPng(cardEl, { quality: 0.95, pixelRatio: 2 });
-      const link = document.createElement("a");
-      link.download = `satark-threat-report-${Date.now()}.png`;
-      link.href = dataUrl;
-      link.click();
-    } catch (e) {
-      console.error("Card capture failed", e);
     }
   };
 
@@ -289,7 +265,7 @@ export default function Home() {
                   DIAL 1930
                 </a>
               </div>
-              <span>//</span>
+              <span>{"//"}</span>
               <div>
                 NATIONAL PORTAL:{" "}
                 <a

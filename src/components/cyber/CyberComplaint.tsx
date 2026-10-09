@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { FileSignature, ArrowRight, CheckCircle2, ShieldAlert, Download, Printer, Upload } from "lucide-react";
+import Image from "next/image";
+import { FileSignature, ArrowRight, CheckCircle2, ShieldAlert, Download, Upload, FileText } from "lucide-react";
 import { soundEngine } from "@/utils/SoundEngine";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -14,7 +15,7 @@ const STEPS_KEYS = [
 ];
 
 export function CyberComplaint() {
-  const { currentLanguage, t } = useLanguage();
+  const { t } = useLanguage();
   const [currentStep, setCurrentStep] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
   const evidenceInputRef = useRef<HTMLInputElement>(null);
@@ -208,8 +209,8 @@ Date: ________________________
         html2canvas:  { 
           scale: 2, 
           useCORS: true,
-          ignoreElements: (node: any) => {
-            return node.tagName && (node.tagName.toLowerCase() === 'style' || node.tagName.toLowerCase() === 'link');
+          ignoreElements: (node: Element) => {
+            return Boolean(node.tagName && (node.tagName.toLowerCase() === 'style' || node.tagName.toLowerCase() === 'link'));
           }
         },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' as const }
@@ -346,7 +347,7 @@ Date: ________________________
                           <div key={idx} className="flex items-center justify-between bg-black/50 border border-neutral-800 p-2 rounded-lg">
                             <div className="flex items-center gap-2 overflow-hidden">
                               {f.type.startsWith('image/') ? (
-                                <img src={URL.createObjectURL(f)} alt="thumb" className="w-8 h-8 object-cover rounded" />
+                                <Image unoptimized src={URL.createObjectURL(f)} alt="Attachment thumbnail" width={32} height={32} className="w-8 h-8 object-cover rounded" />
                               ) : (
                                 <div className="w-8 h-8 bg-neutral-800 rounded flex items-center justify-center text-[10px]">PDF</div>
                               )}
@@ -365,8 +366,11 @@ Date: ________________________
                 {currentStep === 4 && (
                   <div className="flex flex-col gap-6 w-full mt-10">
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                      <button onClick={handlePrintPDF} className="w-full sm:w-auto flex items-center justify-center gap-2 px-12 py-4 rounded-xl bg-[#7000ff] border border-[#7000ff] text-white hover:shadow-[0_0_20px_#7000ff] transition-all font-mono text-sm uppercase cursor-pointer">
+                      <button onClick={handlePrintPDF} className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-4 rounded-xl bg-[#7000ff] border border-[#7000ff] text-white hover:shadow-[0_0_20px_#7000ff] transition-all font-mono text-sm uppercase cursor-pointer">
                         <Download className="w-5 h-5" /> Download PDF
+                      </button>
+                      <button onClick={handleDownloadDOC} className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-4 rounded-xl bg-neutral-900 border border-neutral-700 text-neutral-200 hover:border-[#7000ff] hover:text-white transition-all font-mono text-sm uppercase cursor-pointer">
+                        <FileText className="w-5 h-5" /> Download TXT Draft
                       </button>
                     </div>
                   </div>

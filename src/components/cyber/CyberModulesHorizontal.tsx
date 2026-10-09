@@ -55,7 +55,7 @@ export function CyberModulesHorizontal({ onSelectModule }: CyberModulesProps) {
                 <h3 className="font-space font-bold text-xl text-white mb-2">{t("tool1.title")}</h3>
                 <p className="font-sans text-xs text-neutral-400">{t("tool1.desc")}</p>
               </div>
-              <button onClick={() => { soundEngine.playClick(); onSelectModule("sms"); }} className="w-12 h-12 mt-6 rounded-full border border-[#00f0ff]/40 flex items-center justify-center text-[#00f0ff] group-hover:bg-[#00f0ff] group-hover:text-black transition-all">
+              <button aria-label={t("tool1.title")} onClick={() => { soundEngine.playClick(); onSelectModule("sms"); }} className="w-12 h-12 mt-6 rounded-full border border-[#00f0ff]/40 flex items-center justify-center text-[#00f0ff] group-hover:bg-[#00f0ff] group-hover:text-black transition-all">
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
@@ -66,7 +66,7 @@ export function CyberModulesHorizontal({ onSelectModule }: CyberModulesProps) {
                 <h3 className="font-space font-bold text-xl text-white mb-2">{t("tool2.title")}</h3>
                 <p className="font-sans text-xs text-neutral-400">{t("tool2.desc")}</p>
               </div>
-              <button onClick={() => { soundEngine.playClick(); onSelectModule("sms"); }} className="w-12 h-12 mt-6 rounded-full border border-[#ffb800]/40 flex items-center justify-center text-[#ffb800] group-hover:bg-[#ffb800] group-hover:text-black transition-all">
+              <button aria-label={t("tool2.title")} onClick={() => { soundEngine.playClick(); onSelectModule("sms"); }} className="w-12 h-12 mt-6 rounded-full border border-[#ffb800]/40 flex items-center justify-center text-[#ffb800] group-hover:bg-[#ffb800] group-hover:text-black transition-all">
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
@@ -77,7 +77,7 @@ export function CyberModulesHorizontal({ onSelectModule }: CyberModulesProps) {
                 <h3 className="font-space font-bold text-xl text-white mb-2">{t("tool3.title")}</h3>
                 <p className="font-sans text-xs text-neutral-400">{t("tool3.desc")}</p>
               </div>
-              <button onClick={() => { soundEngine.playClick(); onSelectModule("url"); }} className="w-12 h-12 mt-6 rounded-full border border-[#ff0055]/40 flex items-center justify-center text-[#ff0055] group-hover:bg-[#ff0055] group-hover:text-black transition-all">
+              <button aria-label={t("tool3.title")} onClick={() => { soundEngine.playClick(); onSelectModule("url"); }} className="w-12 h-12 mt-6 rounded-full border border-[#ff0055]/40 flex items-center justify-center text-[#ff0055] group-hover:bg-[#ff0055] group-hover:text-black transition-all">
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
@@ -88,7 +88,7 @@ export function CyberModulesHorizontal({ onSelectModule }: CyberModulesProps) {
                 <h3 className="font-space font-bold text-xl text-white mb-2">{t("tool4.title")}</h3>
                 <p className="font-sans text-xs text-neutral-400">{t("tool4.desc")}</p>
               </div>
-              <button onClick={() => { soundEngine.playClick(); onSelectModule("screenshot"); }} className="w-12 h-12 mt-6 rounded-full border border-[#7000ff]/40 flex items-center justify-center text-[#7000ff] group-hover:bg-[#7000ff] group-hover:text-black transition-all">
+              <button aria-label={t("tool4.title")} onClick={() => { soundEngine.playClick(); onSelectModule("screenshot"); }} className="w-12 h-12 mt-6 rounded-full border border-[#7000ff]/40 flex items-center justify-center text-[#7000ff] group-hover:bg-[#7000ff] group-hover:text-black transition-all">
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

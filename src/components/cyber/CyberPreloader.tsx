@@ -3,27 +3,21 @@
 import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Terminal, Shield, Cpu, Lock } from "lucide-react";
+import { Shield } from "lucide-react";
 
 interface CyberPreloaderProps {
   onComplete: () => void;
 }
 
-const BOOT_LOGS = [
-  "INITIALIZING NEURAL DEFENSE MATRIX [SATARK v2.4]...",
-  "CALIBRATING ZERO-TRUST OMNIROUTE GATEWAY...",
-  "COMPILING WEBGL SHADER KERNELS [4,500 CORES]...",
-  "DEPLOYING GEMINI 3.7 FLASH THREAT ENGINE...",
-  "QUANTUM ENTROPY CHECK: PASSED (0.0001ms JITTER)...",
-  "NEURAL SHIELD SYNCHRONIZED. SYSTEM STATUS: ONLINE.",
-];
-
 export function CyberPreloader({ onComplete }: CyberPreloaderProps) {
   const [progress, setProgress] = useState(0);
-  const [logIndex, setLogIndex] = useState(0);
-  const [isReady, setIsReady] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -39,7 +33,7 @@ export function CyberPreloader({ onComplete }: CyberPreloaderProps) {
         
         const exitTl = gsap.timeline({
           onComplete: () => {
-            onComplete();
+            onCompleteRef.current();
             ScrollTrigger.refresh();
           },
         });

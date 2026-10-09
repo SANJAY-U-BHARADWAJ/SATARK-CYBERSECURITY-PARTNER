@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { X, Shield, Cpu, Brain, CheckCircle2 } from "lucide-react";
+import { X, Shield, Cpu, Brain } from "lucide-react";
 
 interface ModelCardModalProps {
   isOpen: boolean;

@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, AlertTriangle, Phone, ExternalLink, ShieldAlert, XCircle, AlertOctagon, Key, EyeOff } from "lucide-react";
+import { ArrowLeft, AlertTriangle, Phone, ExternalLink, ShieldAlert, AlertOctagon, Key, EyeOff } from "lucide-react";
 import { uiAudio } from "@/utils/audio";
 import { Header } from "@/components/Header";
-import { Language } from "@/lib/types";
 
 const EMERGENCIES = [
   {
@@ -56,27 +55,6 @@ const EMERGENCIES = [
 ];
 
 export default function IncidentPage() {
-  const [language, setLanguage] = useState<Language>("en");
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("satark-theme") as "dark" | "light" | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.className = `${savedTheme} ${document.documentElement.className.replace(/dark|light/g, "").trim()}`;
-    } else {
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    localStorage.setItem("satark-theme", nextTheme);
-    document.documentElement.classList.remove("dark", "light");
-    document.documentElement.classList.add(nextTheme);
-  };
-
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
       <Header />

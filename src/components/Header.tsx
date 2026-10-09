@@ -4,7 +4,12 @@ import React, { useState, useEffect } from "react";
 import { Shield, PhoneCall } from "lucide-react";
 import { useLanguage, LanguageCode } from "@/context/LanguageContext";
 import { soundEngine } from "@/utils/SoundEngine";
-import Lenis from "lenis";
+
+interface CustomWindow extends Window {
+  __lenis?: {
+    scrollTo: (target: number | HTMLElement, options?: { offset?: number }) => void;
+  };
+}
 
 const LANGUAGES: { code: LanguageCode; label: string }[] = [
   { code: "en", label: "English" },
@@ -58,8 +63,9 @@ export function Header() {
 
   const scrollToTop = () => {
     soundEngine.playClick();
-    if ((window as any).__lenis) {
-      (window as any).__lenis.scrollTo(0);
+    const lenis = (window as unknown as CustomWindow).__lenis;
+    if (lenis) {
+      lenis.scrollTo(0);
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -69,8 +75,9 @@ export function Header() {
     soundEngine.playClick();
     const el = document.getElementById(id);
     if (el) {
-      if ((window as any).__lenis) {
-        (window as any).__lenis.scrollTo(el, { offset: -80 });
+      const lenis = (window as unknown as CustomWindow).__lenis;
+      if (lenis) {
+        lenis.scrollTo(el, { offset: -80 });
       } else {
         el.scrollIntoView({ behavior: 'smooth' });
       }

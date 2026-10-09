@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Bot, Send, User, Sparkles, Terminal } from "lucide-react";
+import { Bot, Send, User, Terminal, Sparkles } from "lucide-react";
 import { soundEngine } from "@/utils/SoundEngine";
-import { LanguageCode } from "@/context/LanguageContext";
 import { useLanguage } from "@/context/LanguageContext";
 
 // Strips raw markdown so the chat is clean text
@@ -14,20 +13,15 @@ function formatChatText(text?: string) {
 
 export function CyberAssistant() {
   const { currentLanguage, t } = useLanguage();
-  const [messages, setMessages] = useState<{ role: "ai" | "user"; content: string }[]>([
-    { role: "ai", content: t("chat.greeting") }
-  ]);
+  const [messages, setMessages] = useState<{ role: "ai" | "user"; content: string }[]>([]);
   const [input, setInput] = useState("");
 
   const chatScrollContainerRef = React.useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    // Optionally update greeting if empty, but for now we keep history
-    if (messages.length === 1 && messages[0].role === "ai") {
-      setMessages([{ role: "ai", content: t("chat.greeting") }]);
-    }
-  }, [currentLanguage, t]);
+  const displayedMessages = messages.length > 0
+    ? messages
+    : [{ role: "ai" as const, content: t("chat.greeting") }];
 
   useEffect(() => {
     if (chatScrollContainerRef.current) {
@@ -41,7 +35,8 @@ export function CyberAssistant() {
   const handleSend = async () => {
     if (!input.trim()) return;
     soundEngine.playClick();
-    const newMessages = [...messages, { role: "user" as const, content: input }];
+    const currentList = messages.length > 0 ? messages : [{ role: "ai" as const, content: t("chat.greeting") }];
+    const newMessages = [...currentList, { role: "user" as const, content: input }];
     setMessages(newMessages);
     setInput("");
     setIsLoading(true);
@@ -67,7 +62,7 @@ export function CyberAssistant() {
         ...prev,
         { role: "ai", content: formatChatText(data.reply) || "Error connecting to AI Assistant." }
       ]);
-    } catch (e) {
+    } catch {
       soundEngine.playTing();
       setMessages((prev) => [
         ...prev,
@@ -99,7 +94,7 @@ export function CyberAssistant() {
             onTouchMove={(e) => e.stopPropagation()}
             className="flex-1 overflow-y-auto overscroll-contain scroll-smooth space-y-4 pr-2 custom-scrollbar"
           >
-            {messages.map((msg, idx) => (
+            {displayedMessages.map((msg, idx) => (
               <div key={idx} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
                   msg.role === "user" ? "bg-[#7000ff]/20 border border-[#7000ff]/50 text-[#7000ff]" : "bg-[#00f0ff]/20 border border-[#00f0ff]/50 text-[#00f0ff]"
@@ -135,6 +130,7 @@ export function CyberAssistant() {
               className="flex-1 bg-black/60 border border-neutral-800 focus:border-[#00f0ff] rounded-xl px-4 py-3 font-mono text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-[#00f0ff] transition-all"
             />
             <button
+              aria-label="Send message"
               onClick={handleSend}
               onMouseEnter={() => soundEngine.playHover()}
               className="px-6 py-3 rounded-xl bg-[#00f0ff]/10 hover:bg-[#00f0ff]/20 border border-[#00f0ff]/30 text-[#00f0ff] transition-all flex items-center justify-center gap-2"

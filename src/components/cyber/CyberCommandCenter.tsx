@@ -26,8 +26,9 @@ import {
   Lock as LockIcon,
   AlertTriangle
 } from "lucide-react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
-import { InputMode, SampleMessage, Language, ThreatAnalysis } from "@/lib/types";
+import { InputMode, SampleMessage, ThreatAnalysis } from "@/lib/types";
 
 import { soundEngine } from "@/utils/SoundEngine";
 
@@ -124,13 +125,10 @@ export function CyberCommandCenter({
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isLoading) {
-      setScanStepIndex(0);
-      interval = setInterval(() => {
-        setScanStepIndex((prev) => (prev + 1) % TERMINAL_SCAN_STEPS.length);
-      }, 700);
-    }
+    if (!isLoading) return;
+    const interval = setInterval(() => {
+      setScanStepIndex((prev) => (prev + 1) % TERMINAL_SCAN_STEPS.length);
+    }, 700);
     return () => clearInterval(interval);
   }, [isLoading]);
 
@@ -142,7 +140,7 @@ export function CyberCommandCenter({
     }
   }, [upiId, upiDesc, inputMode, setInputText]);
 
-  const handleSelectSample = (sample: any) => {
+  const handleSelectSample = (sample: { type: InputMode; text: string }) => {
     soundEngine.playClick();
     setInputMode(sample.type);
     
@@ -423,9 +421,12 @@ export function CyberCommandCenter({
               {uploadedImageName && inputText.startsWith("[IMAGE_BASE64") && (
                 <div className="flex flex-col gap-3">
                   <div className="w-full h-40 rounded-xl overflow-hidden border border-neutral-800 flex items-center justify-center bg-black">
-                    <img 
+                    <Image 
+                      unoptimized
                       src={`data:${inputText.split(":")[1]};base64,${inputText.split(":")[2].slice(0, -1)}`} 
-                      alt="Preview" 
+                      alt="Uploaded evidence screenshot preview" 
+                      width={320}
+                      height={160}
                       className="max-h-full max-w-full object-contain"
                     />
                   </div>
@@ -619,7 +620,7 @@ export function CyberCommandCenter({
               Why is this a fraud?
             </h4>
             <p className="text-neutral-300 text-sm sm:text-base leading-relaxed font-sans whitespace-pre-wrap">
-              {typeof analysis.explanation === 'string' ? analysis.explanation : (analysis.explanation as any)?.en || "Explanation not available."}
+              {typeof analysis.explanation === 'string' ? analysis.explanation : (analysis.explanation as Record<string, string>)?.en || "Explanation not available."}
             </p>
           </div>
 
@@ -629,7 +630,7 @@ export function CyberCommandCenter({
               What should you do now?
             </h4>
             <ul className="space-y-3">
-              {(Array.isArray(analysis.nextSteps) ? analysis.nextSteps : ((analysis.nextSteps as any)?.en || [])).map((step: string, idx: number) => (
+              {(Array.isArray(analysis.nextSteps) ? analysis.nextSteps : ((analysis.nextSteps as Record<string, string[]>)?.en || [])).map((step: string, idx: number) => (
                 <li key={idx} className="flex gap-3 text-neutral-300 text-sm sm:text-base">
                   <span className="w-6 h-6 rounded-full bg-[#00f0ff]/10 text-[#00f0ff] flex items-center justify-center shrink-0 font-mono text-xs font-bold mt-0.5">
                     {idx + 1}
@@ -701,7 +702,7 @@ export function CyberCommandCenter({
                     </span>
                   </div>
                   <div className="font-space font-bold text-xs text-white truncate">
-                    {typeof item.scamType === 'string' ? item.scamType : (item.scamType as any)?.en || 'Threat Analysis'}
+                    {typeof item.scamType === 'string' ? item.scamType : (item.scamType as Record<string, string>)?.en || 'Threat Analysis'}
                   </div>
                   <div className="text-[11px] font-sans text-neutral-400 line-clamp-2">
                     {item.inputText.startsWith("[IMAGE_BASE64") ? "Screenshot Scan" : item.inputText}

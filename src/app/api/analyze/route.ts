@@ -52,6 +52,14 @@ function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
   return { allowed: true, remaining: MAX_REQUESTS_PER_WINDOW - validTimestamps.length };
 }
 
+/**
+ * Handles incoming POST requests for threat analysis.
+ * Implements IP-based rate limiting, input validation via Zod, and interacts 
+ * with the Google Gemini API to return a structured cyber threat assessment.
+ * 
+ * @param {NextRequest} req - The Next.js incoming request object containing maskedText or image.
+ * @returns {Promise<NextResponse>} JSON response containing the threat analysis or error details.
+ */
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "127.0.0.1";
   const limitCheck = checkRateLimit(ip);

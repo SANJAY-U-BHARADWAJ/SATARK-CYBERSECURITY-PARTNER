@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { PhoneCall, AlertTriangle, Shield, ExternalLink, MessageCircle } from "lucide-react";
+import { PhoneCall, AlertTriangle, Shield, ExternalLink } from "lucide-react";
 import { soundEngine } from "@/utils/SoundEngine";
 
 export function CyberEmergency() {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Shield, Eye, EyeOff, Lock, CheckCircle2, XCircle, RefreshCw } from "lucide-react";
 import { soundEngine } from "@/utils/SoundEngine";
 import { useLanguage } from "@/context/LanguageContext";
@@ -9,9 +9,6 @@ export function CyberScore() {
   const { t } = useLanguage();
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [score, setScore] = useState(0);
-  const [color, setColor] = useState("text-[#ff0055]");
-  const [crackTime, setCrackTime] = useState("Instantly");
 
   const rules = [
     { id: "length", text: "At least 12 characters", check: (p: string) => p.length >= 12 },
@@ -21,7 +18,7 @@ export function CyberScore() {
     { id: "symbol", text: "Special symbol", check: (p: string) => /[^A-Za-z0-9]/.test(p) },
   ];
 
-  useEffect(() => {
+  const score = (() => {
     let s = 0;
     if (password.length > 0) s += 10;
     if (password.length >= 8) s += 15;
@@ -30,23 +27,23 @@ export function CyberScore() {
     if (/[a-z]/.test(password)) s += 10;
     if (/[0-9]/.test(password)) s += 15;
     if (/[^A-Za-z0-9]/.test(password)) s += 15;
-    
-    setScore(s);
+    return s;
+  })();
 
-    if (s < 40) {
-      setColor("text-[#ff0055]"); // Weak Red
-      setCrackTime(s === 0 ? "Instantly" : "A few seconds");
-    } else if (s < 70) {
-      setColor("text-[#ffb800]"); // Moderate Amber
-      setCrackTime("5 Hours");
-    } else if (s < 90) {
-      setColor("text-[#00f0ff]"); // Strong Cyan
-      setCrackTime("300 Years");
+  const { color, crackTime } = (() => {
+    if (score < 40) {
+      return {
+        color: "text-[#ff0055]",
+        crackTime: score === 0 ? "Instantly" : "A few seconds",
+      };
+    } else if (score < 70) {
+      return { color: "text-[#ffb800]", crackTime: "5 Hours" };
+    } else if (score < 90) {
+      return { color: "text-[#00f0ff]", crackTime: "300 Years" };
     } else {
-      setColor("text-[#00ff88]"); // Unbreakable Green
-      setCrackTime("40,000+ Years");
+      return { color: "text-[#00ff88]", crackTime: "40,000+ Years" };
     }
-  }, [password]);
+  })();
 
   const generatePassword = () => {
     soundEngine.playClick();

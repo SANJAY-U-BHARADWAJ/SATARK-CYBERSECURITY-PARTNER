@@ -3,6 +3,14 @@ import { GoogleGenAI } from "@google/genai";
 
 export const maxDuration = 60;
 
+/**
+ * Handles incoming POST requests for the Cyber Assistant chat interface.
+ * Validates message history and communicates with the Gemini model to provide 
+ * context-aware, localized cyber safety advice.
+ * 
+ * @param {NextRequest} req - The incoming request containing the chat history and user language preference.
+ * @returns {Promise<NextResponse>} JSON response containing the AI's reply or an error status.
+ */
 export async function POST(req: NextRequest) {
   try {
     const { messages, language = "English" } = await req.json();

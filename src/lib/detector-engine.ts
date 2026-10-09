@@ -1,4 +1,4 @@
-import { ThreatAnalysis, SampleMessage, Language, InputMode } from "./types";
+import { ThreatAnalysis, SampleMessage, InputMode } from "./types";
 import { maskSensitiveData } from "./privacyShield";
 
 export const SAMPLE_MESSAGES: SampleMessage[] = [
@@ -78,6 +78,19 @@ export const SAMPLE_MESSAGES: SampleMessage[] = [
 
 // maskSensitiveData is now imported from privacyShield.ts
 
+/**
+ * Analyzes raw input (text, SMS, URLs, or image base64) for cyber threats using 
+ * the backend AI detection engine.
+ * 
+ * Before transmission, the input is passed through a Privacy Shield to mask any 
+ * Personally Identifiable Information (PII) like phone numbers, PAN cards, or banking details.
+ * 
+ * @param {string} rawInput - The unprocessed user input string or specially formatted base64 image identifier.
+ * @param {InputMode} mode - The context of the input (e.g., 'sms', 'url', 'screenshot').
+ * @param {string} language - The preferred language for the explanation and next steps (e.g., 'en', 'hi').
+ * @returns {Promise<ThreatAnalysis>} A structured analysis object containing the risk score, exact scam type, explanation, and mitigation steps.
+ * @throws {Error} Throws if the AI analysis fails or the network request is rejected.
+ */
 export async function analyzeThreatAsync(
   rawInput: string,
   mode: InputMode,

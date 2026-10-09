@@ -38,6 +38,20 @@ export const metadata: Metadata = {
   title: "Satark | AI Scam & Phishing Threat Intelligence",
   description:
     "Instant, privacy-first threat analysis for digital scams in India. Checks messages, URLs, and screenshots with tri-detector verification, Hindi/English explanations, and immediate 10-minute action checklists.",
+  keywords: ["cybersecurity", "phishing detection", "scam alert", "AI cyber threat", "India cyber safety", "Satark", "hack2skill"],
+  openGraph: {
+    title: "Satark | AI Scam & Phishing Threat Intelligence",
+    description: "Instant, privacy-first threat analysis for digital scams in India. Tri-detector verification and cyber safety guidance.",
+    url: "https://satark.app",
+    siteName: "Satark",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Satark | AI Scam & Phishing Threat Intelligence",
+    description: "Instant, privacy-first threat analysis for digital scams in India.",
+  },
   other: {
     google: "notranslate",
   }

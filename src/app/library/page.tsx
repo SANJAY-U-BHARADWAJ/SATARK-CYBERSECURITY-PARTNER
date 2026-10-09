@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, Search, ShieldAlert, BookOpen, AlertOctagon, TrendingUp, Smartphone, Globe, Briefcase, CreditCard } from "lucide-react";
 import { uiAudio } from "@/utils/audio";
 import { Header } from "@/components/Header";
-import { Language } from "@/lib/types";
 
 const SCAM_CATEGORIES = [
   { id: "all", label: "All Scams", icon: BookOpen },
@@ -95,26 +94,6 @@ const SCAM_DATA = [
 export default function LibraryPage() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [language, setLanguage] = useState<Language>("en");
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("satark-theme") as "dark" | "light" | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.className = `${savedTheme} ${document.documentElement.className.replace(/dark|light/g, "").trim()}`;
-    } else {
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    localStorage.setItem("satark-theme", nextTheme);
-    document.documentElement.classList.remove("dark", "light");
-    document.documentElement.classList.add(nextTheme);
-  };
 
   const filteredScams = SCAM_DATA.filter((scam) => {
     const matchesCategory = activeCategory === "all" || scam.category === activeCategory;
