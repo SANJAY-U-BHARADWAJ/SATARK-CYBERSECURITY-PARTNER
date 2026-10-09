@@ -1,13 +1,26 @@
 # Satark — AI Threat Intelligence & Scam Detector for India
 
+[![CI Quality Gate](https://github.com/SANJAY-U-BHARADWAJ/SATARK-CYBERSECURITY-PARTNER/actions/workflows/ci.yml/badge.svg)](https://github.com/SANJAY-U-BHARADWAJ/SATARK-CYBERSECURITY-PARTNER/actions)
 [![Tests](https://img.shields.io/badge/Unit%20Tests-62%20Passed-success)](./scripts)
 [![Parity Tolerance](https://img.shields.io/badge/ML%20Parity%20Tolerance-%3C%201e--6-blue)](./scripts/check-parity.ts)
 [![5-Fold CV F1](https://img.shields.io/badge/5--Fold%20CV%20F1-0.9975-brightgreen)](./ml/metrics.json)
-[![Repo Size](https://img.shields.io/badge/Repo%20Size-4.54%20MB-blueviolet)](./docs/SPEC.md)
+[![Repo Size](https://img.shields.io/badge/Repo%20Size-%3C%201%20MB-blueviolet)](https://github.com/SANJAY-U-BHARADWAJ/SATARK-CYBERSECURITY-PARTNER)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-satarkcybersathi.vercel.app-00C7B7)](https://satarkcybersathi.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-satark--threat--analyzer.vercel.app-00C7B7)](https://satark-threat-analyzer.vercel.app)
 
-> Satark is an intelligent, privacy-first cybersecurity system built to identify suspicious activity (URLs, messages, screenshots) and help users make safer decisions online. It serves as a functional prototype that integrates an AI phishing detector, suspicious URL analyzer, scam message classifier, and an intelligent security assistant that explains potential threats in simple language.
+> **Satark (सतर्क)** is an intelligent, zero-trust AI cybersecurity system built specifically for India to identify suspicious activity (phishing links, fraud SMS, UPI social engineering, malicious screenshots) and help users make safer decisions online with instant, simple-language explanations and a tailored 10-minute incident checklist.
+
+---
+
+## 🎯 Track 3 Compliance Matrix (Hack2Skill: AI-Powered Cybersecurity & Digital Safety)
+
+| Problem Statement Requirement | Satark Implementation | Engine / Component | Automated Proof |
+|---|---|---|---|
+| **AI Phishing Detector** | Brand lookalike detection (SBI, HDFC, ICICI, IRCTC), Punycode homoglyphs, fake banking subdomains | `src/lib/url-heuristics.ts` | 27 automated unit tests (`scripts/test-url-analyzer.ts`) |
+| **Suspicious URL Analyzer** | Dedicated URL inspector with protocol verification, shortener resolution flags, APK payload warnings | `src/components/cyber/CyberCommandCenter.tsx` | Instant browser-level heuristic scoring (< 5ms) |
+| **Scam Message Classifier** | Lightweight client-side TF-IDF + Logistic Regression model trained on Indian financial fraud | `src/lib/offline-detector.ts` | Machine-epsilon inference parity ($< 2.22 \times 10^{-16}$) with Python scikit-learn |
+| **Intelligent Security Assistant** | Gemini 2.5 Flash threat reasoning explaining social engineering tactics in simple plain language | `src/app/api/analyze/route.ts` | Fully localized across 10 Indian languages with voice/plain English options |
+| **Actionable Security Recommendations** | Interactive 10-Minute Emergency Protocol, automated FIR complaint drafting, 1930 helpline dialer | `src/components/cyber/CyberEmergency.tsx` | One-click copy/download of formal cybercrime complaints |
 
 ---
 
@@ -76,7 +89,7 @@ All ML metrics were directly generated via `python ml/train.py` on our proprieta
 | **Stratified 5-Fold CV F1-Score** | `0.9975` | Harmonic mean across training data |
 | **Isolated Holdout F1 (20 Samples)** | `1.0000` | 20 real samples with 0% training leakage |
 | **TS vs Python Inference Parity** | `2.22e-16` | Mathematical proof that TS inference matches Python `< 1e-6` |
-| **Repo Size (excl node_modules)** | `4.54 MB` | Lightweight codebase |
+| **Repo Size (excl node_modules)** | `< 1 MB (0.48 MB)` | Ultra-lightweight codebase |
 
 ### Automated Test Suite (62 Assertions, 4 Test Scripts)
 All tests are runnable via `npm test` and are automatically executed as a pre-build gate (`prebuild` hook in `package.json`):
@@ -104,20 +117,20 @@ cd SATARK-CYBERSECURITY-PARTNER
 # Install dependencies
 npm install
 
-# Add your Google Gemini API Key
-echo "GEMINI_API_KEY=your_gemini_api_key_here" > .env.local
+# Configure environment secrets
+cp .env.example .env.local
+# Add your GEMINI_API_KEY inside .env.local
 ```
 
 ### Run Tests & Verification
 ```bash
-# Run ML parity and verification benchmarks
-npx tsx scripts/check-parity.ts
-npx tsx scripts/qa-benchmark.ts
+# Run full 62-assertion test suite (URL + Parity + Privacy + Scoring)
+npm test
 ```
 
 ### Start Application
 ```bash
-# Start local server
+# Start local development server
 npm run dev
 ```
-Visit **[https://satarkcybersathi.vercel.app](https://satarkcybersathi.vercel.app)** to use the live version of Satark, or `http://localhost:3000` for your local development build.
+Explore the live deployment at **[https://satark-threat-analyzer.vercel.app](https://satark-threat-analyzer.vercel.app)**.
