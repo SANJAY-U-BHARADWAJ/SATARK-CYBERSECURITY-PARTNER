@@ -24,7 +24,7 @@ import {
   Globe,
   Search,
   Lock as LockIcon,
-  AlertTriangle
+  AlertTriangle,
 } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
@@ -39,38 +39,140 @@ const TABS = [
   { id: "screenshot", icon: ImageIcon, labelKey: "tab.screenshot" },
 ];
 
-const TAB_DATA: Record<string, { headerKey: string; buttons: (Omit<SampleMessage, 'title'> & { titleKey: string })[] }> = {
+const TAB_DATA: Record<
+  string,
+  {
+    headerKey: string;
+    buttons: (Omit<SampleMessage, "title"> & { titleKey: string })[];
+  }
+> = {
   upi: {
     headerKey: "tab.upi.header",
     buttons: [
-      { id: "u1", titleKey: 'btn.u1', titleHi: '', category: "upi", riskBadge: "danger", text: "Scan this QR code and enter your UPI PIN to receive ₹5,000 refund from OLX buyer.", type: "upi" },
-      { id: "u2", titleKey: 'btn.u2', titleHi: '', category: "upi", riskBadge: "danger", text: "lucky-draw-winner@ybl", type: "upi" },
-      { id: "u3", titleKey: 'btn.u3', titleHi: '', category: "upi", riskBadge: "danger", text: "Please send ₹1 to verify your account, we will refund ₹10,000 immediately.", type: "upi" },
-      { id: "u4", titleKey: 'btn.u4', titleHi: '', category: "upi", riskBadge: "safe", text: "Dear Customer, ₹5,000.00 has been credited to your A/c ending 1234 on 15-Oct. Info: UPI/Transfer.", type: "upi" },
-    ]
+      {
+        id: "u1",
+        titleKey: "btn.u1",
+        titleHi: "",
+        category: "upi",
+        riskBadge: "danger",
+        text: "Scan this QR code and enter your UPI PIN to receive ₹5,000 refund from OLX buyer.",
+        type: "upi",
+      },
+      {
+        id: "u2",
+        titleKey: "btn.u2",
+        titleHi: "",
+        category: "upi",
+        riskBadge: "danger",
+        text: "lucky-draw-winner@ybl",
+        type: "upi",
+      },
+      {
+        id: "u3",
+        titleKey: "btn.u3",
+        titleHi: "",
+        category: "upi",
+        riskBadge: "danger",
+        text: "Please send ₹1 to verify your account, we will refund ₹10,000 immediately.",
+        type: "upi",
+      },
+      {
+        id: "u4",
+        titleKey: "btn.u4",
+        titleHi: "",
+        category: "upi",
+        riskBadge: "safe",
+        text: "Dear Customer, ₹5,000.00 has been credited to your A/c ending 1234 on 15-Oct. Info: UPI/Transfer.",
+        type: "upi",
+      },
+    ],
   },
   sms: {
     headerKey: "tab.sms.header",
     buttons: [
-      { id: "s1", titleKey: 'btn.s1', titleHi: '', category: "sms", riskBadge: "danger", text: "Your electricity bill is unpaid. Power will be disconnected tonight at 9:30 PM. Call electricity officer immediately: 9876543210", type: "sms" },
-      { id: "s2", titleKey: 'btn.s2', titleHi: '', category: "sms", riskBadge: "danger", text: "Dear Customer, your SBI account will be blocked today. Please complete your KYC immediately by clicking here: http://sbi-kyc-update.top", type: "sms" },
-      { id: "s3", titleKey: 'btn.s3', titleHi: '', category: "sms", riskBadge: "danger", text: "Congratulations! You have been selected for a part-time job. Earn ₹5000 daily by liking YouTube videos. Pay ₹1000 registration fee to start.", type: "sms" },
-      { id: "s4", titleKey: 'btn.s4', titleHi: '', category: "sms", riskBadge: "danger", text: "CBI POLICE NOTICE: An arrest warrant has been issued in your name for money laundering via FedEx package. Join urgent Skype video call immediately for digital verification.", type: "sms" },
-    ]
+      {
+        id: "s1",
+        titleKey: "btn.s1",
+        titleHi: "",
+        category: "sms",
+        riskBadge: "danger",
+        text: "Your electricity bill is unpaid. Power will be disconnected tonight at 9:30 PM. Call electricity officer immediately: 9876543210",
+        type: "sms",
+      },
+      {
+        id: "s2",
+        titleKey: "btn.s2",
+        titleHi: "",
+        category: "sms",
+        riskBadge: "danger",
+        text: "Dear Customer, your SBI account will be blocked today. Please complete your KYC immediately by clicking here: http://sbi-kyc-update.top",
+        type: "sms",
+      },
+      {
+        id: "s3",
+        titleKey: "btn.s3",
+        titleHi: "",
+        category: "sms",
+        riskBadge: "danger",
+        text: "Congratulations! You have been selected for a part-time job. Earn ₹5000 daily by liking YouTube videos. Pay ₹1000 registration fee to start.",
+        type: "sms",
+      },
+      {
+        id: "s4",
+        titleKey: "btn.s4",
+        titleHi: "",
+        category: "sms",
+        riskBadge: "danger",
+        text: "CBI POLICE NOTICE: An arrest warrant has been issued in your name for money laundering via FedEx package. Join urgent Skype video call immediately for digital verification.",
+        type: "sms",
+      },
+    ],
   },
   url: {
     headerKey: "tab.url.header",
     buttons: [
-      { id: "l1", titleKey: 'btn.l1', titleHi: '', category: "url", riskBadge: "danger", text: "https://sbi-pan-update.xyz/login.php", type: "url" },
-      { id: "l2", titleKey: 'btn.l2', titleHi: '', category: "url", riskBadge: "danger", text: "http://bit.ly/claim-prize-8821", type: "url" },
-      { id: "l3", titleKey: 'btn.l3', titleHi: '', category: "url", riskBadge: "danger", text: "https://pm-yojana-free-laptops.com/apply", type: "url" },
-      { id: "l4", titleKey: 'btn.l4', titleHi: '', category: "url", riskBadge: "safe", text: "https://rbi.org.in", type: "url" },
-    ]
+      {
+        id: "l1",
+        titleKey: "btn.l1",
+        titleHi: "",
+        category: "url",
+        riskBadge: "danger",
+        text: "https://sbi-pan-update.xyz/login.php",
+        type: "url",
+      },
+      {
+        id: "l2",
+        titleKey: "btn.l2",
+        titleHi: "",
+        category: "url",
+        riskBadge: "danger",
+        text: "http://bit.ly/claim-prize-8821",
+        type: "url",
+      },
+      {
+        id: "l3",
+        titleKey: "btn.l3",
+        titleHi: "",
+        category: "url",
+        riskBadge: "danger",
+        text: "https://pm-yojana-free-laptops.com/apply",
+        type: "url",
+      },
+      {
+        id: "l4",
+        titleKey: "btn.l4",
+        titleHi: "",
+        category: "url",
+        riskBadge: "safe",
+        text: "https://rbi.org.in",
+        type: "url",
+      },
+    ],
   },
   screenshot: {
     headerKey: "tab.screenshot.header",
-    buttons: []
-  }
+    buttons: [],
+  },
 };
 
 interface CyberCommandCenterProps {
@@ -113,10 +215,12 @@ export function CyberCommandCenter({
 }: CyberCommandCenterProps) {
   const { t } = useLanguage();
   const [dragActive, setDragActive] = useState(false);
-  const [uploadedImageName, setUploadedImageName] = useState<string | null>(null);
+  const [uploadedImageName, setUploadedImageName] = useState<string | null>(
+    null,
+  );
   const [showHistoryDrawer, setShowHistoryDrawer] = useState(false);
   const [scanStepIndex, setScanStepIndex] = useState(0);
-  
+
   // Tab 1 specific state
   const [upiId, setUpiId] = useState("");
   const [upiDesc, setUpiDesc] = useState("");
@@ -143,9 +247,13 @@ export function CyberCommandCenter({
   const handleSelectSample = (sample: { type: InputMode; text: string }) => {
     soundEngine.playClick();
     setInputMode(sample.type);
-    
+
     if (sample.type === "upi") {
-      if (sample.text.includes("UPI PIN") || sample.text.includes("verify") || sample.text.includes("Dear Customer")) {
+      if (
+        sample.text.includes("UPI PIN") ||
+        sample.text.includes("verify") ||
+        sample.text.includes("Dear Customer")
+      ) {
         setUpiDesc(sample.text);
         setUpiId("");
       } else {
@@ -155,7 +263,7 @@ export function CyberCommandCenter({
     } else {
       setInputText(sample.text);
     }
-    
+
     setErrorMessage(null);
     setUploadedImageName(null);
   };
@@ -185,7 +293,9 @@ export function CyberCommandCenter({
     setErrorMessage(null);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+  const handleKeyDown = (
+    e: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => {
     if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
       e.preventDefault();
       if (!isLoading) {
@@ -201,25 +311,25 @@ export function CyberCommandCenter({
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
-    const rotateX = ((y - centerY) / centerY) * -3; 
+
+    const rotateX = ((y - centerY) / centerY) * -3;
     const rotateY = ((x - centerX) / centerX) * 3;
-    
+
     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   };
 
   const handleMouseLeave = () => {
     if (!cardRef.current) return;
     cardRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
-    cardRef.current.style.transition = 'transform 0.5s ease-out';
+    cardRef.current.style.transition = "transform 0.5s ease-out";
   };
-  
+
   const handleMouseEnter = () => {
     if (!cardRef.current) return;
-    cardRef.current.style.transition = 'none';
+    cardRef.current.style.transition = "none";
   };
 
   const tabData = TAB_DATA[inputMode];
@@ -239,12 +349,13 @@ export function CyberCommandCenter({
             4-IN-1 SCAM CHECKER
           </h2>
           <p className="font-sans text-neutral-400 text-xs sm:text-sm max-w-xl">
-            Detect sophisticated social engineering attacks in less than 2 seconds.
+            Detect sophisticated social engineering attacks in less than 2
+            seconds.
           </p>
         </div>
       </div>
 
-      <div 
+      <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -292,7 +403,6 @@ export function CyberCommandCenter({
 
         {/* Dynamic Input Body Based on Active Tab */}
         <div className="space-y-4">
-          
           {/* TAB 01: UPI */}
           {inputMode === "upi" && (
             <div className="flex flex-col gap-4 relative">
@@ -303,7 +413,10 @@ export function CyberCommandCenter({
                 value={upiId}
                 onChange={(e) => setUpiId(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder={t("tab.upi.placeholder1") || "📱 Suspicious UPI ID or Sender Phone Number"}
+                placeholder={
+                  t("tab.upi.placeholder1") ||
+                  "📱 Suspicious UPI ID or Sender Phone Number"
+                }
                 className="w-full rounded-2xl bg-black/60 border border-neutral-800 focus:border-[#00f0ff] px-5 py-4 text-sm font-sans text-white placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-[#00f0ff] transition-all"
               />
               <textarea
@@ -332,7 +445,9 @@ export function CyberCommandCenter({
                 }}
                 onKeyDown={handleKeyDown}
                 rows={5}
-                placeholder={t("tab.sms.placeholder") || "💬 Suspicious Message Text"}
+                placeholder={
+                  t("tab.sms.placeholder") || "💬 Suspicious Message Text"
+                }
                 className="w-full rounded-2xl bg-black/60 border border-neutral-800 focus:border-[#00f0ff] p-5 text-sm font-sans text-white placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-[#00f0ff] resize-y transition-all"
               />
             </div>
@@ -355,16 +470,27 @@ export function CyberCommandCenter({
                     if (errorMessage) setErrorMessage(null);
                   }}
                   onKeyDown={handleKeyDown}
-                  placeholder={t("tab.url.placeholder") || "🔗 Suspicious Website URL / Link (e.g., https://...)"}
+                  placeholder={
+                    t("tab.url.placeholder") ||
+                    "🔗 Suspicious Website URL / Link (e.g., https://...)"
+                  }
                   className="w-full rounded-full bg-black/60 border border-neutral-800 focus:border-[#00f0ff] pl-14 pr-5 py-4 text-sm font-sans text-white placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-[#00f0ff] transition-all"
                 />
               </div>
               <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-wider text-neutral-500 pl-4">
-                <div className="flex items-center gap-1.5"><LockIcon className="w-3 h-3 text-[#00ff88]" /> SSL Lock Check</div>
+                <div className="flex items-center gap-1.5">
+                  <LockIcon className="w-3 h-3 text-[#00ff88]" /> SSL Lock Check
+                </div>
                 <div className="w-1 h-1 rounded-full bg-neutral-700"></div>
-                <div className="flex items-center gap-1.5"><Search className="w-3 h-3 text-[#00f0ff]" /> Domain Extension Check</div>
+                <div className="flex items-center gap-1.5">
+                  <Search className="w-3 h-3 text-[#00f0ff]" /> Domain Extension
+                  Check
+                </div>
                 <div className="w-1 h-1 rounded-full bg-neutral-700"></div>
-                <div className="flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 text-[#ffb800]" /> Fake Brand Check</div>
+                <div className="flex items-center gap-1.5">
+                  <AlertTriangle className="w-3 h-3 text-[#ffb800]" /> Fake
+                  Brand Check
+                </div>
               </div>
             </div>
           )}
@@ -407,13 +533,19 @@ export function CyberCommandCenter({
                 <div className="space-y-1">
                   <div className="text-sm font-space font-bold text-white">
                     {uploadedImageName ? (
-                      <span className="text-[#00f0ff]">{t("tab.screenshot.attached")}: {uploadedImageName}</span>
+                      <span className="text-[#00f0ff]">
+                        {t("tab.screenshot.attached")}: {uploadedImageName}
+                      </span>
                     ) : (
-                      <span>{t("tab.screenshot.placeholder") || "🖼️ Upload Screenshot of Message, Receipt, or Notice"}</span>
+                      <span>
+                        {t("tab.screenshot.placeholder") ||
+                          "🖼️ Upload Screenshot of Message, Receipt, or Notice"}
+                      </span>
                     )}
                   </div>
                   <p className="text-xs text-neutral-400 font-sans">
-                    Supports PNG, JPG, WebP. Real Multimodal Screenshot Analysis (Vision + OCR).
+                    Supports PNG, JPG, WebP. Real Multimodal Screenshot Analysis
+                    (Vision + OCR).
                   </p>
                 </div>
               </div>
@@ -421,10 +553,10 @@ export function CyberCommandCenter({
               {uploadedImageName && inputText.startsWith("[IMAGE_BASE64") && (
                 <div className="flex flex-col gap-3">
                   <div className="w-full h-40 rounded-xl overflow-hidden border border-neutral-800 flex items-center justify-center bg-black">
-                    <Image 
+                    <Image
                       unoptimized
-                      src={`data:${inputText.split(":")[1]};base64,${inputText.split(":")[2].slice(0, -1)}`} 
-                      alt="Uploaded evidence screenshot preview" 
+                      src={`data:${inputText.split(":")[1]};base64,${inputText.split(":")[2].slice(0, -1)}`}
+                      alt="Uploaded evidence screenshot preview"
                       width={320}
                       height={160}
                       className="max-h-full max-w-full object-contain"
@@ -433,7 +565,9 @@ export function CyberCommandCenter({
                   <div className="flex items-center justify-between text-xs p-3 rounded-xl bg-neutral-900 border border-neutral-800">
                     <div className="flex items-center gap-2">
                       <FileText className="w-4 h-4 text-[#00f0ff]" />
-                      <span className="font-mono text-xs text-white">{uploadedImageName}</span>
+                      <span className="font-mono text-xs text-white">
+                        {uploadedImageName}
+                      </span>
                     </div>
                     <button
                       type="button"
@@ -486,7 +620,9 @@ export function CyberCommandCenter({
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 font-mono text-xs text-neutral-300 font-bold">
                 <Sparkles className="w-3.5 h-3.5 text-[#00f0ff]" />
-                <span>{t("tab.oneTapExamples") || "ONE-TAP TEST EXAMPLES:"}</span>
+                <span>
+                  {t("tab.oneTapExamples") || "ONE-TAP TEST EXAMPLES:"}
+                </span>
               </div>
             </div>
             <div className="flex flex-wrap gap-2.5">
@@ -504,9 +640,11 @@ export function CyberCommandCenter({
                   >
                     <span
                       className={`w-2 h-2 rounded-full ${
-                        isDanger ? "bg-[#ff0055] shadow-[0_0_8px_#ff0055]" : 
-                        isSafe ? "bg-[#00ff88] shadow-[0_0_8px_#00ff88]" : 
-                        "bg-[#ffb800] shadow-[0_0_8px_#ffb800]"
+                        isDanger
+                          ? "bg-[#ff0055] shadow-[0_0_8px_#ff0055]"
+                          : isSafe
+                            ? "bg-[#00ff88] shadow-[0_0_8px_#00ff88]"
+                            : "bg-[#ffb800] shadow-[0_0_8px_#ffb800]"
                       }`}
                     />
                     <span>{t(sample.titleKey)}</span>
@@ -532,9 +670,16 @@ export function CyberCommandCenter({
             )}
             <button
               id="run-security-check-btn"
-              aria-label={inputMode === "screenshot" ? "Analyze screenshot with Gemini AI" : "Run security threat analysis"}
+              aria-label={
+                inputMode === "screenshot"
+                  ? "Analyze screenshot with Gemini AI"
+                  : "Run security threat analysis"
+              }
               type="button"
-              disabled={isLoading || (inputMode !== "screenshot" && inputText.length === 0)}
+              disabled={
+                isLoading ||
+                (inputMode !== "screenshot" && inputText.length === 0)
+              }
               onMouseEnter={() => soundEngine.playHover()}
               onClick={() => {
                 soundEngine.playSuccess();
@@ -549,7 +694,11 @@ export function CyberCommandCenter({
                 </>
               ) : (
                 <>
-                  <span>{inputMode === "screenshot" ? "ANALYZE SCREENSHOT WITH AI" : "RUN SECURITY CHECK"}</span>
+                  <span>
+                    {inputMode === "screenshot"
+                      ? "ANALYZE SCREENSHOT WITH AI"
+                      : "RUN SECURITY CHECK"}
+                  </span>
                   <ArrowRight className="w-4 h-4 text-black" />
                 </>
               )}
@@ -559,7 +708,10 @@ export function CyberCommandCenter({
       </div>
 
       {analysis && (
-        <div id="satark-verdict-card" className="space-y-6 scroll-mt-24 mt-12 bg-neutral-900/50 p-6 rounded-3xl border border-neutral-800">
+        <div
+          id="satark-verdict-card"
+          className="space-y-6 scroll-mt-24 mt-12 bg-neutral-900/50 p-6 rounded-3xl border border-neutral-800"
+        >
           <div className="flex items-center justify-between pb-4 border-b border-neutral-800">
             <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#00f0ff] uppercase tracking-wider">
               <CheckCircle2 className="w-4 h-4" />
@@ -582,31 +734,55 @@ export function CyberCommandCenter({
             </button>
           </div>
 
-          <div className={`p-6 rounded-2xl border ${
-            analysis.riskLevel === "danger" ? "bg-[#ff0055]/10 border-[#ff0055]/30 text-[#ff0055]" : 
-            analysis.riskLevel === "safe" ? "bg-[#00ff88]/10 border-[#00ff88]/30 text-[#00ff88]" : 
-            "bg-[#ffb800]/10 border-[#ffb800]/30 text-[#ffb800]"
-          } flex flex-col md:flex-row items-center gap-6`}>
+          <div
+            className={`p-6 rounded-2xl border ${
+              analysis.riskLevel === "danger"
+                ? "bg-[#ff0055]/10 border-[#ff0055]/30 text-[#ff0055]"
+                : analysis.riskLevel === "safe"
+                  ? "bg-[#00ff88]/10 border-[#00ff88]/30 text-[#00ff88]"
+                  : "bg-[#ffb800]/10 border-[#ffb800]/30 text-[#ffb800]"
+            } flex flex-col md:flex-row items-center gap-6`}
+          >
             <div className="relative w-24 h-24 shrink-0 flex items-center justify-center">
               <svg className="w-full h-full transform -rotate-90">
-                <circle cx="48" cy="48" r="40" stroke="currentColor" strokeWidth="8" fill="none" className="opacity-20" />
-                <circle cx="48" cy="48" r="40" stroke="currentColor" strokeWidth="8" fill="none" 
-                  strokeDasharray={`${251.2}`} 
+                <circle
+                  cx="48"
+                  cy="48"
+                  r="40"
+                  stroke="currentColor"
+                  strokeWidth="8"
+                  fill="none"
+                  className="opacity-20"
+                />
+                <circle
+                  cx="48"
+                  cy="48"
+                  r="40"
+                  stroke="currentColor"
+                  strokeWidth="8"
+                  fill="none"
+                  strokeDasharray={`${251.2}`}
                   strokeDashoffset={251.2 - (251.2 * analysis.riskScore) / 100}
-                  className="transition-all duration-1000 ease-out" 
+                  className="transition-all duration-1000 ease-out"
                 />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="font-space font-black text-2xl leading-none">{analysis.riskScore}%</span>
-                <span className="text-[9px] font-mono opacity-80 mt-1">RISK</span>
+                <span className="font-space font-black text-2xl leading-none">
+                  {analysis.riskScore}%
+                </span>
+                <span className="text-[9px] font-mono opacity-80 mt-1">
+                  RISK
+                </span>
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-xl sm:text-2xl font-black font-space tracking-tight uppercase">
-                {analysis.riskLevel === "danger" ? "🚨 DANGER: THIS IS A SCAM" : 
-                 analysis.riskLevel === "safe" ? "✅ SAFE: LOOKS GENUINE" : 
-                 "⚠️ CAUTION: SUSPICIOUS"}
+                {analysis.riskLevel === "danger"
+                  ? "🚨 DANGER: THIS IS A SCAM"
+                  : analysis.riskLevel === "safe"
+                    ? "✅ SAFE: LOOKS GENUINE"
+                    : "⚠️ CAUTION: SUSPICIOUS"}
               </h3>
               <p className="mt-2 text-sm opacity-90 font-mono">
                 {analysis.scamType}
@@ -620,7 +796,10 @@ export function CyberCommandCenter({
               Why is this a fraud?
             </h4>
             <p className="text-neutral-300 text-sm sm:text-base leading-relaxed font-sans whitespace-pre-wrap">
-              {typeof analysis.explanation === 'string' ? analysis.explanation : (analysis.explanation as Record<string, string>)?.en || "Explanation not available."}
+              {typeof analysis.explanation === "string"
+                ? analysis.explanation
+                : (analysis.explanation as Record<string, string>)?.en ||
+                  "Explanation not available."}
             </p>
           </div>
 
@@ -630,8 +809,14 @@ export function CyberCommandCenter({
               What should you do now?
             </h4>
             <ul className="space-y-3">
-              {(Array.isArray(analysis.nextSteps) ? analysis.nextSteps : ((analysis.nextSteps as Record<string, string[]>)?.en || [])).map((step: string, idx: number) => (
-                <li key={idx} className="flex gap-3 text-neutral-300 text-sm sm:text-base">
+              {(Array.isArray(analysis.nextSteps)
+                ? analysis.nextSteps
+                : (analysis.nextSteps as Record<string, string[]>)?.en || []
+              ).map((step: string, idx: number) => (
+                <li
+                  key={idx}
+                  className="flex gap-3 text-neutral-300 text-sm sm:text-base"
+                >
                   <span className="w-6 h-6 rounded-full bg-[#00f0ff]/10 text-[#00f0ff] flex items-center justify-center shrink-0 font-mono text-xs font-bold mt-0.5">
                     {idx + 1}
                   </span>
@@ -691,8 +876,8 @@ export function CyberCommandCenter({
                         item.riskLevel === "danger"
                           ? "bg-[#ff0055]/20 text-[#ff0055]"
                           : item.riskLevel === "safe"
-                          ? "bg-[#00ff88]/20 text-[#00ff88]"
-                          : "bg-[#ffb800]/20 text-[#ffb800]"
+                            ? "bg-[#00ff88]/20 text-[#00ff88]"
+                            : "bg-[#ffb800]/20 text-[#ffb800]"
                       }`}
                     >
                       {item.riskScore}/100 RISK
@@ -702,10 +887,15 @@ export function CyberCommandCenter({
                     </span>
                   </div>
                   <div className="font-space font-bold text-xs text-white truncate">
-                    {typeof item.scamType === 'string' ? item.scamType : (item.scamType as Record<string, string>)?.en || 'Threat Analysis'}
+                    {typeof item.scamType === "string"
+                      ? item.scamType
+                      : (item.scamType as Record<string, string>)?.en ||
+                        "Threat Analysis"}
                   </div>
                   <div className="text-[11px] font-sans text-neutral-400 line-clamp-2">
-                    {item.inputText.startsWith("[IMAGE_BASE64") ? "Screenshot Scan" : item.inputText}
+                    {item.inputText.startsWith("[IMAGE_BASE64")
+                      ? "Screenshot Scan"
+                      : item.inputText}
                   </div>
                 </div>
               ))}

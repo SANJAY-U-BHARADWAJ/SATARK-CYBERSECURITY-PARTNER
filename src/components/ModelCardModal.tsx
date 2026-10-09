@@ -22,7 +22,10 @@ export function ModelCardModal({ isOpen, onClose }: ModelCardModalProps) {
         <div className="flex items-center justify-between border-b border-border pb-4">
           <div className="flex items-center gap-2">
             <Shield className="w-5 h-5 text-primary" />
-            <h3 id="model-card-title" className="text-lg font-bold text-foreground">
+            <h3
+              id="model-card-title"
+              className="text-lg font-bold text-foreground"
+            >
               Satark AI & ML Model Card
             </h3>
           </div>
@@ -39,12 +42,17 @@ export function ModelCardModal({ isOpen, onClose }: ModelCardModalProps) {
           <div className="space-y-1">
             <h4 className="font-semibold text-primary">Overview & Objective</h4>
             <p className="text-muted-foreground leading-relaxed">
-              Satark is an open-architecture threat analysis engine developed for Track 3 (AI-Powered Cybersecurity & Digital Safety). It provides instant, privacy-first evaluation of digital communications in India.
+              Satark is an open-architecture threat analysis engine developed
+              for Track 3 (AI-Powered Cybersecurity & Digital Safety). It
+              provides instant, privacy-first evaluation of digital
+              communications in India.
             </p>
           </div>
 
           <div className="space-y-2">
-            <h4 className="font-semibold text-primary">Tri-Detector Architecture</h4>
+            <h4 className="font-semibold text-primary">
+              Tri-Detector Architecture
+            </h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="p-3 rounded-xl bg-surface-2 border border-border-subtle">
                 <div className="font-bold text-foreground flex items-center gap-1.5 mb-1">
@@ -52,7 +60,8 @@ export function ModelCardModal({ isOpen, onClose }: ModelCardModalProps) {
                   <span>Rules (25%)</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Deterministic regex and signature matcher for high-risk APKs, spoofed domains, and panic-inducing keywords.
+                  Deterministic regex and signature matcher for high-risk APKs,
+                  spoofed domains, and panic-inducing keywords.
                 </p>
               </div>
 
@@ -62,7 +71,8 @@ export function ModelCardModal({ isOpen, onClose }: ModelCardModalProps) {
                   <span>ML Classifier (25%)</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  TF-IDF bi-gram feature extraction paired with logistic classification trained on Indian phishing datasets.
+                  TF-IDF bi-gram feature extraction paired with logistic
+                  classification trained on Indian phishing datasets.
                 </p>
               </div>
 
@@ -72,24 +82,38 @@ export function ModelCardModal({ isOpen, onClose }: ModelCardModalProps) {
                   <span>Gemini AI (50%)</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Multimodal reasoning assessing complex coercion, emotional manipulation, and OCR extracted texts.
+                  Multimodal reasoning assessing complex coercion, emotional
+                  manipulation, and OCR extracted texts.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="space-y-2">
-            <h4 className="font-semibold text-primary">Safety Floor Contract</h4>
+            <h4 className="font-semibold text-primary">
+              Safety Floor Contract
+            </h4>
             <p className="text-muted-foreground leading-relaxed">
-              When the Rules Engine detects an unambiguous threat indicator (score ≥ 85), the ensemble enforces an irrevocable safety floor (final risk score ≥ 80), mitigating LLM hallucination or adversarial prompt evasion.
+              When the Rules Engine detects an unambiguous threat indicator
+              (score ≥ 85), the ensemble enforces an irrevocable safety floor
+              (final risk score ≥ 80), mitigating LLM hallucination or
+              adversarial prompt evasion.
             </p>
           </div>
 
           <div className="space-y-2">
-            <h4 className="font-semibold text-primary">Client-Side Privacy Guarantee</h4>
+            <h4 className="font-semibold text-primary">
+              Client-Side Privacy Guarantee
+            </h4>
             <ul className="list-disc list-inside text-muted-foreground space-y-1">
-              <li>Phone numbers, OTPs, credit cards, and UPI IDs are masked locally via regex prior to network requests.</li>
-              <li>No user messages, phone numbers, or uploaded images are logged or stored server-side.</li>
+              <li>
+                Phone numbers, OTPs, credit cards, and UPI IDs are masked
+                locally via regex prior to network requests.
+              </li>
+              <li>
+                No user messages, phone numbers, or uploaded images are logged
+                or stored server-side.
+              </li>
             </ul>
           </div>
         </div>

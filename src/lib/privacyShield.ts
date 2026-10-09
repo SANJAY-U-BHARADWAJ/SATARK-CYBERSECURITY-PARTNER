@@ -1,14 +1,18 @@
 /**
  * Analyzes and sanitizes a given text input to mask sensitive Personally Identifiable Information (PII)
  * before it is transmitted to external APIs or displayed in the UI.
- * 
+ *
  * Supports masking of Indian formats (e.g., Aadhaar, 10-digit mobile numbers), bank cards, OTPs,
  * Email addresses, and UPI IDs.
- * 
+ *
  * @param {string} input - The raw text containing potential sensitive data.
  * @returns {{ maskedText: string, count: number, items: string[] }} An object containing the masked text, total items redacted, and a list of redacted item types.
  */
-export function maskSensitiveData(input: string): { maskedText: string; count: number; items: string[] } {
+export function maskSensitiveData(input: string): {
+  maskedText: string;
+  count: number;
+  items: string[];
+} {
   let masked = input;
   const items: string[] = [];
 
@@ -41,13 +45,14 @@ export function maskSensitiveData(input: string): { maskedText: string; count: n
   // 4. Emails
   const emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi;
   masked = masked.replace(emailRegex, (match) => {
-    const [user, domain] = match.split('@');
+    const [user, domain] = match.split("@");
     items.push(`Email address: ${user.slice(0, 2)}***@${domain}`);
     return "[MASKED_EMAIL]";
   });
 
   // 5. OTP / PIN mentions (supporting Unicode Devanagari like पासवर्ड)
-  const otpRegex = /(?:^|\s|\b)(OTP|code|PIN|पासवर्ड)\s*(is|:|-)?\s*(\d{4,6})\b/gi;
+  const otpRegex =
+    /(?:^|\s|\b)(OTP|code|PIN|पासवर्ड)\s*(is|:|-)?\s*(\d{4,6})\b/gi;
   masked = masked.replace(otpRegex, (match, prefix, separator, digits) => {
     items.push(`Security OTP: ${digits}`);
     const pre = match.startsWith(" ") ? " " : "";
@@ -62,7 +67,8 @@ export function maskSensitiveData(input: string): { maskedText: string; count: n
   });
 
   // 7. UPI IDs
-  const upiRegex = /[a-zA-Z0-9._-]+@(okhdfcbank|okaxis|okicici|oksbi|paytm|ybl|ibl|axl|upi)/gi;
+  const upiRegex =
+    /[a-zA-Z0-9._-]+@(okhdfcbank|okaxis|okicici|oksbi|paytm|ybl|ibl|axl|upi)/gi;
   masked = masked.replace(upiRegex, (match) => {
     items.push(`UPI Virtual Payment Address: ${match}`);
     return "[MASKED_UPI]";

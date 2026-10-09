@@ -12,7 +12,10 @@ export function CyberCursor() {
 
   useEffect(() => {
     // Disable on touch devices
-    if (typeof window === "undefined" || window.matchMedia("(pointer: coarse)").matches) {
+    if (
+      typeof window === "undefined" ||
+      window.matchMedia("(pointer: coarse)").matches
+    ) {
       return;
     }
 
@@ -23,10 +26,22 @@ export function CyberCursor() {
     // Set initial centered positioning
     gsap.set([dot, ring], { xPercent: -50, yPercent: -50, opacity: 0 });
 
-    const xDotTo = gsap.quickTo(dot, "x", { duration: 0.02, ease: "power3.out" });
-    const yDotTo = gsap.quickTo(dot, "y", { duration: 0.02, ease: "power3.out" });
-    const xRingTo = gsap.quickTo(ring, "x", { duration: 0.05, ease: "power3.out" });
-    const yRingTo = gsap.quickTo(ring, "y", { duration: 0.05, ease: "power3.out" });
+    const xDotTo = gsap.quickTo(dot, "x", {
+      duration: 0.02,
+      ease: "power3.out",
+    });
+    const yDotTo = gsap.quickTo(dot, "y", {
+      duration: 0.02,
+      ease: "power3.out",
+    });
+    const xRingTo = gsap.quickTo(ring, "x", {
+      duration: 0.05,
+      ease: "power3.out",
+    });
+    const yRingTo = gsap.quickTo(ring, "y", {
+      duration: 0.05,
+      ease: "power3.out",
+    });
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!isVisible) {

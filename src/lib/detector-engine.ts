@@ -79,12 +79,12 @@ export const SAMPLE_MESSAGES: SampleMessage[] = [
 // maskSensitiveData is now imported from privacyShield.ts
 
 /**
- * Analyzes raw input (text, SMS, URLs, or image base64) for cyber threats using 
+ * Analyzes raw input (text, SMS, URLs, or image base64) for cyber threats using
  * the backend AI detection engine.
- * 
- * Before transmission, the input is passed through a Privacy Shield to mask any 
+ *
+ * Before transmission, the input is passed through a Privacy Shield to mask any
  * Personally Identifiable Information (PII) like phone numbers, PAN cards, or banking details.
- * 
+ *
  * @param {string} rawInput - The unprocessed user input string or specially formatted base64 image identifier.
  * @param {InputMode} mode - The context of the input (e.g., 'sms', 'url', 'screenshot').
  * @param {string} language - The preferred language for the explanation and next steps (e.g., 'en', 'hi').
@@ -94,10 +94,10 @@ export const SAMPLE_MESSAGES: SampleMessage[] = [
 export async function analyzeThreatAsync(
   rawInput: string,
   mode: InputMode,
-  language: string
+  language: string,
 ): Promise<ThreatAnalysis> {
   const privacyResult = maskSensitiveData(rawInput);
-  
+
   let imageBase64: string | undefined = undefined;
   let imageMimeType: string | undefined = undefined;
   let maskedText = privacyResult.maskedText;
@@ -107,7 +107,8 @@ export async function analyzeThreatAsync(
     const parts = maskedText.split(":");
     imageMimeType = parts[1];
     imageBase64 = parts[2].slice(0, -1); // remove trailing bracket
-    maskedText = "Analyze this uploaded screenshot for potential fraud or malicious activity.";
+    maskedText =
+      "Analyze this uploaded screenshot for potential fraud or malicious activity.";
   }
 
   const res = await fetch("/api/analyze", {
@@ -117,17 +118,19 @@ export async function analyzeThreatAsync(
       maskedText,
       imageBase64,
       imageMimeType,
-      language
-    })
+      language,
+    }),
   });
 
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
-    throw new Error(err.message || "Failed to analyze with AI. Please try again.");
+    throw new Error(
+      err.message || "Failed to analyze with AI. Please try again.",
+    );
   }
 
   const data = await res.json();
-  
+
   let riskLevel: ThreatAnalysis["riskLevel"] = "safe";
   if (data.riskScore >= 70) riskLevel = "danger";
   else if (data.riskScore >= 35) riskLevel = "caution";
@@ -141,7 +144,9 @@ export async function analyzeThreatAsync(
     scamType: data.scamType,
     explanation: data.explanation,
     nextSteps: data.nextSteps,
-    timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+    timestamp: new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    }),
   };
 }
-

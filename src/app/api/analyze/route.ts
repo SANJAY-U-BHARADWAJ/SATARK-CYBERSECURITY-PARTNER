@@ -5,14 +5,26 @@ import { GoogleGenAI } from "@google/genai";
 export const maxDuration = 60;
 
 // 1. Zod input validation schema
-const RequestSchema = z.object({
-  maskedText: z.string().max(10000, "Text exceeds maximum character limit of 10,000").default(""),
-  imageBase64: z.string().optional(),
-  imageMimeType: z.enum(["image/jpeg", "image/png", "image/webp", "image/gif"]).optional(),
-  language: z.string().default("English"), // Changed to general language string
-}).refine(data => data.maskedText.trim().length > 0 || (!!data.imageBase64 && !!data.imageMimeType), {
-  message: "Either maskedText or valid imageBase64 must be provided"
-});
+const RequestSchema = z
+  .object({
+    maskedText: z
+      .string()
+      .max(10000, "Text exceeds maximum character limit of 10,000")
+      .default(""),
+    imageBase64: z.string().optional(),
+    imageMimeType: z
+      .enum(["image/jpeg", "image/png", "image/webp", "image/gif"])
+      .optional(),
+    language: z.string().default("English"), // Changed to general language string
+  })
+  .refine(
+    (data) =>
+      data.maskedText.trim().length > 0 ||
+      (!!data.imageBase64 && !!data.imageMimeType),
+    {
+      message: "Either maskedText or valid imageBase64 must be provided",
+    },
+  );
 
 // 2. Structured output schema for Gemini response
 const GeminiResponseSchema = z.object({
@@ -31,43 +43,52 @@ const MAX_REQUESTS_PER_WINDOW = 30;
 function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
   const now = Date.now();
   const timestamps = ipRequestHistory.get(ip) || [];
-  const validTimestamps = timestamps.filter(t => now - t < RATE_LIMIT_WINDOW_MS);
-  
+  const validTimestamps = timestamps.filter(
+    (t) => now - t < RATE_LIMIT_WINDOW_MS,
+  );
+
   if (validTimestamps.length >= MAX_REQUESTS_PER_WINDOW) {
     ipRequestHistory.set(ip, validTimestamps);
     return { allowed: false, remaining: 0 };
   }
-  
+
   validTimestamps.push(now);
   ipRequestHistory.set(ip, validTimestamps);
 
   if (Math.random() < 0.05) {
     for (const [key, times] of ipRequestHistory.entries()) {
-      const valid = times.filter(t => now - t < RATE_LIMIT_WINDOW_MS);
+      const valid = times.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
       if (valid.length === 0) ipRequestHistory.delete(key);
       else ipRequestHistory.set(key, valid);
     }
   }
 
-  return { allowed: true, remaining: MAX_REQUESTS_PER_WINDOW - validTimestamps.length };
+  return {
+    allowed: true,
+    remaining: MAX_REQUESTS_PER_WINDOW - validTimestamps.length,
+  };
 }
 
 /**
  * Handles incoming POST requests for threat analysis.
- * Implements IP-based rate limiting, input validation via Zod, and interacts 
+ * Implements IP-based rate limiting, input validation via Zod, and interacts
  * with the Google Gemini API to return a structured cyber threat assessment.
- * 
+ *
  * @param {NextRequest} req - The Next.js incoming request object containing maskedText or image.
  * @returns {Promise<NextResponse>} JSON response containing the threat analysis or error details.
  */
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "127.0.0.1";
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "127.0.0.1";
   const limitCheck = checkRateLimit(ip);
-  
+
   if (!limitCheck.allowed) {
     return NextResponse.json(
-      { error: "RATE_LIMITED", message: "Too many requests. Please wait a minute." },
-      { status: 429 }
+      {
+        error: "RATE_LIMITED",
+        message: "Too many requests. Please wait a minute.",
+      },
+      { status: 429 },
     );
   }
 
@@ -75,12 +96,21 @@ export async function POST(req: NextRequest) {
   try {
     bodyJson = await req.json();
   } catch {
-    return NextResponse.json({ error: "INVALID_INPUT", message: "Malformed JSON request body." }, { status: 400 });
+    return NextResponse.json(
+      { error: "INVALID_INPUT", message: "Malformed JSON request body." },
+      { status: 400 },
+    );
   }
 
   const parseResult = RequestSchema.safeParse(bodyJson);
   if (!parseResult.success) {
-    return NextResponse.json({ error: "INVALID_INPUT", message: parseResult.error.issues.map(i => i.message).join(", ") }, { status: 400 });
+    return NextResponse.json(
+      {
+        error: "INVALID_INPUT",
+        message: parseResult.error.issues.map((i) => i.message).join(", "),
+      },
+      { status: 400 },
+    );
   }
 
   const { maskedText, imageBase64, imageMimeType, language } = parseResult.data;
@@ -101,16 +131,18 @@ Ensure the JSON format is exactly: { "scamType": string, "riskScore": number, "r
     const parts = [];
 
     if (maskedText) {
-      parts.push({ text: `Message content to evaluate:\n"""\n${maskedText}\n"""` });
+      parts.push({
+        text: `Message content to evaluate:\n"""\n${maskedText}\n"""`,
+      });
     }
 
     if (imageBase64 && imageMimeType) {
       parts.push({ text: "Please analyze this screenshot for scams." });
-      parts.push({ 
+      parts.push({
         inlineData: {
           data: imageBase64,
-          mimeType: imageMimeType
-        }
+          mimeType: imageMimeType,
+        },
       });
     }
 
@@ -125,13 +157,13 @@ Ensure the JSON format is exactly: { "scamType": string, "riskScore": number, "r
           config: {
             systemInstruction,
             temperature: 0.1,
-            responseMimeType: "application/json"
-          }
+            responseMimeType: "application/json",
+          },
         });
         rawResponseText = response.text;
         break; // Success! Break out of the fallback loop
       } catch (e) {
-        console.warn(`Model ${model} failed, falling back...`, e);
+        // Fallback on model failure
         lastError = e;
       }
     }
@@ -139,7 +171,7 @@ Ensure the JSON format is exactly: { "scamType": string, "riskScore": number, "r
     if (!rawResponseText) {
       throw lastError || new Error("All fallback models failed.");
     }
-    
+
     rawResponseText = rawResponseText.trim();
     if (rawResponseText.startsWith("```json")) {
       rawResponseText = rawResponseText.substring(7);
@@ -147,16 +179,16 @@ Ensure the JSON format is exactly: { "scamType": string, "riskScore": number, "r
         rawResponseText = rawResponseText.slice(0, -3);
       }
     }
-    
+
     const parsedData = JSON.parse(rawResponseText.trim());
     const validated = GeminiResponseSchema.parse(parsedData);
 
     return NextResponse.json(validated);
-  } catch (err: unknown) {
-    console.error("API Error:", err);
+  } catch {
+    // Silently capture API error
     return NextResponse.json(
       { error: "API_ERROR", message: "Failed to analyze with AI." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

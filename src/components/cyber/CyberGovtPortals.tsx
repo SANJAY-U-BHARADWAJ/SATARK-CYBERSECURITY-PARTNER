@@ -1,19 +1,48 @@
 "use client";
 
 import React from "react";
-import { Landmark, ExternalLink, ShieldCheck, FileText, Search } from "lucide-react";
+import {
+  Landmark,
+  ExternalLink,
+  ShieldCheck,
+  FileText,
+  Search,
+} from "lucide-react";
 import { soundEngine } from "@/utils/SoundEngine";
 
 export function CyberGovtPortals() {
   const portals = [
-    { name: "National Cyber Crime Reporting Portal", url: "https://cybercrime.gov.in", icon: <ShieldCheck className="w-5 h-5" />, desc: "Report cyber crimes online" },
-    { name: "Sanchar Saathi", url: "https://sancharsaathi.gov.in", icon: <Search className="w-5 h-5" />, desc: "Track and block lost/stolen phones" },
-    { name: "CERT-In", url: "https://www.cert-in.org.in/", icon: <Landmark className="w-5 h-5" />, desc: "Indian Computer Emergency Response Team" },
-    { name: "RBI Kehta Hai", url: "https://rbikehtahai.rbi.org.in/", icon: <FileText className="w-5 h-5" />, desc: "Financial awareness by RBI" }
+    {
+      name: "National Cyber Crime Reporting Portal",
+      url: "https://cybercrime.gov.in",
+      icon: <ShieldCheck className="w-5 h-5" />,
+      desc: "Report cyber crimes online",
+    },
+    {
+      name: "Sanchar Saathi",
+      url: "https://sancharsaathi.gov.in",
+      icon: <Search className="w-5 h-5" />,
+      desc: "Track and block lost/stolen phones",
+    },
+    {
+      name: "CERT-In",
+      url: "https://www.cert-in.org.in/",
+      icon: <Landmark className="w-5 h-5" />,
+      desc: "Indian Computer Emergency Response Team",
+    },
+    {
+      name: "RBI Kehta Hai",
+      url: "https://rbikehtahai.rbi.org.in/",
+      icon: <FileText className="w-5 h-5" />,
+      desc: "Financial awareness by RBI",
+    },
   ];
 
   return (
-    <section id="cyber-govt-portals" className="relative z-20 py-24 px-4 sm:px-6 max-w-7xl mx-auto w-full">
+    <section
+      id="cyber-govt-portals"
+      className="relative z-20 py-24 px-4 sm:px-6 max-w-7xl mx-auto w-full"
+    >
       <div className="space-y-10">
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono text-neutral-300 uppercase tracking-widest mx-auto">
@@ -23,7 +52,9 @@ export function CyberGovtPortals() {
             GOVT PORTALS DIRECTORY
           </h2>
           <p className="font-sans text-neutral-400 max-w-2xl mx-auto">
-            Direct access to official Indian government portals for reporting crimes, tracking devices, and staying informed about digital safety regulations.
+            Direct access to official Indian government portals for reporting
+            crimes, tracking devices, and staying informed about digital safety
+            regulations.
           </p>
         </div>
 
@@ -42,8 +73,12 @@ export function CyberGovtPortals() {
                 {portal.icon}
               </div>
               <div>
-                <h3 className="font-space font-bold text-white text-sm uppercase group-hover:text-[#00f0ff] transition-colors">{portal.name}</h3>
-                <p className="font-mono text-[10px] text-neutral-500 mt-2">{portal.desc}</p>
+                <h3 className="font-space font-bold text-white text-sm uppercase group-hover:text-[#00f0ff] transition-colors">
+                  {portal.name}
+                </h3>
+                <p className="font-mono text-[10px] text-neutral-500 mt-2">
+                  {portal.desc}
+                </p>
               </div>
               <div className="mt-auto pt-4 flex items-center gap-2 font-mono text-[10px] text-[#00f0ff] uppercase font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                 Access Portal <ExternalLink className="w-3 h-3" />

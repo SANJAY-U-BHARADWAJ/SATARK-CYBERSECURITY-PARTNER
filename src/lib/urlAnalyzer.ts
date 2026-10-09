@@ -19,7 +19,7 @@ const LEGITIMATE_DOMAINS = [
   "amazon.in",
   "flipkart.com",
   "uidai.gov.in",
-  "incometax.gov.in"
+  "incometax.gov.in",
 ];
 
 const INDIAN_BRAND_NAMES = [
@@ -37,24 +37,62 @@ const INDIAN_BRAND_NAMES = [
   "bses",
   "uppcl",
   "tneb",
-  "mseb"
+  "mseb",
 ];
 
 const SUSPICIOUS_TLDS = [
-  ".xyz", ".online", ".site", ".top", ".club", ".click", 
-  ".link", ".buzz", ".live", ".work", ".loan", ".zip", 
-  ".icu", ".rest", ".info", ".cfd", ".gq", ".ml", ".tk"
+  ".xyz",
+  ".online",
+  ".site",
+  ".top",
+  ".club",
+  ".click",
+  ".link",
+  ".buzz",
+  ".live",
+  ".work",
+  ".loan",
+  ".zip",
+  ".icu",
+  ".rest",
+  ".info",
+  ".cfd",
+  ".gq",
+  ".ml",
+  ".tk",
 ];
 
 const URL_SHORTENERS = [
-  "bit.ly", "tinyurl.com", "goo.gl", "ow.ly", "t.co", 
-  "is.gd", "buff.ly", "cutt.ly", "rb.gy", "shorturl.at"
+  "bit.ly",
+  "tinyurl.com",
+  "goo.gl",
+  "ow.ly",
+  "t.co",
+  "is.gd",
+  "buff.ly",
+  "cutt.ly",
+  "rb.gy",
+  "shorturl.at",
 ];
 
 const PHISHING_KEYWORDS = [
-  "kyc", "verify", "verification", "refund", "reward", 
-  "update", "bonus", "claim", "pan", "aadhar", "aadhaar", 
-  "login", "secure", "free", "lottery", "winner", "blocked"
+  "kyc",
+  "verify",
+  "verification",
+  "refund",
+  "reward",
+  "update",
+  "bonus",
+  "claim",
+  "pan",
+  "aadhar",
+  "aadhaar",
+  "login",
+  "secure",
+  "free",
+  "lottery",
+  "winner",
+  "blocked",
 ];
 
 export function analyzeURL(urlOrText: string): URLAnalysis {
@@ -70,7 +108,10 @@ export function analyzeURL(urlOrText: string): URLAnalysis {
 
   if (candidates.length === 0) {
     // If input looks like domain without protocol: sbi-kyc.xyz or 192.168.1.1/login
-    if (/^[a-z0-9.-]+\.[a-z]{2,}(\/.*)?$/i.test(text) || /^\d{1,3}(\.\d{1,3}){3}(\/.*)?$/.test(text)) {
+    if (
+      /^[a-z0-9.-]+\.[a-z]{2,}(\/.*)?$/i.test(text) ||
+      /^\d{1,3}(\.\d{1,3}){3}(\/.*)?$/.test(text)
+    ) {
       candidates.push(`http://${text}`);
     } else {
       return { score: 0, matchedRules: [] };
@@ -88,13 +129,17 @@ export function analyzeURL(urlOrText: string): URLAnalysis {
     // Check 1: '@' character in URL (used to trick browser credential parsers)
     if (rawUrl.includes("@")) {
       score += 45;
-      reasons.push("URL contains '@' sign, which masks the real destination host");
+      reasons.push(
+        "URL contains '@' sign, which masks the real destination host",
+      );
     }
 
     // Check 2: Very long URL (> 80 characters)
     if (rawUrl.length > 80) {
       score += 15;
-      reasons.push("Unusually long URL length (>80 characters) often used to conceal path parameters");
+      reasons.push(
+        "Unusually long URL length (>80 characters) often used to conceal path parameters",
+      );
     }
 
     try {
@@ -103,7 +148,9 @@ export function analyzeURL(urlOrText: string): URLAnalysis {
       const pathname = parsed.pathname.toLowerCase();
 
       // Safe domain whitelist check (matches root domain or exact legitimate subdomains)
-      const matchedSafe = LEGITIMATE_DOMAINS.find(safe => domain === safe || domain.endsWith(`.${safe}`));
+      const matchedSafe = LEGITIMATE_DOMAINS.find(
+        (safe) => domain === safe || domain.endsWith(`.${safe}`),
+      );
       if (matchedSafe && parsed.protocol === "https:") {
         isWhitelisted = true;
         if (highestScore < 5) highestScore = 5;
@@ -120,13 +167,17 @@ export function analyzeURL(urlOrText: string): URLAnalysis {
       const ipRegex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
       if (ipRegex.test(domain)) {
         score += 60;
-        reasons.push("Direct IP address host used instead of verified registered domain");
+        reasons.push(
+          "Direct IP address host used instead of verified registered domain",
+        );
       }
 
       // Check 5: Punycode or non-ASCII characters (homoglyph attack)
       if (domain.startsWith("xn--") || /[^\u0000-\u007F]/.test(domain)) {
         score += 65;
-        reasons.push("Punycode / Homoglyph lookalike characters detected in domain");
+        reasons.push(
+          "Punycode / Homoglyph lookalike characters detected in domain",
+        );
       }
 
       // Check 6: Suspicious TLDs
@@ -148,14 +199,20 @@ export function analyzeURL(urlOrText: string): URLAnalysis {
       const hostParts = domain.split(".");
       if (hostParts.length >= 4 && !ipRegex.test(domain)) {
         score += 25;
-        reasons.push("Excessive subdomain depth (potential deceptive subdomain spoofing)");
+        reasons.push(
+          "Excessive subdomain depth (potential deceptive subdomain spoofing)",
+        );
       }
 
       // Check 9: Lookalike Indian brand name combined with hyphens or non-official domain
-      const hasIndianBrand = INDIAN_BRAND_NAMES.some(brand => domain.includes(brand));
+      const hasIndianBrand = INDIAN_BRAND_NAMES.some((brand) =>
+        domain.includes(brand),
+      );
       if (hasIndianBrand && !matchedSafe) {
         score += 45;
-        reasons.push("Impersonation of trusted Indian institution/brand in unauthorized domain");
+        reasons.push(
+          "Impersonation of trusted Indian institution/brand in unauthorized domain",
+        );
       }
 
       // Check 10: Phishing keywords in domain or path
@@ -167,15 +224,18 @@ export function analyzeURL(urlOrText: string): URLAnalysis {
       }
       if (triggeredKeywords.length > 0) {
         score += Math.min(35, triggeredKeywords.length * 15);
-        reasons.push(`High-risk security keywords in URL: ${triggeredKeywords.slice(0, 3).join(", ")}`);
+        reasons.push(
+          `High-risk security keywords in URL: ${triggeredKeywords.slice(0, 3).join(", ")}`,
+        );
       }
 
       // Check 11: Direct APK/executable download
       if (pathname.endsWith(".apk") || pathname.endsWith(".exe")) {
         score += 60;
-        reasons.push("Direct download link for Android package (APK) or executable file");
+        reasons.push(
+          "Direct download link for Android package (APK) or executable file",
+        );
       }
-
     } catch {
       score += 30;
       reasons.push("Malformed or invalid URL structure");
@@ -187,11 +247,14 @@ export function analyzeURL(urlOrText: string): URLAnalysis {
     allReasons.push(...reasons);
   }
 
-  const finalScore = isWhitelisted && highestScore < 30 ? 5 : Math.min(100, Math.max(0, highestScore));
+  const finalScore =
+    isWhitelisted && highestScore < 30
+      ? 5
+      : Math.min(100, Math.max(0, highestScore));
 
   return {
     score: finalScore,
     matchedRules: Array.from(new Set(allReasons)),
-    isSafeWhitelisted: isWhitelisted
+    isSafeWhitelisted: isWhitelisted,
   };
 }

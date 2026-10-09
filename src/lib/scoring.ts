@@ -16,7 +16,7 @@ export function computeFinalScore(
   rulesScore: number,
   mlScore: number,
   geminiScore: number,
-  geminiUnavailable: boolean
+  geminiUnavailable: boolean,
 ): ScoringResult {
   let finalScore = 0;
   let floorRuleTriggered = false;
@@ -30,7 +30,9 @@ export function computeFinalScore(
     finalScore = Math.round(0.5 * rulesScore + 0.5 * mlScore);
   } else {
     // 0.25 rules + 0.25 ML + 0.50 Gemini
-    finalScore = Math.round(0.25 * rulesScore + 0.25 * mlScore + 0.5 * geminiScore);
+    finalScore = Math.round(
+      0.25 * rulesScore + 0.25 * mlScore + 0.5 * geminiScore,
+    );
   }
 
   // Floor rule: if rules >= 85 then final >= 80
@@ -66,6 +68,6 @@ export function computeFinalScore(
     detectorsDisagree: uncertain,
     uncertain,
     geminiUnavailable,
-    weights
+    weights,
   };
 }

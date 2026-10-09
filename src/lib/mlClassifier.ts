@@ -29,12 +29,15 @@ export function mlPredict(rawText: string): MLPrediction {
     tokens.push({
       word: match[0],
       start: match.index,
-      end: match.index + match[0].length
+      end: match.index + match[0].length,
     });
   }
 
   // 2. Count term frequencies for unigrams and bigrams
-  const tf = new Map<number, { count: number; tokenStr: string; start?: number; end?: number }>();
+  const tf = new Map<
+    number,
+    { count: number; tokenStr: string; start?: number; end?: number }
+  >();
 
   // Unigrams
   for (let i = 0; i < tokens.length; i++) {
@@ -45,7 +48,12 @@ export function mlPredict(rawText: string): MLPrediction {
       if (existing) {
         existing.count += 1;
       } else {
-        tf.set(idx, { count: 1, tokenStr: w, start: tokens[i].start, end: tokens[i].end });
+        tf.set(idx, {
+          count: 1,
+          tokenStr: w,
+          start: tokens[i].start,
+          end: tokens[i].end,
+        });
       }
     }
   }
@@ -59,7 +67,12 @@ export function mlPredict(rawText: string): MLPrediction {
       if (existing) {
         existing.count += 1;
       } else {
-        tf.set(idx, { count: 1, tokenStr: bg, start: tokens[i].start, end: tokens[i + 1].end });
+        tf.set(idx, {
+          count: 1,
+          tokenStr: bg,
+          start: tokens[i].start,
+          end: tokens[i + 1].end,
+        });
       }
     }
   }
@@ -71,7 +84,7 @@ export function mlPredict(rawText: string): MLPrediction {
       score: Math.round(baselineProb * 100),
       probability: baselineProb,
       topFeatures: [],
-      featureHighlights: []
+      featureHighlights: [],
     };
   }
 
@@ -102,7 +115,7 @@ export function mlPredict(rawText: string): MLPrediction {
         phrase: item.tokenStr,
         weight: Number(weight.toFixed(4)),
         startOffset: item.start,
-        endOffset: item.end
+        endOffset: item.end,
       });
     }
   }
@@ -116,13 +129,13 @@ export function mlPredict(rawText: string): MLPrediction {
   const topScamFeatures = scamContributions.slice(0, 5);
 
   const topFeatureStrings = topScamFeatures.map(
-    f => `${f.phrase} (+${f.weight.toFixed(2)})`
+    (f) => `${f.phrase} (+${f.weight.toFixed(2)})`,
   );
 
   return {
     score,
     probability,
     topFeatures: topFeatureStrings,
-    featureHighlights: topScamFeatures
+    featureHighlights: topScamFeatures,
   };
 }

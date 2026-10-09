@@ -3,7 +3,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, AlertTriangle, Phone, ExternalLink, ShieldAlert, AlertOctagon, Key, EyeOff } from "lucide-react";
+import {
+  ArrowLeft,
+  AlertTriangle,
+  Phone,
+  ExternalLink,
+  ShieldAlert,
+  AlertOctagon,
+  Key,
+  EyeOff,
+} from "lucide-react";
 import { uiAudio } from "@/utils/audio";
 import { Header } from "@/components/Header";
 
@@ -16,8 +25,8 @@ const EMERGENCIES = [
       "Call the National Cyber Crime Helpline immediately at 1930.",
       "File a complaint at cybercrime.gov.in.",
       "Call your bank's emergency number to freeze your account/card.",
-      "Do NOT trust anyone online claiming they can recover your money for a fee (Recovery Scammers)."
-    ]
+      "Do NOT trust anyone online claiming they can recover your money for a fee (Recovery Scammers).",
+    ],
   },
   {
     id: "otp-shared",
@@ -27,8 +36,8 @@ const EMERGENCIES = [
       "Immediately change the password for the compromised account.",
       "Enable Two-Factor Authentication (2FA) if you haven't already.",
       "If it was a banking OTP, call your bank immediately to block the account.",
-      "Check your account settings for any unauthorized devices or recovery emails."
-    ]
+      "Check your account settings for any unauthorized devices or recovery emails.",
+    ],
   },
   {
     id: "clicked-link",
@@ -38,8 +47,8 @@ const EMERGENCIES = [
       "Close the website immediately. Do not enter any details.",
       "Disconnect your device from the internet (turn off Wi-Fi/Mobile Data) if it downloaded a file.",
       "Run a full anti-virus scan on your device.",
-      "Clear your browser cache and cookies."
-    ]
+      "Clear your browser cache and cookies.",
+    ],
   },
   {
     id: "digital-arrest",
@@ -49,9 +58,9 @@ const EMERGENCIES = [
       "HANG UP IMMEDIATELY. Real police do not interrogate via Skype or WhatsApp video.",
       "Do not transfer any 'security deposit' to RBI or 'safe accounts'.",
       "Block the number. They will try to call back and threaten you.",
-      "Report the incident to 1930."
-    ]
-  }
+      "Report the incident to 1930.",
+    ],
+  },
 ];
 
 export default function IncidentPage() {
@@ -61,15 +70,15 @@ export default function IncidentPage() {
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         <div className="mb-10">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             onMouseEnter={() => uiAudio.playHover()}
             onClick={() => uiAudio.playClick()}
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-6 font-medium"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Scanner
           </Link>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,7 +93,8 @@ export default function IncidentPage() {
                   Emergency Incident Guide
                 </h1>
                 <p className="text-lg text-foreground/80 max-w-2xl font-medium">
-                  If you believe you have been compromised or scammed, TIME IS CRITICAL. Follow the instructions below immediately.
+                  If you believe you have been compromised or scammed, TIME IS
+                  CRITICAL. Follow the instructions below immediately.
                 </p>
               </div>
             </div>
@@ -104,18 +114,24 @@ export default function IncidentPage() {
                 <div className="w-12 h-12 rounded-full bg-surface-1 flex items-center justify-center border border-border">
                   {emergency.icon}
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold tracking-tight">{emergency.title}</h2>
+                <h2 className="text-xl md:text-2xl font-bold tracking-tight">
+                  {emergency.title}
+                </h2>
               </div>
-              
+
               <div className="bg-surface-1 rounded-xl p-5 border border-border/50">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">Immediate Actions</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                  Immediate Actions
+                </h3>
                 <ul className="space-y-3">
                   {emergency.steps.map((step, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                         {i + 1}
                       </div>
-                      <span className="text-sm md:text-base font-medium leading-relaxed">{step}</span>
+                      <span className="text-sm md:text-base font-medium leading-relaxed">
+                        {step}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -130,9 +146,11 @@ export default function IncidentPage() {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="mt-12 bg-gradient-to-r from-blue-900/40 to-purple-900/40 border border-blue-500/30 rounded-2xl p-6 md:p-8 text-center"
         >
-          <h2 className="text-2xl font-bold mb-4">Official Helpline & Resources</h2>
+          <h2 className="text-2xl font-bold mb-4">
+            Official Helpline & Resources
+          </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
+            <a
               href="tel:1930"
               onMouseEnter={() => uiAudio.playHover()}
               className="flex items-center gap-2 px-6 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold transition-all w-full sm:w-auto justify-center"
@@ -140,7 +158,7 @@ export default function IncidentPage() {
               <Phone className="w-5 h-5" />
               Call 1930
             </a>
-            <a 
+            <a
               href="https://cybercrime.gov.in"
               target="_blank"
               rel="noopener noreferrer"

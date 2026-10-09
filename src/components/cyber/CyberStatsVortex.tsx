@@ -40,9 +40,9 @@ export function CyberStatsVortex() {
       setRingState(newRings);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export function CyberStatsVortex() {
           const itemIdx = idx % 2;
           const ring = ringsRef.current[ringIdx];
 
-          const baseAngle = (itemIdx * 180) + (ringIdx * 45);
+          const baseAngle = itemIdx * 180 + ringIdx * 45;
           const currentAngleDeg = baseAngle + proxy.angleOffset;
           const currentAngleRad = currentAngleDeg * (Math.PI / 180);
 
@@ -78,11 +78,11 @@ export function CyberStatsVortex() {
           const y = ring.ry * Math.sin(currentAngleRad);
 
           const isFront = y > 0;
-          const depth = y / ring.ry; 
-          
-          const scale = isFront ? 1 + (depth * 0.15) : 0.75 + ((1 + depth) * 0.25);
-          
-          const opacity = isFront ? 1 : 0.45 + ((1 + depth) * 0.55);
+          const depth = y / ring.ry;
+
+          const scale = isFront ? 1 + depth * 0.15 : 0.75 + (1 + depth) * 0.25;
+
+          const opacity = isFront ? 1 : 0.45 + (1 + depth) * 0.55;
           const blur = isFront ? 0 : Math.max(0, -depth * 3);
           const zIndex = isFront ? 20 : 10;
 
@@ -92,7 +92,7 @@ export function CyberStatsVortex() {
             scale: scale,
             opacity: opacity,
             filter: `blur(${blur}px)`,
-            zIndex: zIndex
+            zIndex: zIndex,
           });
         });
         requestAnimationFrame(updatePositions);
@@ -104,10 +104,12 @@ export function CyberStatsVortex() {
   }, []);
 
   return (
-    <section id="overview" ref={containerRef} className="relative w-full h-screen bg-[#040508] overflow-hidden">
-      
+    <section
+      id="overview"
+      ref={containerRef}
+      className="relative w-full h-screen bg-[#040508] overflow-hidden"
+    >
       <div className="absolute top-0 w-full h-screen flex items-center justify-center pointer-events-none">
-        
         {/* Header */}
         <div className="absolute top-24 text-center space-y-4 z-30 pointer-events-none w-full px-4">
           <h2 className="font-space font-light text-2xl sm:text-4xl md:text-5xl tracking-[0.2em] text-white uppercase drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
@@ -118,10 +120,10 @@ export function CyberStatsVortex() {
 
         {/* Background Ellipses (Orbit Tracks) */}
         {ringState.map((r, i) => (
-          <div 
+          <div
             key={`track-${i}`}
-            className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.08]" 
-            style={{ width: r.rx * 2, height: r.ry * 2 }} 
+            className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.08]"
+            style={{ width: r.rx * 2, height: r.ry * 2 }}
           />
         ))}
 
@@ -129,28 +131,46 @@ export function CyberStatsVortex() {
         {STATS.map((stat, idx) => (
           <div
             key={idx}
-            ref={(el) => { itemsRef.current[idx] = el; }}
+            ref={(el) => {
+              itemsRef.current[idx] = el;
+            }}
             className="absolute top-[55%] left-1/2 -mt-[50px] -ml-[100px] w-[200px] h-[100px] flex items-center justify-center pointer-events-none transform-gpu"
           >
-            <div className="flex items-center gap-4 bg-black/40 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/10" style={{ boxShadow: `0 0 20px ${stat.color}15` }}>
-              <div 
+            <div
+              className="flex items-center gap-4 bg-black/40 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/10"
+              style={{ boxShadow: `0 0 20px ${stat.color}15` }}
+            >
+              <div
                 className="w-[80px] h-[80px] rounded-full border-4 flex items-center justify-center shrink-0 shadow-lg"
-                style={{ borderColor: stat.color, boxShadow: `0 0 15px ${stat.color}40, inset 0 0 15px ${stat.color}40` }}
+                style={{
+                  borderColor: stat.color,
+                  boxShadow: `0 0 15px ${stat.color}40, inset 0 0 15px ${stat.color}40`,
+                }}
               >
                 <div className="w-full h-full rounded-full border border-white/10 flex items-center justify-center bg-black/60">
-                   <div className="w-2 h-2 rounded-full" style={{ backgroundColor: stat.color, boxShadow: `0 0 10px ${stat.color}` }}></div>
+                  <div
+                    className="w-2 h-2 rounded-full"
+                    style={{
+                      backgroundColor: stat.color,
+                      boxShadow: `0 0 10px ${stat.color}`,
+                    }}
+                  ></div>
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="font-space font-bold text-3xl sm:text-4xl text-white tracking-tight">{stat.val}</span>
-                <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest mt-1 font-bold" style={{ color: stat.color }}>
+                <span className="font-space font-bold text-3xl sm:text-4xl text-white tracking-tight">
+                  {stat.val}
+                </span>
+                <span
+                  className="font-mono text-[10px] sm:text-xs uppercase tracking-widest mt-1 font-bold"
+                  style={{ color: stat.color }}
+                >
                   {stat.label}
                 </span>
               </div>
             </div>
           </div>
         ))}
-
       </div>
     </section>
   );

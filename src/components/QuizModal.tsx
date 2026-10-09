@@ -17,7 +17,8 @@ interface Question {
 
 const QUESTIONS: Question[] = [
   {
-    question: "You receive an SMS saying your electricity will be disconnected at 9:30 PM unless you call an officer. What is the safest action?",
+    question:
+      "You receive an SMS saying your electricity will be disconnected at 9:30 PM unless you call an officer. What is the safest action?",
     options: [
       "Call the number immediately to ask for an extension.",
       "Check your bill status exclusively on the official DISCOM website or mobile app.",
@@ -25,10 +26,12 @@ const QUESTIONS: Question[] = [
       "Reply with your consumer number to the SMS.",
     ],
     correct: 1,
-    explanation: "Official electricity boards never send disconnection notices from personal 10-digit mobile numbers or demand APK downloads.",
+    explanation:
+      "Official electricity boards never send disconnection notices from personal 10-digit mobile numbers or demand APK downloads.",
   },
   {
-    question: "A caller claims to be a Mumbai Police officer saying an illegal passport was mailed in your name and you are under 'Digital Arrest'. What is true?",
+    question:
+      "A caller claims to be a Mumbai Police officer saying an illegal passport was mailed in your name and you are under 'Digital Arrest'. What is true?",
     options: [
       "You must stay on Skype video call until you transfer bail money.",
       "Police can arrest you digitally over WhatsApp video call.",
@@ -36,7 +39,8 @@ const QUESTIONS: Question[] = [
       "You must send your Aadhaar copy to their personal WhatsApp.",
     ],
     correct: 2,
-    explanation: "There is no legal concept called 'Digital Arrest' under Indian law. It is an extortion racket.",
+    explanation:
+      "There is no legal concept called 'Digital Arrest' under Indian law. It is an extortion racket.",
   },
   {
     question: "When is it safe to share an OTP received on your mobile?",
@@ -47,10 +51,12 @@ const QUESTIONS: Question[] = [
       "When claiming a lottery prize from KBC Jio.",
     ],
     correct: 2,
-    explanation: "Banks and telecom operators will never ask for your OTP over phone call or SMS.",
+    explanation:
+      "Banks and telecom operators will never ask for your OTP over phone call or SMS.",
   },
   {
-    question: "A Telegram group offers ₹5,000/day for liking YouTube videos and asks for a ₹2,000 'activation deposit'. What is this?",
+    question:
+      "A Telegram group offers ₹5,000/day for liking YouTube videos and asks for a ₹2,000 'activation deposit'. What is this?",
     options: [
       "A legitimate remote part-time job from an influencer agency.",
       "A classic task-based Ponzi scam; you will lose whatever deposit you transfer.",
@@ -58,18 +64,16 @@ const QUESTIONS: Question[] = [
       "A social media internship with guaranteed returns.",
     ],
     correct: 1,
-    explanation: "Legitimate employers never demand an upfront 'security fee' or 'task deposit' to unlock payouts.",
+    explanation:
+      "Legitimate employers never demand an upfront 'security fee' or 'task deposit' to unlock payouts.",
   },
   {
-    question: "What is the official national helpline number to report digital financial cybercrime in India?",
-    options: [
-      "100",
-      "1930",
-      "112",
-      "1091",
-    ],
+    question:
+      "What is the official national helpline number to report digital financial cybercrime in India?",
+    options: ["100", "1930", "112", "1091"],
     correct: 1,
-    explanation: "1930 is the dedicated National Cyber Financial Helpline operated by the Ministry of Home Affairs.",
+    explanation:
+      "1930 is the dedicated National Cyber Financial Helpline operated by the Ministry of Home Affairs.",
   },
 ];
 
@@ -118,7 +122,10 @@ export function QuizModal({ isOpen, onClose }: QuizModalProps) {
         <div className="flex items-center justify-between border-b border-border pb-4">
           <div className="flex items-center gap-2">
             <HelpCircle className="w-5 h-5 text-primary" />
-            <h3 id="quiz-modal-title" className="text-lg font-bold text-foreground">
+            <h3
+              id="quiz-modal-title"
+              className="text-lg font-bold text-foreground"
+            >
               Spot The Scam Quiz
             </h3>
           </div>
@@ -134,7 +141,9 @@ export function QuizModal({ isOpen, onClose }: QuizModalProps) {
         {!showResult ? (
           <div className="space-y-4">
             <div className="flex items-center justify-between text-xs text-muted-foreground">
-              <span>Question {currentIdx + 1} of {QUESTIONS.length}</span>
+              <span>
+                Question {currentIdx + 1} of {QUESTIONS.length}
+              </span>
               <span>Score: {score}</span>
             </div>
 
@@ -148,12 +157,15 @@ export function QuizModal({ isOpen, onClose }: QuizModalProps) {
                 const isCorrect = idx === currentQ.correct;
                 const showFeedback = selectedOption !== null;
 
-                let btnStyle = "bg-surface-2 border-border text-foreground hover:border-primary/50";
+                let btnStyle =
+                  "bg-surface-2 border-border text-foreground hover:border-primary/50";
                 if (showFeedback) {
                   if (isCorrect) {
-                    btnStyle = "bg-emerald-500/10 border-emerald-500 text-emerald-500 font-semibold";
+                    btnStyle =
+                      "bg-emerald-500/10 border-emerald-500 text-emerald-500 font-semibold";
                   } else if (isSelected) {
-                    btnStyle = "bg-rose-500/10 border-rose-500 text-rose-500 font-semibold";
+                    btnStyle =
+                      "bg-rose-500/10 border-rose-500 text-rose-500 font-semibold";
                   } else {
                     btnStyle = "bg-surface-2 border-border-subtle opacity-60";
                   }
@@ -167,8 +179,12 @@ export function QuizModal({ isOpen, onClose }: QuizModalProps) {
                     className={`touch-target w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm transition-all flex items-center justify-between gap-3 cursor-pointer ${btnStyle}`}
                   >
                     <span>{opt}</span>
-                    {showFeedback && isCorrect && <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-500" />}
-                    {showFeedback && isSelected && !isCorrect && <AlertCircle className="w-4 h-4 shrink-0 text-rose-500" />}
+                    {showFeedback && isCorrect && (
+                      <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-500" />
+                    )}
+                    {showFeedback && isSelected && !isCorrect && (
+                      <AlertCircle className="w-4 h-4 shrink-0 text-rose-500" />
+                    )}
                   </button>
                 );
               })}
@@ -176,7 +192,9 @@ export function QuizModal({ isOpen, onClose }: QuizModalProps) {
 
             {selectedOption !== null && (
               <div className="p-3.5 rounded-xl bg-surface-2 border border-border-subtle text-xs text-muted-foreground leading-relaxed">
-                <span className="font-semibold text-foreground block mb-1">Why:</span>
+                <span className="font-semibold text-foreground block mb-1">
+                  Why:
+                </span>
                 {currentQ.explanation}
               </div>
             )}
@@ -187,7 +205,9 @@ export function QuizModal({ isOpen, onClose }: QuizModalProps) {
                   onClick={handleNext}
                   className="touch-target px-5 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-xs cursor-pointer"
                 >
-                  {currentIdx === QUESTIONS.length - 1 ? "View Final Score" : "Next Question"}
+                  {currentIdx === QUESTIONS.length - 1
+                    ? "View Final Score"
+                    : "Next Question"}
                 </button>
               </div>
             )}

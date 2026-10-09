@@ -10,7 +10,10 @@ interface CyberMatrixCanvasProps {
   riskScore?: number;
 }
 
-export function CyberMatrixCanvas({ status = "idle", riskScore = 0 }: CyberMatrixCanvasProps) {
+export function CyberMatrixCanvas({
+  status = "idle",
+  riskScore = 0,
+}: CyberMatrixCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const statusRef = useRef(status);
   const riskScoreRef = useRef(riskScore);
@@ -33,7 +36,7 @@ export function CyberMatrixCanvas({ status = "idle", riskScore = 0 }: CyberMatri
       60,
       window.innerWidth / window.innerHeight,
       0.1,
-      2000
+      2000,
     );
     camera.position.set(0, 40, 160);
 
@@ -236,7 +239,10 @@ export function CyberMatrixCanvas({ status = "idle", riskScore = 0 }: CyberMatri
       } else if (curStatus === "danger" || curRisk >= 60) {
         activeTargetColor = crimsonColor;
         rotSpeedMultiplier = 1.8;
-      } else if (curStatus === "safe" || (curStatus !== "idle" && curRisk < 30)) {
+      } else if (
+        curStatus === "safe" ||
+        (curStatus !== "idle" && curRisk < 30)
+      ) {
         activeTargetColor = emeraldColor;
         rotSpeedMultiplier = 0.8;
       }
@@ -276,10 +282,12 @@ export function CyberMatrixCanvas({ status = "idle", riskScore = 0 }: CyberMatri
           const origY = originalPositions[i3 + 1];
           const dist = Math.sqrt(
             originalPositions[i3] * originalPositions[i3] +
-              originalPositions[i3 + 2] * originalPositions[i3 + 2]
+              originalPositions[i3 + 2] * originalPositions[i3 + 2],
           );
           posArray[i3 + 1] =
-            origY + Math.sin(elapsedTime * 1.5 * rotSpeedMultiplier + dist * 0.06) * 4.5;
+            origY +
+            Math.sin(elapsedTime * 1.5 * rotSpeedMultiplier + dist * 0.06) *
+              4.5;
         }
 
         colorAttr.needsUpdate = true;
@@ -295,7 +303,8 @@ export function CyberMatrixCanvas({ status = "idle", riskScore = 0 }: CyberMatri
       // Camera Z-depth & Parallax directly coupled with Scroll & Mouse
       const scrollProgress = scrollY * 0.05;
       camera.position.x = currentMouseX * 18;
-      camera.position.y = 40 - currentMouseY * 14 + Math.sin(scrollProgress * 0.05) * 8;
+      camera.position.y =
+        40 - currentMouseY * 14 + Math.sin(scrollProgress * 0.05) * 8;
       camera.position.z = 160 - Math.min(scrollProgress * 0.45, 80);
 
       camera.lookAt(0, 5, 0);

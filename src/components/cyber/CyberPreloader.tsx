@@ -28,9 +28,9 @@ export function CyberPreloader({ onComplete }: CyberPreloaderProps) {
         setProgress(val);
       },
       onComplete: async () => {
-        const { soundEngine } = await import('@/utils/SoundEngine');
+        const { soundEngine } = await import("@/utils/SoundEngine");
         soundEngine.start();
-        
+
         const exitTl = gsap.timeline({
           onComplete: () => {
             onCompleteRef.current();
@@ -52,7 +52,7 @@ export function CyberPreloader({ onComplete }: CyberPreloaderProps) {
             duration: 0.9,
             ease: "expo.inOut",
           },
-          "-=0.2"
+          "-=0.2",
         );
       },
     });
@@ -63,7 +63,7 @@ export function CyberPreloader({ onComplete }: CyberPreloaderProps) {
       {
         duration: 2.2,
         ease: "power2.inOut",
-      }
+      },
     );
 
     return () => {
@@ -80,10 +80,12 @@ export function CyberPreloader({ onComplete }: CyberPreloaderProps) {
       className="fixed inset-0 z-[99999] bg-[#000000] text-white overflow-hidden flex items-center justify-center"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
     >
-      <div ref={contentRef} className="absolute inset-0 flex items-center justify-center">
+      <div
+        ref={contentRef}
+        className="absolute inset-0 flex items-center justify-center"
+      >
         {/* Center Circular Ring */}
         <div className="relative w-64 h-64 border-[1px] border-white/20 rounded-full flex items-center justify-center">
-          
           {/* Radial Equalizer Bars */}
           <div className="absolute inset-0">
             {equalizerBars.map((_, i) => {
@@ -107,7 +109,10 @@ export function CyberPreloader({ onComplete }: CyberPreloaderProps) {
           </div>
 
           {/* Logo Rising Sequence */}
-          <div className="flex flex-col items-center justify-center gap-3 animate-in slide-in-from-bottom-12 duration-1000 ease-out fill-mode-forwards opacity-0" style={{ animationDelay: '0.2s', opacity: 1 }}>
+          <div
+            className="flex flex-col items-center justify-center gap-3 animate-in slide-in-from-bottom-12 duration-1000 ease-out fill-mode-forwards opacity-0"
+            style={{ animationDelay: "0.2s", opacity: 1 }}
+          >
             <Shield className="w-12 h-12 text-white/90 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />
             <h1 className="font-space font-bold text-2xl tracking-[0.2em] text-white">
               SATARK
@@ -126,12 +131,16 @@ export function CyberPreloader({ onComplete }: CyberPreloaderProps) {
         LOADING
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes pulse {
           0% { height: 10px; opacity: 0.2; }
           100% { height: 25px; opacity: 0.8; }
         }
-      `}} />
+      `,
+        }}
+      />
     </div>
   );
 }

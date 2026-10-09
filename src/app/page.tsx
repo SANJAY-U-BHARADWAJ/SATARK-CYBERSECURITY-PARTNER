@@ -59,8 +59,8 @@ export default function Home() {
 
   // Initialize Lenis Smooth Scroll & Sync with GSAP Ticker
   useEffect(() => {
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
     }
     window.scrollTo(0, 0);
 
@@ -83,13 +83,16 @@ export default function Home() {
     gsap.ticker.lagSmoothing(0);
 
     // Wipe Google Translate Cookies
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
+    document.cookie =
+      "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie =
+      "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" +
+      window.location.hostname;
 
     return () => {
       gsap.ticker.remove(updateLenis);
       lenis.destroy();
-      ScrollTrigger.getAll().forEach(st => st.kill());
+      ScrollTrigger.getAll().forEach((st) => st.kill());
     };
   }, []);
 
@@ -97,18 +100,20 @@ export default function Home() {
   const canvasStatus = isLoading
     ? "scanning"
     : analysis
-    ? analysis.riskLevel === "danger" || analysis.riskScore >= 60
-      ? "danger"
-      : analysis.riskLevel === "safe" || analysis.riskScore < 30
-      ? "safe"
-      : "idle"
-    : "idle";
+      ? analysis.riskLevel === "danger" || analysis.riskScore >= 60
+        ? "danger"
+        : analysis.riskLevel === "safe" || analysis.riskScore < 30
+          ? "safe"
+          : "idle"
+      : "idle";
 
   // Core Threat Analysis Dispatcher (Preserving 100% of existing logic)
   const handleAnalyze = async () => {
     const trimmed = inputText.trim();
     if (!trimmed) {
-      setErrorMessage("Please enter a message, URL, or upload a screenshot to inspect.");
+      setErrorMessage(
+        "Please enter a message, URL, or upload a screenshot to inspect.",
+      );
       return;
     }
 
@@ -116,12 +121,19 @@ export default function Home() {
     setIsLoading(true);
 
     try {
-      const result = await analyzeThreatAsync(trimmed, inputMode, currentLanguage);
+      const result = await analyzeThreatAsync(
+        trimmed,
+        inputMode,
+        currentLanguage,
+      );
       setAnalysis(result);
 
       // Save to local scan history (up to 10 items)
       setScanHistory((prev) => {
-        const updated = [result, ...prev.filter((item) => item.inputText !== result.inputText)].slice(0, 10);
+        const updated = [
+          result,
+          ...prev.filter((item) => item.inputText !== result.inputText),
+        ].slice(0, 10);
         try {
           localStorage.setItem("satark-history", JSON.stringify(updated));
         } catch {
@@ -133,7 +145,10 @@ export default function Home() {
       // Smooth scroll to verdict card
       setTimeout(() => {
         if (lenisRef.current) {
-          lenisRef.current.scrollTo("#satark-verdict-card", { offset: -80, duration: 1.2 });
+          lenisRef.current.scrollTo("#satark-verdict-card", {
+            offset: -80,
+            duration: 1.2,
+          });
         } else {
           const el = document.getElementById("satark-verdict-card");
           if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -158,9 +173,14 @@ export default function Home() {
 
   const handleScrollToCommandCenter = () => {
     if (lenisRef.current) {
-      lenisRef.current.scrollTo("#scam-checker", { offset: -40, duration: 1.5 });
+      lenisRef.current.scrollTo("#scam-checker", {
+        offset: -40,
+        duration: 1.5,
+      });
     } else {
-      document.getElementById("scam-checker")?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("scam-checker")
+        ?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -174,7 +194,6 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#040508] text-foreground font-sans selection:bg-[#00f0ff]/30 selection:text-[#00f0ff] overflow-x-hidden">
-      
       {/* Top Navbar */}
       <Header />
 
@@ -184,7 +203,10 @@ export default function Home() {
       )}
 
       {/* Layer 1: Fixed 3D WebGL Background Canvas */}
-      <CyberMatrixCanvas status={canvasStatus} riskScore={analysis?.riskScore || 0} />
+      <CyberMatrixCanvas
+        status={canvasStatus}
+        riskScore={analysis?.riskScore || 0}
+      />
 
       {/* Custom Interactive Magnetic Cyber Cursor */}
       <CyberCursor />
@@ -302,10 +324,7 @@ export default function Home() {
         isOpen={isModelCardOpen}
         onClose={() => setIsModelCardOpen(false)}
       />
-      <QuizModal
-        isOpen={isQuizOpen}
-        onClose={() => setIsQuizOpen(false)}
-      />
+      <QuizModal isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
     </div>
   );
 }

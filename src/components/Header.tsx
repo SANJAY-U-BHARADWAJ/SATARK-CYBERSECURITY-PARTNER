@@ -7,7 +7,10 @@ import { soundEngine } from "@/utils/SoundEngine";
 
 interface CustomWindow extends Window {
   __lenis?: {
-    scrollTo: (target: number | HTMLElement, options?: { offset?: number }) => void;
+    scrollTo: (
+      target: number | HTMLElement,
+      options?: { offset?: number },
+    ) => void;
   };
 }
 
@@ -21,7 +24,7 @@ const LANGUAGES: { code: LanguageCode; label: string }[] = [
   { code: "bn", label: "বাংলা (Bengali)" },
   { code: "ml", label: "മലയാളം (Malayalam)" },
   { code: "gu", label: "ગુજરાતી (Gujarati)" },
-  { code: "pa", label: "ਪੰਜਾਬੀ (Punjabi)" }
+  { code: "pa", label: "ਪੰਜਾਬੀ (Punjabi)" },
 ];
 
 const SECTIONS = [
@@ -31,14 +34,23 @@ const SECTIONS = [
   { id: "cyber-assistant", label: "nav.aiAssistant" },
   { id: "cyber-complaint", label: "nav.firDrafter" },
   { id: "scam-playbook", label: "nav.scamPlaybook" },
-  { id: "cyber-score", label: "nav.passwordCheck" }
+  { id: "cyber-score", label: "nav.passwordCheck" },
 ];
 
+/**
+ * Global Header Component
+ *
+ * Provides navigation, language switching, and emergency helpline access.
+ * Implements a scroll spy to highlight the active section in the viewport.
+ *
+ * @returns {JSX.Element} The rendered header navigation bar.
+ */
 export function Header() {
   const { currentLanguage, setLanguage, t } = useLanguage();
   const [activeSection, setActiveSection] = useState("overview");
 
   useEffect(() => {
+    // Calculate the trigger point for scroll spy logic
     const handleScroll = () => {
       let currentSection = SECTIONS[0].id;
       const triggerPoint = window.innerHeight * 0.4; // 40% down the screen
@@ -79,7 +91,7 @@ export function Header() {
       if (lenis) {
         lenis.scrollTo(el, { offset: -80 });
       } else {
-        el.scrollIntoView({ behavior: 'smooth' });
+        el.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
@@ -87,10 +99,9 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/75 border-b border-white/10 text-white">
       <div className="w-full flex items-center justify-between py-4 px-6">
-        
         {/* Top-Left: Logo & Brand */}
-        <div 
-          onClick={scrollToTop} 
+        <div
+          onClick={scrollToTop}
           className="flex items-center gap-3 cursor-pointer group"
         >
           <div className="w-10 h-10 rounded-full border border-[#00f0ff]/50 bg-[#00f0ff]/10 flex items-center justify-center shrink-0 group-hover:bg-[#00f0ff]/30 transition-all group-hover:shadow-[0_0_15px_rgba(0,240,255,0.6)]">
@@ -109,9 +120,9 @@ export function Header() {
         {/* Center Navigation Links (ScrollSpy) */}
         <nav className="hidden xl:flex items-center gap-6 font-mono text-[10px] uppercase tracking-widest">
           {SECTIONS.map((section) => (
-            <button 
+            <button
               key={section.id}
-              onClick={() => scrollTo(section.id)} 
+              onClick={() => scrollTo(section.id)}
               className={`transition-all pb-1 ${
                 activeSection === section.id
                   ? "text-cyan-400 font-semibold border-b-2 border-cyan-400 drop-shadow-[0_0_10px_rgba(0,240,255,0.8)]"
@@ -125,9 +136,8 @@ export function Header() {
 
         {/* Top-Right: Controls */}
         <div className="flex items-center gap-3">
-
           {/* Language Selector */}
-          <select 
+          <select
             value={currentLanguage}
             onChange={(e) => {
               soundEngine.playClick();
@@ -135,20 +145,25 @@ export function Header() {
             }}
             className="bg-neutral-900 border border-white/20 rounded-full px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-white focus:outline-none focus:border-[#00f0ff] cursor-pointer appearance-none hover:bg-neutral-800 transition-colors"
           >
-            {LANGUAGES.map(lang => (
-              <option key={lang.code} value={lang.code} className="bg-black text-white">{lang.label}</option>
+            {LANGUAGES.map((lang) => (
+              <option
+                key={lang.code}
+                value={lang.code}
+                className="bg-black text-white"
+              >
+                {lang.label}
+              </option>
             ))}
           </select>
 
           {/* 1930 Emergency Badge */}
-          <a 
-            href="tel:1930" 
+          <a
+            href="tel:1930"
             className="hidden sm:flex items-center gap-2 text-[#ff0055] font-bold border border-[#ff0055]/30 px-3 py-1.5 rounded-full hover:bg-[#ff0055]/10 hover:shadow-[0_0_10px_rgba(255,0,85,0.3)] transition-all font-mono text-[10px] uppercase tracking-wider"
           >
             <PhoneCall className="w-3.5 h-3.5" /> Helpline: 1930
           </a>
         </div>
-        
       </div>
     </header>
   );

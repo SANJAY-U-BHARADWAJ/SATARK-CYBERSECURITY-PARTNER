@@ -3,7 +3,8 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import { dict } from "@/lib/translations";
 
-export type LanguageCode = "en" | "hi" | "kn" | "ta" | "te" | "mr" | "bn" | "ml" | "gu" | "pa";
+export type LanguageCode =
+  "en" | "hi" | "kn" | "ta" | "te" | "mr" | "bn" | "ml" | "gu" | "pa";
 
 interface LanguageContextType {
   currentLanguage: LanguageCode;
@@ -11,7 +12,9 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined,
+);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [currentLanguage, setLanguage] = useState<LanguageCode>("en");
