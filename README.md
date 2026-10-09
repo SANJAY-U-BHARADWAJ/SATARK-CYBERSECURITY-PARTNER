@@ -85,6 +85,16 @@ All ML metrics were directly generated via `python ml/train.py` on our proprieta
 | **TS vs Python Inference Parity** | `2.22e-16` | Mathematical proof that TS inference matches Python `< 1e-6` |
 | **Repo Size (excl node_modules)** | `~1.5 MB` | Ultra-Lightweight codebase |
 
+### Automated Test Suite (62 Assertions, 4 Test Scripts)
+All tests are runnable via `npm run <script>` and are executed as a pre-build gate (`prebuild` hook in `package.json`):
+
+| Test Script | Assertions | What It Verifies |
+|---|---|---|
+| `test:parity` — `check-parity.ts` | 20 | Python ↔ TypeScript ML inference parity (`< 1e-6` tolerance) |
+| `test:url` — `test-url-analyzer.ts` | 27 | URL phishing detection (brand lookalikes, Punycode, IP hosts, APK downloads) |
+| `test:privacy` — `test-privacy-and-scoring.ts` | 15 | PII masking (Aadhaar, phone, OTP, UPI, email) + scoring engine branches |
+| `qa-benchmark.ts` | 20 | End-to-end threat verdicts (7 scams, 7 legitimate, 6 tricky edge cases) |
+
 ---
 
 ## 🚀 Setup & Running Locally
@@ -110,8 +120,11 @@ echo "GEMINI_API_KEY=your_gemini_api_key_here" > .env.local
 # Run Jest Unit Tests
 npm run test
 
-# Run ML parity benchmarks
+# Run ML parity and verification benchmarks
 npm run test:parity
+npm run test:url
+npm run test:privacy
+npx tsx scripts/qa-benchmark.ts
 ```
 
 ### Start Application
