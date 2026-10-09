@@ -131,7 +131,7 @@ export async function POST(req: NextRequest) {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) throw new Error("GEMINI_API_KEY is not configured.");
     const ai = new GoogleGenAI({ apiKey });
-    const models = ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.6-flash"];
+    const models = ["gemini-3.5-flash", "gemini-3.0-flash", "gemini-2.5-flash"];
 
     const systemInstruction = `You are Satark, an expert Indian digital safety & cybersecurity threat evaluator.
 Analyze the communication for social engineering, digital arrest extortion, electricity bill scams, fake KYC, UPI refund fraud, UPI payment requests, Telegram investment/task scams, fake/phishing websites, or fake lottery tricks.

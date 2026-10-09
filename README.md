@@ -17,8 +17,8 @@
 Digital financial fraud and cyber extortion are surging across India. Most threat engines provide generic technical warnings. Satark explicitly analyzes cybersecurity threats and immediately provides an **actionable 10-minute security checklist** tailored to the specific scam.
 
 ### 2. Powered by Google AI Infrastructure
-* **Gemini AI Integration:** Extensively leverages the `@google/genai` SDK using `gemini-3.8-flash` for high-speed threat reasoning. 
-* **Resilient Model Fallback Chain:** Implemented a robust fallback architecture (`3.8-flash` -> `3.7-flash` -> `3.6-flash`) in edge functions (`maxDuration = 60`) to guarantee high availability.
+* **Gemini AI Integration:** Extensively leverages the `@google/genai` SDK using `gemini-3.5-flash` for high-speed threat reasoning. 
+* **Resilient Model Fallback Chain:** Implemented a robust fallback architecture (`3.5-flash` -> `3.0-flash` -> `2.5-flash`) in Serverless functions (`maxDuration = 60`) to guarantee high availability.
 
 ### 3. Client-Side Privacy Shield (Zero-Trust Security)
 Satark guarantees that sensitive consumer credentials never reach server logs or AI models:

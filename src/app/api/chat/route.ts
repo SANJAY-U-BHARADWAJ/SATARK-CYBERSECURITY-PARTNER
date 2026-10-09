@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
 
     const systemInstruction = `You are Satark, a friendly, sharp AI Cybersecurity Partner. NEVER write long paragraphs or essays. Reply in a short, crisp, professional texting style (maximum 2 to 4 short sentences or 3 short bullet points per reply). Ask one simple follow-up question if needed. Do NOT use ### headers or --- dividers. ALWAYS reply in the exact language currently selected by the user. CRITICAL: You MUST write your entire response, explanation, and action steps in ${language} using simple, everyday words that any citizen can understand.`;
 
-    const models = ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.6-flash"];
+    const models = ["gemini-3.5-flash", "gemini-3.0-flash", "gemini-2.5-flash"];
 
     // Map OpenAI style messages to Gemini format with sanitization.
     const contents = messages.map((msg: { role: string; content: string }) => ({
