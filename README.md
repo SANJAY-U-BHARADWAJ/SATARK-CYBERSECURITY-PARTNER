@@ -1,7 +1,8 @@
 # SATARK – AI Cyber Safety Platform
 
-> **Challenge Theme:** AI-Powered Cybersecurity & Digital Safety
-> **Solution:** SATARK is a high-throughput, multi-agent cybersecurity intelligence platform deployed against modern financial extortion, digital arrest scams, and credential hijackers.
+> **Challenge Theme:** AI-Powered Cybersecurity & Digital Safety  
+> **Solution:** SATARK is a high-throughput, multi-agent cybersecurity intelligence platform deployed against modern financial extortion, digital arrest scams, and credential hijackers.  
+> **Live Production URL:** [https://satarkcybersathi.vercel.app/](https://satarkcybersathi.vercel.app/)
 
 ## Description
 Satark is an intelligent, zero-trust 4-in-1 AI cybersecurity system built specifically for India. It acts as an AI Cyber Safety Platform to identify suspicious activity across text, URLs, and screenshots, offering a Multilingual threat reasoning engine, and an interactive 5-Step FIR Drafter to assist users in filing official cybercrime complaints instantly.
