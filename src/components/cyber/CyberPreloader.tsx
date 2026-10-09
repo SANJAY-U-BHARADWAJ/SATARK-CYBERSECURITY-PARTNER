@@ -131,16 +131,14 @@ export function CyberPreloader({ onComplete }: CyberPreloaderProps) {
         LOADING
       </div>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        @keyframes pulse {
-          0% { height: 10px; opacity: 0.2; }
-          100% { height: 25px; opacity: 0.8; }
-        }
-      `,
-        }}
-      />
+      <style>
+        {`
+          @keyframes pulse {
+            0% { height: 10px; opacity: 0.2; }
+            100% { height: 25px; opacity: 0.8; }
+          }
+        `}
+      </style>
     </div>
   );
 }
