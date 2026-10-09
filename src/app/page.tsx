@@ -274,7 +274,7 @@ export default function Home() {
                   SATARK
                 </span>
                 <span className="text-[10px] text-neutral-500">
-                  PROMPTWARS HACKATHON // AI CYBERSECURITY & DIGITAL SAFETY
+                  SATARK AI // CYBERSECURITY & DIGITAL SAFETY PARTNER
                 </span>
               </div>
             </div>

@@ -299,6 +299,8 @@ export function CyberCommandCenter({
           {inputMode === "upi" && (
             <div className="flex flex-col gap-4 relative">
               <input
+                id="upi-id-input"
+                aria-label="Suspicious UPI ID or Sender Phone Number"
                 type="text"
                 value={upiId}
                 onChange={(e) => setUpiId(e.target.value)}
@@ -307,6 +309,8 @@ export function CyberCommandCenter({
                 className="w-full rounded-2xl bg-black/60 border border-neutral-800 focus:border-[#00f0ff] px-5 py-4 text-sm font-sans text-white placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-[#00f0ff] transition-all"
               />
               <textarea
+                id="upi-desc-input"
+                aria-label="Payment message description or transfer request context"
                 value={upiDesc}
                 onChange={(e) => setUpiDesc(e.target.value)}
                 onKeyDown={handleKeyDown}
@@ -321,6 +325,8 @@ export function CyberCommandCenter({
           {inputMode === "sms" && (
             <div className="relative">
               <textarea
+                id="sms-text-input"
+                aria-label="Suspicious message or SMS content for scam analysis"
                 value={inputText}
                 onChange={(e) => {
                   setInputText(e.target.value);
@@ -342,6 +348,8 @@ export function CyberCommandCenter({
                   <Globe className="w-5 h-5" />
                 </div>
                 <input
+                  id="url-text-input"
+                  aria-label="Suspicious website link or phishing URL"
                   type="text"
                   value={inputText}
                   onChange={(e) => {
@@ -522,6 +530,8 @@ export function CyberCommandCenter({
               </div>
             )}
             <button
+              id="run-security-check-btn"
+              aria-label={inputMode === "screenshot" ? "Analyze screenshot with Gemini AI" : "Run security threat analysis"}
               type="button"
               disabled={isLoading || (inputMode !== "screenshot" && inputText.length === 0)}
               onMouseEnter={() => soundEngine.playHover()}
