@@ -4,6 +4,17 @@ import { GoogleGenAI } from "@google/genai";
 
 export const maxDuration = 60;
 
+/**
+ * Basic regex sanitization helper to strip dangerous tags like <script> or <iframe>
+ * before processing the input.
+ * @param {string} input - The raw string input.
+ * @returns {string} Sanitized string.
+ */
+function sanitizeInput(input: string): string {
+  if (!input) return "";
+  return input.replace(/<\/?(?:script|iframe|object|embed|applet)[^>]*>/gi, "");
+}
+
 // 1. Zod input validation schema
 const RequestSchema = z
   .object({
@@ -113,7 +124,8 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { maskedText, imageBase64, imageMimeType, language } = parseResult.data;
+  const { maskedText: rawMaskedText, imageBase64, imageMimeType, language } = parseResult.data;
+  const maskedText = sanitizeInput(rawMaskedText);
 
   try {
     const apiKey = process.env.GEMINI_API_KEY;

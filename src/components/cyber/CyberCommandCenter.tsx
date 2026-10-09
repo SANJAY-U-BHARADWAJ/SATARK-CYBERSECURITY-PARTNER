@@ -367,7 +367,7 @@ export function CyberCommandCenter({
         )}
 
         {/* Input Mode Tabs */}
-        <div className="flex flex-wrap items-center gap-3 border-b border-neutral-800 pb-5">
+        <div role="tablist" className="flex flex-wrap items-center gap-3 border-b border-neutral-800 pb-5">
           {TABS.map((tab) => {
             const Icon = tab.icon;
             const isActive = inputMode === tab.id;
@@ -375,6 +375,10 @@ export function CyberCommandCenter({
               <button
                 key={tab.id}
                 type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-controls={`panel-${tab.id}`}
+                id={`tab-${tab.id}`}
                 onClick={() => {
                   soundEngine.playClick();
                   setInputMode(tab.id as InputMode);
@@ -389,7 +393,7 @@ export function CyberCommandCenter({
                     : "bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800"
                 }`}
               >
-                <Icon className="w-4 h-4" />
+                <Icon className="w-4 h-4" aria-hidden="true" />
                 <span>{t(tab.labelKey)}</span>
               </button>
             );
@@ -402,7 +406,7 @@ export function CyberCommandCenter({
         </div>
 
         {/* Dynamic Input Body Based on Active Tab */}
-        <div className="space-y-4">
+        <div role="tabpanel" id={`panel-${inputMode}`} aria-labelledby={`tab-${inputMode}`} className="space-y-4">
           {/* TAB 01: UPI */}
           {inputMode === "upi" && (
             <div className="flex flex-col gap-4 relative">

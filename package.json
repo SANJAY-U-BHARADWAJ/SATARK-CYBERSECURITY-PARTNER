@@ -1,7 +1,7 @@
 {
   "name": "satark",
   "version": "0.1.0",
-  "private": true,
+  "description": "AI-Powered Cybersecurity & Digital Safety platform featuring prompt injection firewalls, multimodal scam detection, and automated FIR generation.",
   "scripts": {
     "dev": "next dev",
     "prebuild": "tsx scripts/check-parity.ts",
@@ -10,7 +10,7 @@
     "test:url": "tsx scripts/test-url-analyzer.ts",
     "test:parity": "tsx scripts/check-parity.ts",
     "test:privacy": "tsx scripts/test-privacy-and-scoring.ts",
-    "test": "npm run test:url && npm run test:parity && npm run test:privacy",
+    "test": "jest",
     "lint": "eslint"
   },
   "dependencies": {
@@ -37,13 +37,16 @@
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
+    "jest": "^30.5.2",
     "puppeteer-core": "^25.12.0",
     "tailwindcss": "^4",
+    "ts-jest": "^29.4.14",
     "tsx": "^4.23.15",
     "typescript": "^5"
   }

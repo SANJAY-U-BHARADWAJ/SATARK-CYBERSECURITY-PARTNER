@@ -4,6 +4,17 @@ import { GoogleGenAI } from "@google/genai";
 export const maxDuration = 60;
 
 /**
+ * Basic regex sanitization helper to strip dangerous tags like <script> or <iframe>
+ * before processing the input.
+ * @param {string} input - The raw string input.
+ * @returns {string} Sanitized string.
+ */
+function sanitizeInput(input: string): string {
+  if (!input) return "";
+  return input.replace(/<\/?(?:script|iframe|object|embed|applet)[^>]*>/gi, "");
+}
+
+/**
  * Handles incoming POST requests for the Cyber Assistant chat interface.
  * Validates message history and communicates with the Gemini model to provide
  * context-aware, localized cyber safety advice.
@@ -30,10 +41,10 @@ export async function POST(req: NextRequest) {
 
     const models = ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.6-flash"];
 
-    // Map OpenAI style messages to Gemini format.
-    const contents = messages.map((msg) => ({
+    // Map OpenAI style messages to Gemini format with sanitization.
+    const contents = messages.map((msg: { role: string; content: string }) => ({
       role: msg.role === "assistant" ? "model" : "user",
-      parts: [{ text: msg.content }],
+      parts: [{ text: sanitizeInput(msg.content) }],
     }));
 
     let replyText = null;
