@@ -631,9 +631,9 @@ export const dict: TranslationDictionary = {
     kn: "ಸ್ಕ್ಯಾಮ್ ಪ್ಲೇಬುಕ್",
   },
   "playbook.title": {
-    en: "How Scammers Hack Your Mind in 2024",
-    hi: "2024 में स्कैमर्स आपके दिमाग को कैसे हैक करते हैं",
-    kn: "2024 ರಲ್ಲಿ ವಂಚಕರು ನಿಮ್ಮ ಮನಸ್ಸನ್ನು ಹೇಗೆ ಹ್ಯಾಕ್ ಮಾಡುತ್ತಾರೆ",
+    en: "How Scammers Hack Your Mind in 2026",
+    hi: "2026 में स्कैमर्स आपके दिमाग को कैसे हैक करते हैं",
+    kn: "2026 ರಲ್ಲಿ ವಂಚಕರು ನಿಮ್ಮ ಮನಸ್ಸನ್ನು ಹೇಗೆ ಹ್ಯಾಕ್ ಮಾಡುತ್ತಾರೆ",
   },
   "playbook.card1.title": {
     en: "FEAR (The 90-Second Rule)",
